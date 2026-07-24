@@ -35,7 +35,7 @@ About This Document
    https://www.ietf.org/mailman/listinfo/lake/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/gselander/pq-suites.
+   https://github.com/lake-wg/pqsuites.
 
 Status of This Memo
 
