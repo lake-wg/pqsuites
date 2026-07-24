@@ -27,7 +27,7 @@ venue:
   type: "Working Group"
   mail: "lake@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/lake/"
-  github: "gselander/pq-suites"
+  github: "lake-wg/pqsuites"
 
 author:
 -
