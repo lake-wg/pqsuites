@@ -1,0 +1,3 @@
+# Automatically generated CODEOWNERS
+# Regenerate with `make update-codeowners`
+draft-ietf-lake-pqsuites.md goran.selander@ericsson.com john.mattsson@ericsson.com
