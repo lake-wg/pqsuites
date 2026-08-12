@@ -333,17 +333,6 @@ Table of Contents
 
 7.2.  Informative References
 
-   [CNSA20]   National Security Agency, "Commercial National Security
-              Algorithm Suite 2.0", September 2022,
-              <https://www.nsa.gov/Press-Room/Press-Releases-Statements/
-              Press-Release-View/Article/3148990/nsa-releases-future-
-              quantum-resistant-qr-algorithm-requirements-for-national-
-              se/>.
-
-   [FIPS202]  "SHA-3 Standard - Permutation-Based Hash and Extendable-
-              Output Functions", NIST FIPS 202, August 2015,
-              <https://doi.org/10.6028/NIST.FIPS.202>.
-
    [FIPS203]  "Module-Lattice-Based Key-Encapsulation Mechanism
               Standard", NIST FIPS 203, August 2024,
               <https://doi.org/10.6028/NIST.FIPS.203>.
