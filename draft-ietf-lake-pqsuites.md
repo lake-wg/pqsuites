@@ -50,8 +50,6 @@ informative:
   I-D.ietf-lake-edhoc-psk:
   I-D.connolly-cfrg-xwing-kem:
   I-D.sfluhrer-cfrg-ml-kem-security-considerations:
-  I-D.ietf-jose-pqc-kem:
-  I-D.ietf-cose-dilithium:
   FIPS203:
     target: https://doi.org/10.6028/NIST.FIPS.203
     title: Module-Lattice-Based Key-Encapsulation Mechanism Standard
