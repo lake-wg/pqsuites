@@ -132,8 +132,8 @@ Table of Contents
    updates the LAKE Method Type registry to indicate whether a given
    method requires DH/NIKE, and the LAKE Cipher Suites registry to
    indicate whether a cipher suite supports DH/NIKE-based key exchange,
-   see . New cipher suites combining ML-KEM and ML-DSA are registered
-   accordingly.
+   see Sections Section 6.1 and Section 6.2.  New cipher suites
+   combining ML-KEM and ML-DSA are registered accordingly.
 
 1.1.  Terminology
 
