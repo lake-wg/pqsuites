@@ -89,7 +89,7 @@ The Lightweight Authenticated Key Exchange (LAKE) protocol, also known as Epheme
 
 # Introduction
 
-The Lightweight Authenticated Key Exchange (LAKE) protocol defined in {{RFC9528}}, also known as Ephemeral Diffie-Hellman over COSE (EDHOC), supports the use of multiple authentication methods and the negotiation of cipher suites based on COSE algorithms. Currently, four asymmetric authentication methods (0, 1, 2, and 3) are defined. In addition, a symmetric key-based authentication method, for session resumption through a PSK mode, is being developed, see {{I-D.ietf-lake-edhoc-psk}}.
+The Lightweight Authenticated Key Exchange (LAKE) protocol defined in {{RFC9528}}, also known as Ephemeral Diffie-Hellman over COSE (EDHOC), supports the use of multiple authentication methods and the negotiation of cipher suites based on COSE algorithms. Currently, four asymmetric authentication methods (0, 1, 2, and 3) are defined. In addition, a symmetric key-based authentication method is being developed, see {{I-D.ietf-lake-edhoc-psk}}.
 
 Currently defined cipher suites rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication, making them vulnerable in the event that a Cryptographically Relevant Quantum Computer (CRQC) is constructed.
 
