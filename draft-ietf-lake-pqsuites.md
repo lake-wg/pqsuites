@@ -92,9 +92,7 @@ Readers are expected to be familiar with {{RFC9528}}. To avoid misunderstanding 
 
 Method 0 in {{RFC9528}}, which uses digital signatures for authentication by both the Initiator and Responder, and also the PSK method in {{I-D.ietf-lake-edhoc-psk}}, is straightforward to use with standardized post-quantum algorithms.
 
-A quantum-resistant signature algorithm, such as ML-DSA {{I-D.ietf-cose-dilithium}}, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM {{I-D.ietf-jose-pqc-kem}}, can be applied directly to the LAKE protocol, as is detailed in {{KEM}}, in order to replace the Ephemeral Diffie-Hellman key exchange.
-
-<!-- Stop here -->
+A quantum-resistant signature algorithm, such as ML-DSA {{I-D.ietf-cose-dilithium}}, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM {{I-D.ietf-jose-pqc-kem}}, can be applied directly to the LAKE protocol, as is detailed in {{KEM}}.
 
 To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 {{I-D.ietf-jose-pqc-kem}} for key exchange and ML-DSA-44 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256, it was natural to also use SHAKE256 for key derivation. Additional post-quantum cipher suites may be specified.
 
