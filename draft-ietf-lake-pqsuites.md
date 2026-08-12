@@ -50,6 +50,8 @@ informative:
   I-D.ietf-lake-edhoc-psk:
   I-D.connolly-cfrg-xwing-kem:
   I-D.sfluhrer-cfrg-ml-kem-security-considerations:
+  I-D.ietf-jose-pqc-kem:
+  I-D.ietf-cose-dilithium:
   FIPS203:
     target: https://doi.org/10.6028/NIST.FIPS.203
     title: Module-Lattice-Based Key-Encapsulation Mechanism Standard
@@ -68,7 +70,7 @@ informative:
 
 --- abstract
 
-The Lightweight Authenticated Key Exchange (LAKE) protocol, also known as Ephemeral Diffie-Hellman over COSE (EDHOC), currently relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. While well-suited for constrained environments, existing cipher suites do not provide post-quantum security. This document specifies how the LAKE protocol operates in a post-quantum setting and can achieve post-quantum security by adding new cipher suites with quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. These new cipher suites are compatible with signature-based authentication (Method 0) and with the PSK-based authentication method defined in {{I-D.ietf-lake-edhoc-psk}}, and require no modification to the LAKE protocol itself. This document also specifies the use of Post-Quantum KEM (PQ-KEM), as defined in {{I-D.ietf-jose-pqc-kem}}, as a post-quantum replacement for the ephemeral Diffie-Hellman key exchange, with the KEM ciphertext and encapsulated key carried in the G_X and G_Y fields of message_1 and message_2, and specifies the use of ML-DSA for post-quantum signature-based authentication. As PQ-KEM constructions are, in general, not Diffie-Hellman / Non-Interactive Key Exchange (DH/NIKE) primitive, this document updates the LAKE Method Type registry to indicate whether a given method requires DH/NIKE, and the LAKE Cipher Suites registry to indicate whether a cipher suite supports DH/NIKE-based key exchange. New cipher suites combining ML-KEM and ML-DSA are registered accordingly. Furthermore, this document discusses security considerations for these cipher suites.
+The Lightweight Authenticated Key Exchange (LAKE) protocol, also known as Ephemeral Diffie-Hellman over COSE (EDHOC), currently relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. While well-suited for constrained environments, existing cipher suites do not provide post-quantum security. This document specifies how the LAKE protocol operates in a post-quantum setting and can achieve post-quantum security by adding new cipher suites with quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. These new cipher suites are compatible with signature-based authentication (Method 0) and with the PSK-based authentication method defined in {{I-D.ietf-lake-edhoc-psk}}, and require no modification to the LAKE protocol itself. This document also specifies the use of Post-Quantum KEM (PQ-KEM), as defined in {{I-D.ietf-jose-pqc-kem}}, as a post-quantum replacement for the ephemeral Diffie-Hellman key exchange, with the KEM ciphertext and encapsulated key carried in the G_X and G_Y fields of message_1 and message_2, and specifies the use of ML-DSA for post-quantum signature-based authentication. As PQ-KEM constructions are, in general, not Diffie-Hellman / Non-Interactive Key Exchange (DH/NIKE) primitives, this document updates the LAKE Method Type and Cipher Suites registries to indicate DH/NIKE requirements and support. New cipher suites combining ML-KEM and ML-DSA are registered accordingly. Furthermore, this document discusses security considerations for these cipher suites.
 
 --- middle
 
@@ -79,7 +81,11 @@ The Lightweight Authenticated Key Exchange (LAKE) protocol defined in {{RFC9528}
 
 Currently defined cipher suites rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication, making them vulnerable in the event that a Cryptographically Relevant Quantum Computer (CRQC) is constructed.
 
-This document specifies how the LAKE protocol can operate in a post-quantum setting using both signature-based and PSK-based authentication, and defines corresponding cipher suites. With this modification the protocol is no longer dependent on Diffie-Hellman which makes EDHOC a misnomer and we henceforth use the name LAKE for the protocol.
+This document specifies how the LAKE protocol can operate in a post-quantum setting using both signature-based and PSK-based authentication. It defines corresponding cipher suites combining ML-KEM on COSE {{I-D.ietf-jose-pqc-kem}} for key exchange and ML-DSA on COSE {{I-D.ietf-cose-dilithium}} for authentication. With this modification the protocol is no longer dependent on Diffie-Hellman which makes EDHOC a misnomer and we henceforth use the name LAKE for the protocol.
+
+
+Moreover, as PQ-KEM constructions are, in general, not Diffie-Hellman / Non-Interactive Key Exchange (DH/NIKE) primitive, this document updates the LAKE Method Type registry to indicate whether a given method requires DH/NIKE, and the LAKE Cipher Suites registry to indicate whether a cipher suite supports DH/NIKE-based key exchange, see {{Sections method-update and suites-registry}}. New cipher suites combining ML-KEM and ML-DSA are registered accordingly.
+
 
 ## Terminology # {#terminology}
 
