@@ -50,13 +50,6 @@ informative:
   I-D.ietf-lake-edhoc-psk:
   I-D.connolly-cfrg-xwing-kem:
   I-D.sfluhrer-cfrg-ml-kem-security-considerations:
-  FIPS202:
-    target: https://doi.org/10.6028/NIST.FIPS.202
-    title: SHA-3 Standard - Permutation-Based Hash and Extendable-Output Functions
-    seriesinfo:
-      "NIST": "FIPS 202"
-    author:
-    date: August 2015
   FIPS203:
     target: https://doi.org/10.6028/NIST.FIPS.203
     title: Module-Lattice-Based Key-Encapsulation Mechanism Standard
@@ -71,13 +64,6 @@ informative:
       "NIST": "FIPS 204"
     author:
     date: August 2024
-  CNSA20:
-    title: Commercial National Security Algorithm Suite 2.0
-    author:
-      - org: National Security Agency
-    date: September 2022
-    target: "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/3148990/nsa-releases-future-quantum-resistant-qr-algorithm-requirements-for-national-se/"
-
 
 
 --- abstract
