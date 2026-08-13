@@ -181,9 +181,11 @@ TBD
 
 # IANA Considerations
 
-## EDHOC Method Type Registry {#method-update}
+This section specifies IANA updates for LAKE Methods and Cipher Suites registration.
 
-IANA is requested to update the EDHOC Method Type registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+## LAKE Method Type Registry {#method-update}
+
+IANA is requested to update the LAKE Method Type registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:
 
@@ -194,13 +196,20 @@ Value: 2, Requires DH/NIKE: Yes
 Value: 3, Requires DH/NIKE: Yes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-## EDHOC Cipher Suites Registry {#suites-registry}
+This note is to be removed before publishing as an RFC.
+Once the LAKE PSK authentication method {{I-D.ietf-lake-edhoc-psk}} is standardized and registered with IANA, add the line:
 
-IANA is requested to update the EDHOC Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+~~~~~~~~~~~~~~~~~~~~~~~
+Value: 4, Requires DH/NIKE: No
+~~~~~~~~~~~~~~~~~~~~~~~
 
-For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.
+## LAKE Cipher Suites Registry {#suites-registry}
 
-Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites Registry:
+IANA is requested to update the LAKE Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+
+For the existing Cipher Suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.
+
+Furthermore, following Table 6 of {{RFC9528}}, IANA is requested to register the following entries in the LAKE Cipher Suites Registry:
 
 ~~~~~~~~~~~~~~~~~~~~~~~
 Value: TBD1
@@ -230,7 +239,9 @@ Supports DH/NIKE: No
 Reference: [[This document]]
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite [CNSA2].
+Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA2}}.
+
+The first two proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5.
 
 --- back
 
