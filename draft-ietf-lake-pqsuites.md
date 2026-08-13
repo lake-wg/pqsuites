@@ -240,7 +240,7 @@ Supports DH/NIKE: No
 Reference: [[This document]]
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA2}}.
+Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
 The first two proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5.
 
