@@ -121,21 +121,22 @@ Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-51
 
 # Using KEMs in the Key Exchange {#KEM}
 
-Given a quantum-resistant KEM, such as ML-KEM-512, with encapsulation key ek, ciphertext c, and shared secret key K (using the notation of {{FIPS203}}). The Diffie-Hellman procedure in the key exchange is replaced by a KEM procedure as follows:
+Given a quantum-resistant KEM, such as ML-KEM-512, with encapsulation public key epk, decapsulation private key dpk, ciphertext c, and shared secret key K (using the notation of {{FIPS203}}), the Diffie-Hellman procedure in the key exchange is replaced by a KEM procedure as follows:
+
 
 * The Initiator generates a new encapsulation / decapsulation key pair matching the selected cipher suite.
 
-* The encapsulation key ek is transported in the G_X field in message_1.
+* The encapsulation key epk is transported in the G_X field in message_1.
 
-* The Responder calculates (K,c) = Encaps(ek).
+* The Responder calculates (K,c) = Encaps(epk).
 
 * The ciphertext c is transported in the G_Y field in message_2.
 
-* The Initiator calculates the shared secret K = Decaps(c).
+* The Initiator calculates the shared secret K = Decaps(dpk, c).
 
 * G_XY is the shared secret key K.
 
-The security requirements and security considerations of {{RFC9528}} and the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for LAKE session.
+The security requirements and security considerations of {{RFC9528}} and the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for each LAKE session.
 
 Note that G_Y does not contain a public key when a KEM is used in this way. The definition of LAKE message_2 in {{Section 5.3.1 of RFC9528}} remains the same:
 
@@ -147,7 +148,11 @@ message_2 = (
 
 and G_Y_CIPHERTEXT_2 remains the concatenation of G_Y and CIPHERTEXT_2, the latter is defined in {{Section 5.3.2 of RFC9528}}. But now G_Y is a KEM ciphertext.
 
-Just as with the ephemeral key G_Y, the length of KEM ciphertext G_Y is known from the corresponding algorithm in the selected cipher suite, see {{fig-ct-length}}. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.
+Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see {{fig-ct-length}}. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.
+
+The same applies to the length of the encapsulation key pek (whose size differs from that of the usual ephemeral key G_X). Upon receiving the message message_1, the Responder must first analyze the SUITES_I element to determine which KEM wants to be used by the Initiator, and then be able to correctly parse the rest of the message according to the length of the public encapsulation key.
+
+Also note that the size of signatures exchanged in messages message_2 and message_3 of LAKE Method 0 also differs in this situation.
 
 ~~~~~~~~~~~
 +-------------+------------------------------+
