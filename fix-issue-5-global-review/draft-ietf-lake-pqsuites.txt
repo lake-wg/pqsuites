@@ -77,8 +77,8 @@ Table of Contents
    4.  Security Considerations
    5.  Privacy Considerations
    6.  IANA Considerations
-     6.1.  EDHOC Method Type Registry
-     6.2.  EDHOC Cipher Suites Registry
+     6.1.  LAKE Method Type Registry
+     6.2.  LAKE Cipher Suites Registry
    7.  References
      7.1.  Normative References
      7.2.  Informative References
@@ -164,11 +164,18 @@ Table of Contents
 
    Compared to elliptic curve algorithms such as ECDHE, ECDSA, and
    EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87)
-   introduce significantly higher overhead [FIPS203][FIPS204].  More
-   efficient post-quantum signature schemes are being standardized, such
-   as FN-DSA which could offer smaller signatures.  This remains a
-   possible direction for future work and could lead to the definition
-   of new cipher suites.
+   introduce significantly higher overhead [FIPS203][FIPS204] (but
+   currently are the most effective and the lightest standardized post-
+   quantum algorithms to implement on LAKE).  More efficient post-
+   quantum signature schemes are being standardized, such as FN-DSA
+   which could offer smaller signatures.  This remains a possible
+   direction for future work and could lead to the definition of new
+   cipher suites.
+
+   However, it is important to note that the post-quantum counterpart
+   implies that these cipher suites may not be usable for certain Class
+   of Constrained Devices (e.g., Class 0/C0) due to the technical
+   characteristics of KEM and Signatures (key and message sizes).
 
 3.  Using KEMs in the Key Exchange
 
@@ -263,9 +270,12 @@ Table of Contents
 
 6.  IANA Considerations
 
-6.1.  EDHOC Method Type Registry
+   This section specifies IANA updates for LAKE Methods and Cipher
+   Suites registration.
 
-   IANA is requested to update the EDHOC Method Type registry with a
+6.1.  LAKE Method Type Registry
+
+   IANA is requested to update the LAKE Method Type registry with a
    column with heading "Requires DH/NIKE" indicating that the method
    requires Diffie-Hellman or Non-Interactive Key Exchange.  Valid table
    entries in this column are "Yes" and "No".
@@ -278,18 +288,24 @@ Table of Contents
    Value: 2, Requires DH/NIKE: Yes
    Value: 3, Requires DH/NIKE: Yes
 
-6.2.  EDHOC Cipher Suites Registry
+   This note is to be removed before publishing as an RFC.  Once the
+   LAKE PSK authentication method [I-D.ietf-lake-edhoc-psk] is
+   standardized and registered with IANA, add the line:
 
-   IANA is requested to update the EDHOC Cipher Suites registry with a
+   Value: 4, Requires DH/NIKE: No
+
+6.2.  LAKE Cipher Suites Registry
+
+   IANA is requested to update the LAKE Cipher Suites registry with a
    column with heading "Supports DH/NIKE" indicating that the cipher
    suite supports Diffie-Hellman or Non-Interactive Key Exchange.  Valid
    table entries in this column are "Yes" and "No".
 
-   For the existing cipher suites 0-6, 24, 25, the entry "Yes" is
+   For the existing Cipher Suites 0-6, 24, 25, the entry "Yes" is
    inserted in the new "Supports DH/NIKE" column.
 
-   Furthermore, IANA is requested to register the following entries in
-   the EDHOC Cipher Suites Registry:
+   Furthermore, following Table 6 of [RFC9528], IANA is requested to
+   register the following entries in the LAKE Cipher Suites Registry:
 
    Value: TBD1
    Array: 30, -45, 16, TBD10, -48, 10, -16
@@ -315,7 +331,10 @@ Table of Contents
    Cipher suite TBD3 is intended for for high security applications such
    as government use and financial applications.  This cipher suites
    consists of algorithms from the Commercial National Security
-   Algorithm (CNSA) 2.0 suite [CNSA2].
+   Algorithm (CNSA) 2.0 suite [CNSA20].
+
+   The first two proposals have Category 1 security level (according to
+   NIST), while proposal 3 is in Category 5.
 
 7.  References
 
