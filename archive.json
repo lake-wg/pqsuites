@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-11T01:21:11.134526+00:00",
+  "timestamp": "2026-08-13T01:39:57.098133+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -131,5 +131,32 @@
       "comments": []
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 6,
+      "id": "PR_kwDOTe1l7M79_bvy",
+      "title": "Fix issue 4: ML-DSA-85 -> ML-DSA-87, IANA -48 -> -50",
+      "url": "https://github.com/lake-wg/pqsuites/pull/6",
+      "state": "OPEN",
+      "author": "clementpapon",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixing issue 4.\r\nCorrection of  ML-DSA-85 -> ML-DSA-87, and of the associated IANA number -48 -> -50 in the array.",
+      "createdAt": "2026-08-12T10:09:45Z",
+      "updatedAt": "2026-08-12T10:09:46Z",
+      "baseRepository": "lake-wg/pqsuites",
+      "baseRefName": "main",
+      "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
+      "headRepository": "lake-wg/pqsuites",
+      "headRefName": "fix-issue-4-ML-DSA",
+      "headRefOid": "f288fdc2a6f429fec76d11d6cdee0a81600618af",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
