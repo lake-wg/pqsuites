@@ -108,15 +108,16 @@ Method 0 in {{RFC9528}}, which uses digital signatures for authentication by bot
 
 A quantum-resistant signature algorithm, such as ML-DSA {{I-D.ietf-cose-dilithium}}, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM {{I-D.ietf-jose-pqc-kem}}, can be applied directly to the LAKE protocol, as is detailed in {{KEM}}, in order to replace the Ephemeral Diffie-Hellman key exchange.
 
-<!-- Stop here -->
+To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 {{I-D.ietf-jose-pqc-kem}} for key exchange, and ML-DSA-44 and ML-DSA-87 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256 {{FIPS202}}, it was natural to also use SHAKE256 for key derivation. Additional post-quantum cipher suites may be specified.
 
-To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 {{I-D.ietf-jose-pqc-kem}} for key exchange and ML-DSA-44 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256, it was natural to also use SHAKE256 for key derivation. Additional post-quantum cipher suites may be specified.
+However, note that for application-layer use, e.g., with EDHOC_exporter, the use of SHA-256 or SHA-384 provides sufficient security against quantum pre-image attacks, offering 128-bit (or 192-bit) security levels, see {{suites-registry}}.
 
 Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods that require DH/NIKE a column is added to the EDHOC Method Type registry, see {{method-update}}. To highlight matching cipher suites a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
 
 An alternative path to post-quantum support for the LAKE protocol, not pursued in this document, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs).
 
-Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 introduce significantly higher overhead {{FIPS203}}{{FIPS204}}. More efficient post-quantum signature schemes are being standardized, such as FN-DSA.
+Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87) introduce significantly higher overhead {{FIPS203}}{{FIPS204}}. More efficient post-quantum signature schemes are being standardized, such as FN-DSA which could offer smaller signatures. This remains a possible direction for future work and could lead to the definition of new cipher suites.
+
 
 # Using KEMs in the Key Exchange {#KEM}
 
