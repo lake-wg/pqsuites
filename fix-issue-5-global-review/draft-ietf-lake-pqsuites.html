@@ -1240,28 +1240,28 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
       <h2 id="name-using-kems-in-the-key-excha">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-using-kems-in-the-key-excha" class="section-name selfRef">Using KEMs in the Key Exchange</a>
       </h2>
-<p id="section-3-1">Given a quantum-resistant KEM, such as ML-KEM-512, with encapsulation key ek, ciphertext c, and shared secret key K (using the notation of <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span>). The Diffie-Hellman procedure in the key exchange is replaced by a KEM procedure as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">Given a quantum-resistant KEM, such as ML-KEM-512, with encapsulation public key epk, decapsulation private key dpk, ciphertext c, and shared secret key K (using the notation of <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span>), the Diffie-Hellman procedure in the key exchange is replaced by a KEM procedure as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-2.1">
           <p id="section-3-2.1.1">The Initiator generates a new encapsulation / decapsulation key pair matching the selected cipher suite.<a href="#section-3-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-2.2">
-          <p id="section-3-2.2.1">The encapsulation key ek is transported in the G_X field in message_1.<a href="#section-3-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-3-2.2.1">The encapsulation key epk is transported in the G_X field in message_1.<a href="#section-3-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-2.3">
-          <p id="section-3-2.3.1">The Responder calculates (K,c) = Encaps(ek).<a href="#section-3-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-3-2.3.1">The Responder calculates (K,c) = Encaps(epk).<a href="#section-3-2.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-2.4">
           <p id="section-3-2.4.1">The ciphertext c is transported in the G_Y field in message_2.<a href="#section-3-2.4.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-2.5">
-          <p id="section-3-2.5.1">The Initiator calculates the shared secret K = Decaps(c).<a href="#section-3-2.5.1" class="pilcrow">¶</a></p>
+          <p id="section-3-2.5.1">The Initiator calculates the shared secret K = Decaps(dpk, c).<a href="#section-3-2.5.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-2.6">
           <p id="section-3-2.6.1">G_XY is the shared secret key K.<a href="#section-3-2.6.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-3">The security requirements and security considerations of <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> and the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for LAKE session.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-3">The security requirements and security considerations of <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> and the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for each LAKE session.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">Note that G_Y does not contain a public key when a KEM is used in this way. The definition of LAKE message_2 in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-5.3.1" class="relref">Section 5.3.1</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> remains the same:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <div class="lang-CDDL sourcecode" id="section-3-5">
 <pre>
@@ -1271,10 +1271,12 @@ message_2 = (
 </pre><a href="#section-3-5" class="pilcrow">¶</a>
 </div>
 <p id="section-3-6">and G_Y_CIPHERTEXT_2 remains the concatenation of G_Y and CIPHERTEXT_2, the latter is defined in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-5.3.2" class="relref">Section 5.3.2</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>. But now G_Y is a KEM ciphertext.<a href="#section-3-6" class="pilcrow">¶</a></p>
-<p id="section-3-7">Just as with the ephemeral key G_Y, the length of KEM ciphertext G_Y is known from the corresponding algorithm in the selected cipher suite, see <a href="#fig-ct-length" class="auto internal xref">Figure 1</a>. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<p id="section-3-7">Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see <a href="#fig-ct-length" class="auto internal xref">Figure 1</a>. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<p id="section-3-8">The same applies to the length of the encapsulation key pek (whose size differs from that of the usual ephemeral key G_X). Upon receiving the message message_1, the Responder must first analyze the SUITES_I element to determine which KEM wants to be used by the Initiator, and then be able to correctly parse the rest of the message according to the length of the public encapsulation key.<a href="#section-3-8" class="pilcrow">¶</a></p>
+<p id="section-3-9">Also note that the size of signatures exchanged in messages message_2 and message_3 of LAKE Method 0 also differs in this situation.<a href="#section-3-9" class="pilcrow">¶</a></p>
 <span id="name-length-of-ml-kem-ciphertext"></span><div id="fig-ct-length">
 <figure id="figure-1">
-        <div class="alignLeft art-text artwork" id="section-3-8.1">
+        <div class="alignLeft art-text artwork" id="section-3-10.1">
 <pre>
 +-------------+------------------------------+
 |     KEM     | Length of ciphertext (bytes) |
@@ -1289,8 +1291,8 @@ message_2 = (
 <a href="#name-length-of-ml-kem-ciphertext" class="selfRef">Length of ML-KEM Ciphertext.</a>
         </figcaption></figure>
 </div>
-<p id="section-3-9">Note also that this use of KEM applies both to standalone KEM and hybrid KEMs such as, e.g., X-wing <span>[<a href="#I-D.connolly-cfrg-xwing-kem" class="cite xref">I-D.connolly-cfrg-xwing-kem</a>]</span>.<a href="#section-3-9" class="pilcrow">¶</a></p>
-<p id="section-3-10">Conventions for using post-quantum KEMs within COSE are described in <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>. The shared secret key K corresponds to the initial shared secret SS' in that document.<a href="#section-3-10" class="pilcrow">¶</a></p>
+<p id="section-3-11">Note also that this use of KEM applies both to standalone KEM and hybrid KEMs such as, e.g., X-wing <span>[<a href="#I-D.connolly-cfrg-xwing-kem" class="cite xref">I-D.connolly-cfrg-xwing-kem</a>]</span>.<a href="#section-3-11" class="pilcrow">¶</a></p>
+<p id="section-3-12">Conventions for using post-quantum KEMs within COSE are described in <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>. The shared secret key K corresponds to the initial shared secret SS' in that document.<a href="#section-3-12" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
