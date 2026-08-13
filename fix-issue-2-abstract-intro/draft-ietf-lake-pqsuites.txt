@@ -5,7 +5,7 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 13 February 2027                                 12 August 2026
+Expires: 14 February 2027                                 13 August 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -69,7 +69,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 February 2027.
+   This Internet-Draft will expire on 14 February 2027.
 
 Copyright Notice
 
@@ -132,8 +132,8 @@ Table of Contents
    updates the LAKE Method Type registry to indicate whether a given
    method requires DH/NIKE, and the LAKE Cipher Suites registry to
    indicate whether a cipher suite supports DH/NIKE-based key exchange,
-   see Sections Section 6.1 and Section 6.2.  New cipher suites
-   combining ML-KEM and ML-DSA are registered accordingly.
+   see Section 6.1 and Section 6.2.  New cipher suites combining ML-KEM
+   and ML-DSA are registered accordingly.
 
 1.1.  Terminology
 
