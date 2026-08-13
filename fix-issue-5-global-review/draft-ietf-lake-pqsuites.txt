@@ -5,7 +5,7 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 13 February 2027                                 12 August 2026
+Expires: 14 February 2027                                 13 August 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 February 2027.
+   This Internet-Draft will expire on 14 February 2027.
 
 Copyright Notice
 
@@ -138,12 +138,17 @@ Table of Contents
 
    To enable post-quantum security support for LAKE it suffices to
    register new cipher suites using COSE registered algorithms.  Cipher
-   suites using ML-KEM-512 [I-D.ietf-jose-pqc-kem] for key exchange and
-   ML-DSA-44 [I-D.ietf-cose-dilithium] for digital signatures are
-   specified in Section 6.2.  As both ML-KEM [FIPS203] and ML-DSA
-   [FIPS204] internally use SHAKE256, it was natural to also use
-   SHAKE256 for key derivation.  Additional post-quantum cipher suites
-   may be specified.
+   suites using ML-KEM-512 and ML-KEM-1024 [I-D.ietf-jose-pqc-kem] for
+   key exchange, and ML-DSA-44 and ML-DSA-87 [I-D.ietf-cose-dilithium]
+   for digital signatures are specified in Section 6.2.  As both ML-KEM
+   [FIPS203] and ML-DSA [FIPS204] internally use SHAKE256 [FIPS202], it
+   was natural to also use SHAKE256 for key derivation.  Additional
+   post-quantum cipher suites may be specified.
+
+   However, note that for application-layer use, e.g., with
+   EDHOC_exporter, the use of SHA-256 or SHA-384 provides sufficient
+   security against quantum pre-image attacks, offering 128-bit (or
+   192-bit) security levels, see Section 6.2.
 
    Methods 1–3 in [RFC9528] use a Diffie-Hellman/Non-Interactive Key
    Exchange (NIKE) based API for authentication.  As of this writing, no
@@ -158,9 +163,12 @@ Table of Contents
    based on Key Encapsulation Mechanisms (KEMs).
 
    Compared to elliptic curve algorithms such as ECDHE, ECDSA, and
-   EdDSA, ML-KEM-512 and ML-DSA-44 introduce significantly higher
-   overhead [FIPS203][FIPS204].  More efficient post-quantum signature
-   schemes are being standardized, such as FN-DSA.
+   EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87)
+   introduce significantly higher overhead [FIPS203][FIPS204].  More
+   efficient post-quantum signature schemes are being standardized, such
+   as FN-DSA which could offer smaller signatures.  This remains a
+   possible direction for future work and could lead to the definition
+   of new cipher suites.
 
 3.  Using KEMs in the Key Exchange
 
