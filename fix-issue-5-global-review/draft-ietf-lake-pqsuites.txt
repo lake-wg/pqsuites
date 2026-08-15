@@ -281,6 +281,14 @@ Table of Contents
 
 4.2.  Post-quantum security
 
+   Cipher suites specified in this document use ML-KEM for ephemeral key
+   exchange, and ML-DSA for authentication.  These algorithms are
+   believed secure against a quantum adversary.  Security considerations
+   of ML-KEM are discussed in
+   [I-D.sfluhrer-cfrg-ml-kem-security-considerations], and those of ML-
+   DSA are addressed in
+   [I-D.connolly-cfrg-ml-dsa-security-considerations].
+
 4.2.1.  Hybridation and SNDL
 
 4.2.2.  Side-channel considerations
@@ -412,6 +420,13 @@ Table of Contents
    [FIPS204]  "Module-Lattice-Based Digital Signature Standard",
               NIST FIPS 204, August 2024,
               <https://doi.org/10.6028/NIST.FIPS.204>.
+
+   [I-D.connolly-cfrg-ml-dsa-security-considerations]
+              Connolly, D., "Security Considerations for ML-DSA", Work
+              in Progress, Internet-Draft, draft-connolly-cfrg-ml-dsa-
+              security-considerations-02, 19 March 2026,
+              <https://datatracker.ietf.org/doc/html/draft-connolly-
+              cfrg-ml-dsa-security-considerations-02>.
 
    [I-D.connolly-cfrg-xwing-kem]
               Connolly, D., Schwabe, P., and B. Westerbaan, "X-Wing:
