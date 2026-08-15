@@ -1170,10 +1170,13 @@ svg {
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-post-quantum-security" class="internal xref">Post-quantum security</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-hybridation-and-sndl" class="internal xref">Hybridation and SNDL</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-store-now-decrypt-later" class="internal xref">Store Now Decrypt Later</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
-                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-side-channel-considerations" class="internal xref">Side-channel considerations</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-hybridation" class="internal xref">Hybridation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-side-channel-considerations" class="internal xref">Side-channel considerations</a></p>
 </li>
                 </ul>
 </li>
@@ -1334,20 +1337,29 @@ message_2 = (
         </h3>
 <p id="section-4.2-1">Cipher suites specified in this document use ML-KEM for ephemeral key exchange, and ML-DSA for authentication. These algorithms are believed secure against a quantum adversary. Security considerations of ML-KEM are discussed in <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>, and those of ML-DSA are addressed in <span>[<a href="#I-D.connolly-cfrg-ml-dsa-security-considerations" class="cite xref">I-D.connolly-cfrg-ml-dsa-security-considerations</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">The security of LAKE for methods 0 to 3, specified in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, and for the PSK mode, estalished in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> has been estalished in the Random Oracle Model (ROM), i.e., against "classical" adversaries. Proving the same security properties against quantum adversaries, i.e., in the Quantum Random Oracle Model (QROM), for LAKE Method 0 and PSK, is left for futur work. To date, only the standalone primitives ML-KEM and ML-DSA have been analyzed in the QROM, and their integration into cipher suites is not sufficient to claim the overall post-quantum security of LAKE Method 0 and PSK in post-quantum settings.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
-<div id="hybridation-and-sndl">
+<div id="store-now-decrypt-later">
 <section id="section-4.2.1">
-          <h4 id="name-hybridation-and-sndl">
-<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-hybridation-and-sndl" class="section-name selfRef">Hybridation and SNDL</a>
-        </h4>
+          <h4 id="name-store-now-decrypt-later">
+<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-store-now-decrypt-later" class="section-name selfRef">Store Now Decrypt Later</a>
+          </h4>
+<p id="section-4.2.1-1">The use of PQ-KEM, e.g., ML-KEM, for ephemeral key exchange in LAKE Method 0 and PSK protects against Store Now Decrypt Later (SNDL) attacks from an adversary equipped with a CRQC.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="hybridation">
+<section id="section-4.2.2">
+          <h4 id="name-hybridation">
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-hybridation" class="section-name selfRef">Hybridation</a>
+          </h4>
+<p id="section-4.2.2-1">In the event that a feasible attack against ML-KEM or ML-DSA is discovered (that does not require a CRQC), the use of hybrid algorithms in a cipher suite, i.e., a cipher suite combining classical and post-quantum algorithms for ephemeral key exchange and signature-based authentication, ensures the continuity of the (classical) security of the LAKE Method 0 and PSK protocols in post-quantum settings (as long as the classical algorithms remain secure).<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="side-channel-considerations">
-<section id="section-4.2.2">
+<section id="section-4.2.3">
           <h4 id="name-side-channel-considerations">
-<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-side-channel-considerations" class="section-name selfRef">Side-channel considerations</a>
+<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-side-channel-considerations" class="section-name selfRef">Side-channel considerations</a>
           </h4>
-<p id="section-4.2.2-1">Implementation of lattice-based algorithms have been shown to be susceptible to side-channel attacks, e.g., regarding timing or power analysis attacks. Side-channel resistance of ML-KEM and ML-DSA depends both on their implementation and on how they are used within the protocol itself.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-2">Implementations MUST follow the side-channel guidance given in the specifications of ML-KEM and ML-DSA. Moreover, ML-KEM key used for ephemeral key exchange MUST be freshly generated for each LAKE protocol session. In addition, analyzing the resistance of LAKE Method 0 and PSK to side-channel attacks, in post-quantum settings is out of scope of this document and left for future work.<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-1">Implementation of lattice-based algorithms have been shown to be susceptible to side-channel attacks, e.g., regarding timing or power analysis attacks. Side-channel resistance of ML-KEM and ML-DSA depends both on their implementation and on how they are used within the protocol itself.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-2">Implementations MUST follow the side-channel guidance given in the specifications of ML-KEM <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span> and ML-DSA <span>[<a href="#I-D.connolly-cfrg-ml-dsa-security-considerations" class="cite xref">I-D.connolly-cfrg-ml-dsa-security-considerations</a>]</span>. Moreover, ML-KEM key used for ephemeral key exchange MUST be freshly generated for each LAKE protocol session. In addition, analyzing the resistance of LAKE Method 0 and PSK to side-channel attacks, in post-quantum settings is out of scope of this document and left for future work.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

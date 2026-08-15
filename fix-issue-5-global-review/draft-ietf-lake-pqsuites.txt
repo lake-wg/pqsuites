@@ -77,8 +77,9 @@ Table of Contents
    4.  Security Considerations
      4.1.  Usual LAKE security properties
      4.2.  Post-quantum security
-       4.2.1.  Hybridation and SNDL
-       4.2.2.  Side-channel considerations
+       4.2.1.  Store Now Decrypt Later
+       4.2.2.  Hybridation
+       4.2.3.  Side-channel considerations
    5.  Privacy Considerations
    6.  IANA Considerations
      6.1.  LAKE Method Type Registry
@@ -300,9 +301,23 @@ Table of Contents
    sufficient to claim the overall post-quantum security of LAKE Method
    0 and PSK in post-quantum settings.
 
-4.2.1.  Hybridation and SNDL
+4.2.1.  Store Now Decrypt Later
 
-4.2.2.  Side-channel considerations
+   The use of PQ-KEM, e.g., ML-KEM, for ephemeral key exchange in LAKE
+   Method 0 and PSK protects against Store Now Decrypt Later (SNDL)
+   attacks from an adversary equipped with a CRQC.
+
+4.2.2.  Hybridation
+
+   In the event that a feasible attack against ML-KEM or ML-DSA is
+   discovered (that does not require a CRQC), the use of hybrid
+   algorithms in a cipher suite, i.e., a cipher suite combining
+   classical and post-quantum algorithms for ephemeral key exchange and
+   signature-based authentication, ensures the continuity of the
+   (classical) security of the LAKE Method 0 and PSK protocols in post-
+   quantum settings (as long as the classical algorithms remain secure).
+
+4.2.3.  Side-channel considerations
 
    Implementation of lattice-based algorithms have been shown to be
    susceptible to side-channel attacks, e.g., regarding timing or power
@@ -311,11 +326,13 @@ Table of Contents
    the protocol itself.
 
    Implementations MUST follow the side-channel guidance given in the
-   specifications of ML-KEM and ML-DSA.  Moreover, ML-KEM key used for
-   ephemeral key exchange MUST be freshly generated for each LAKE
-   protocol session.  In addition, analyzing the resistance of LAKE
-   Method 0 and PSK to side-channel attacks, in post-quantum settings is
-   out of scope of this document and left for future work.
+   specifications of ML-KEM
+   [I-D.sfluhrer-cfrg-ml-kem-security-considerations] and ML-DSA
+   [I-D.connolly-cfrg-ml-dsa-security-considerations].  Moreover, ML-KEM
+   key used for ephemeral key exchange MUST be freshly generated for
+   each LAKE protocol session.  In addition, analyzing the resistance of
+   LAKE Method 0 and PSK to side-channel attacks, in post-quantum
+   settings is out of scope of this document and left for future work.
 
 5.  Privacy Considerations
 
