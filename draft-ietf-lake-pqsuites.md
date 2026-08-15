@@ -50,6 +50,7 @@ informative:
   I-D.ietf-lake-edhoc-psk:
   I-D.connolly-cfrg-xwing-kem:
   I-D.sfluhrer-cfrg-ml-kem-security-considerations:
+  I-D.connolly-cfrg-ml-dsa-security-considerations:
   FIPS202:
     target: https://doi.org/10.6028/NIST.FIPS.202
     title: SHA-3 Standard - Permutation-Based Hash and Extendable-Output Functions
@@ -182,6 +183,10 @@ This is because the security properties of LAKE (methods 0 and PSK) are affected
 
 
 ## Post-quantum security
+
+
+Cipher suites specified in this document use ML-KEM for ephemeral key exchange, and ML-DSA for authentication. These algorithms are believed secure against a quantum adversary. Security considerations of ML-KEM are discussed in {{I-D.sfluhrer-cfrg-ml-kem-security-considerations}}, and those of ML-DSA are addressed in {{I-D.connolly-cfrg-ml-dsa-security-considerations}}.
+
 
 ### Hybridation and SNDL
 
