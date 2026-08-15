@@ -1046,7 +1046,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Selander &amp; Preuß Mattsson</td>
-<td class="center">Expires 14 February 2027</td>
+<td class="center">Expires 16 February 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1059,12 +1059,12 @@ svg {
 <dd class="internet-draft">draft-ietf-lake-pqsuites-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-08-13" class="published">13 August 2026</time>
+<time datetime="2026-08-15" class="published">15 August 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-02-14">14 February 2027</time></dd>
+<dd class="expires"><time datetime="2027-02-16">16 February 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1117,7 +1117,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 14 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1162,6 +1162,22 @@ svg {
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-usual-lake-security-propert" class="internal xref">Usual LAKE security properties</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-post-quantum-security" class="internal xref">Post-quantum security</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-hybridation-and-sndl" class="internal xref">Hybridation and SNDL</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-side-channel-considerations" class="internal xref">Side-channel considerations</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
@@ -1301,8 +1317,38 @@ message_2 = (
       <h2 id="name-security-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">The cipher suites defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication, which would be broken by a Cryptographically Relevant Quantum Computer (CRQC). In contrast, the cipher suites specified in this document use the quantum-resistant algorithms ML-KEM for key exchange and ML-DSA for authentication. When used with Method 0 from <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, these cipher suites preserve the same security properties even in the presence of a quantum-capable adversary.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">Security considerations of ML-KEM are discussed in <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-1">The cipher suites defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication, which would be broken by a Cryptographically Relevant Quantum Computer (CRQC). In this section we discuss the security considerations brought by the new cipher suites.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="usual-lake-security-properties">
+<section id="section-4.1">
+        <h3 id="name-usual-lake-security-propert">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-usual-lake-security-propert" class="section-name selfRef">Usual LAKE security properties</a>
+        </h3>
+<p id="section-4.1-1">When used with Method 0 from <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, these cipher suites preserve the security properties discussed in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-9" class="relref">Section 9</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> (for Method 0) and in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-08#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> (for PSK method). Let us cite, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-2">This is because the security properties of LAKE (methods 0 and PSK) are affected by cipher suites only through the security of the algorithms involved. Since the algorithms introduced in these cipher suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure, i.e., secure against a quantum adversary and, by extension, secure against a classical adversary, the security properties are guaranteed.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="post-quantum-security">
+<section id="section-4.2">
+        <h3 id="name-post-quantum-security">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-post-quantum-security" class="section-name selfRef">Post-quantum security</a>
+        </h3>
+<div id="hybridation-and-sndl">
+<section id="section-4.2.1">
+          <h4 id="name-hybridation-and-sndl">
+<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-hybridation-and-sndl" class="section-name selfRef">Hybridation and SNDL</a>
+        </h4>
+</section>
+</div>
+<div id="side-channel-considerations">
+<section id="section-4.2.2">
+          <h4 id="name-side-channel-considerations">
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-side-channel-considerations" class="section-name selfRef">Side-channel considerations</a>
+          </h4>
+<p id="section-4.2.2-1">Security considerations of ML-KEM are discussed in <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="privacy-considerations">

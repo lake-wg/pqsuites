@@ -5,7 +5,7 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 14 February 2027                                 13 August 2026
+Expires: 16 February 2027                                 15 August 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 February 2027.
+   This Internet-Draft will expire on 16 February 2027.
 
 Copyright Notice
 
@@ -75,6 +75,10 @@ Table of Contents
    2.  LAKE with Quantum-Resistant Algorithms
    3.  Using KEMs in the Key Exchange
    4.  Security Considerations
+     4.1.  Usual LAKE security properties
+     4.2.  Post-quantum security
+       4.2.1.  Hybridation and SNDL
+       4.2.2.  Side-channel considerations
    5.  Privacy Considerations
    6.  IANA Considerations
      6.1.  LAKE Method Type Registry
@@ -253,13 +257,33 @@ Table of Contents
    The cipher suites defined in [RFC9528] rely on Elliptic Curve
    Cryptography (ECC) for key exchange and authentication, which would
    be broken by a Cryptographically Relevant Quantum Computer (CRQC).
-   In contrast, the cipher suites specified in this document use the
-   quantum-resistant algorithms ML-KEM for key exchange and ML-DSA for
-   authentication.  When used with Method 0 from [RFC9528], where both
-   the Initiator and Responder authenticate using digital signatures, or
-   with the PSK method defined in [I-D.ietf-lake-edhoc-psk], these
-   cipher suites preserve the same security properties even in the
-   presence of a quantum-capable adversary.
+   In this section we discuss the security considerations brought by the
+   new cipher suites.
+
+4.1.  Usual LAKE security properties
+
+   When used with Method 0 from [RFC9528], where both the Initiator and
+   Responder authenticate using digital signatures, or with the PSK
+   method defined in [I-D.ietf-lake-edhoc-psk], these cipher suites
+   preserve the security properties discussed in Section 9 of [RFC9528]
+   (for Method 0) and in Section 9 of [I-D.ietf-lake-edhoc-psk] (for PSK
+   method).  Let us cite, for example, mutual authentication and
+   confidentiality, keys security, identity protection, External
+   Authorization Data (EAD) security, etc.
+
+   This is because the security properties of LAKE (methods 0 and PSK)
+   are affected by cipher suites only through the security of the
+   algorithms involved.  Since the algorithms introduced in these cipher
+   suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure,
+   i.e., secure against a quantum adversary and, by extension, secure
+   against a classical adversary, the security properties are
+   guaranteed.
+
+4.2.  Post-quantum security
+
+4.2.1.  Hybridation and SNDL
+
+4.2.2.  Side-channel considerations
 
    Security considerations of ML-KEM are discussed in
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
