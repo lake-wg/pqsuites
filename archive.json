@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-13T01:39:57.098133+00:00",
+  "timestamp": "2026-08-16T01:03:58.254611+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -62,9 +62,17 @@
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/3, by @emanjon on 11 June 2026.\n\nDiscussed today during LAKE DT meeting.\n\nDraft should mention that hybrid algorithms could be registered in the future.",
       "createdAt": "2026-08-08T13:32:25Z",
-      "updatedAt": "2026-08-08T13:32:25Z",
+      "updatedAt": "2026-08-15T14:00:28Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "clementpapon",
+          "authorAssociation": "NONE",
+          "body": "From Lidia Pocero Fraile on 3 July 2026:\n\nhttps://mailarchive.ietf.org/arch/msg/lake/D5r0X-GKUyQ-X4k8PtJow3rYFxA/\n\nAs a possible suggestion for future consideration, I think the draft could also benefit from including PQ/T hybrid KEM cipher suites. Section 3 already states that \u201cKEM applies both to standalone KEMs and hybrid KEMs,\u201d and I think this could be directly leveraged to provide protection against Harvest Now, Decrypt Later (HNDL) attacks simply by defining a cipher suite that includes a hybrid KEM.",
+          "createdAt": "2026-08-15T14:00:28Z",
+          "updatedAt": "2026-08-15T14:00:28Z"
+        }
+      ]
     },
     {
       "number": 2,
@@ -78,9 +86,17 @@
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/4, by @emanjon on 13 June 2026.\n\nI think the abstract should be updated to better explain that the draft does for things:\n\n1. Defines how ML-KEM as defined in draft-ietf-jose-pqc-kem is use in EDHOC\n2. Updates the EDHOC Method Type Registry with \"Requires DH/NIKE\"\n3. Updates the EDHOC Cipher Suites Registry with \"Supports DH/NIKE\"\n4. Registers cipher suites with ML-KEM and ML-DSA",
       "createdAt": "2026-08-08T13:35:24Z",
-      "updatedAt": "2026-08-08T13:35:24Z",
+      "updatedAt": "2026-08-13T16:22:50Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "clementpapon",
+          "authorAssociation": "NONE",
+          "body": "Proposed updates to the abstract and the introduction in the PR https://github.com/lake-wg/pqsuites/pull/7",
+          "createdAt": "2026-08-13T16:22:49Z",
+          "updatedAt": "2026-08-13T16:22:49Z"
+        }
+      ]
     },
     {
       "number": 3,
@@ -110,9 +126,17 @@
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/6, by @gselander on 15 June 2026.\n\nFrom @kamil-kielbasa: \n\ntypo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.\n\n> Response from @nkar123412-hub on 15 June 2026.\n\nFixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https://github.com/gselander/pq-suites/pull/7. Wallet: UQAVD5f6XBxXDlK4SDbvRpq_btbnmniWroIXv55bvgFnceaz",
       "createdAt": "2026-08-08T13:48:18Z",
-      "updatedAt": "2026-08-08T13:48:18Z",
+      "updatedAt": "2026-08-13T16:10:34Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "clementpapon",
+          "authorAssociation": "NONE",
+          "body": "Fixed the typo of ML-DSA and the associated IANA number in the PR: https://github.com/lake-wg/pqsuites/pull/6",
+          "createdAt": "2026-08-13T16:10:34Z",
+          "updatedAt": "2026-08-13T16:10:34Z"
+        }
+      ]
     },
     {
       "number": 5,
@@ -126,9 +150,17 @@
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/8, by @gselander on 16 July 2026.\n\nhttps://mailarchive.ietf.org/arch/msg/lake/BH2ugEAuLOiVPVeV5zbNMnXWh78/\n\nSection 2: The document should maybe clarify that SHA-256 remains available at the application layer, for consistency with the cipher suites proposed in Section 6.2.\n\nSection 3: Minor correction on the KEM definition (K = decaps (sk, c)). A paragraph should maybe be added clarifying that G_X follows the same behaviour as G_Y, and stating the impact of PQ algorithm on key and signature sizes.\n\nSection 4: In my opinion, this section should be significantly expanded to cover the properties preserved by the transition to a KEM-based key exchange, with references to existing formal analysis results (in particular, the formal verification of EDHOC-PSK with KEM, and also Jacomme et al. analysis of EDHOC Method 0 with a KEM (\u00ab A comprehensive, formal and automated analysis of the EDHOC protocol \u00bb). The section should also explicitly state that these cipher suites provide protection against Store-Now Decrypt-Later (SNDL) attacks.\n\nSection 6.1: Perhaps the draft could anticipate the arrival of EDHOC-PSK and suggest an additional line for PSK mode, similar to Value: 0.\n\nSection 6.2: For cipher suite 3, there is an error: according to IANA, we have ML-DSA-87 (not 85) and -50 (not -48). A paragraph should maybe be added stating that ML-DSA and ML-KEM are the most interesting algorithms to implement currently, but there is a counterpart with their larger key and signature sizes that may preclude their use on the most constrained device classes (e.g., Class 0/C0 devices).\n\nAlso, perhaps a more delicate point to raise about cipher suite negotiation: if the Initiator supports PQ but the Responder does not, I think this follows the standard EDHOC fallback mechanism. However, this scenario may affect the Identity Protection property and deserves explicit discussion in the Security Considerations section in my opinion.",
       "createdAt": "2026-08-08T13:49:54Z",
-      "updatedAt": "2026-08-08T13:49:54Z",
+      "updatedAt": "2026-08-15T13:51:48Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "clementpapon",
+          "authorAssociation": "NONE",
+          "body": "Some suggestions regarding these comments. Section 4 will probably need to be expanded. This is PR https://github.com/lake-wg/pqsuites/pull/8.",
+          "createdAt": "2026-08-15T13:51:48Z",
+          "updatedAt": "2026-08-15T13:51:48Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -151,6 +183,58 @@
       "headRepository": "lake-wg/pqsuites",
       "headRefName": "fix-issue-4-ML-DSA",
       "headRefOid": "f288fdc2a6f429fec76d11d6cdee0a81600618af",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOTe1l7M7-r3Rn",
+      "title": "Fix issue 2: work on abstract and intro",
+      "url": "https://github.com/lake-wg/pqsuites/pull/7",
+      "state": "OPEN",
+      "author": "clementpapon",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Abstract and introduction proposal, taking into account John's comments.",
+      "createdAt": "2026-08-13T16:17:10Z",
+      "updatedAt": "2026-08-13T16:17:11Z",
+      "baseRepository": "lake-wg/pqsuites",
+      "baseRefName": "main",
+      "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
+      "headRepository": "lake-wg/pqsuites",
+      "headRefName": "fix-issue-2-abstract-intro",
+      "headRefOid": "bd94cdd49f18ed7940717826fcd2efce4793dfd8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOTe1l7M7_fcve",
+      "title": "Fix issue 5: some reviews and additions on sections 2, 3, 4, and 6",
+      "url": "https://github.com/lake-wg/pqsuites/pull/8",
+      "state": "OPEN",
+      "author": "clementpapon",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 2: details about SHA256 and post-quantum efficiency.\r\nSection 3: correction of the decapsulation algorithm and a short paragraph explaining the behaviour of G_X in this pq setting.\r\nSection 4: proposal to restructure the section, separating classical properties from the post-quantum aspect of the protocol security.\r\nSection 6: minor corrections (EDHOC -> LAKE ?).",
+      "createdAt": "2026-08-15T13:50:55Z",
+      "updatedAt": "2026-08-15T13:50:56Z",
+      "baseRepository": "lake-wg/pqsuites",
+      "baseRefName": "main",
+      "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
+      "headRepository": "lake-wg/pqsuites",
+      "headRefName": "fix-issue-5-global-review",
+      "headRefOid": "13f33256c0becb0bbd1accc378ed28ead6336be4",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
