@@ -5,7 +5,7 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 16 February 2027                                 15 August 2026
+Expires: 20 February 2027                                 19 August 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 February 2027.
+   This Internet-Draft will expire on 20 February 2027.
 
 Copyright Notice
 
@@ -82,8 +82,8 @@ Table of Contents
        4.2.3.  Side-channel considerations
    5.  Privacy Considerations
    6.  IANA Considerations
-     6.1.  LAKE Method Type Registry
-     6.2.  LAKE Cipher Suites Registry
+     6.1.  EDHOC Method Type Registry
+     6.2.  EDHOC Cipher Suites Registry
    7.  References
      7.1.  Normative References
      7.2.  Informative References
@@ -340,12 +340,12 @@ Table of Contents
 
 6.  IANA Considerations
 
-   This section specifies IANA updates for LAKE Methods and Cipher
+   This section specifies IANA updates for EDHOC Methods and Cipher
    Suites registration.
 
-6.1.  LAKE Method Type Registry
+6.1.  EDHOC Method Type Registry
 
-   IANA is requested to update the LAKE Method Type registry with a
+   IANA is requested to update the EDHOC Method Type registry with a
    column with heading "Requires DH/NIKE" indicating that the method
    requires Diffie-Hellman or Non-Interactive Key Exchange.  Valid table
    entries in this column are "Yes" and "No".
@@ -364,9 +364,9 @@ Table of Contents
 
    Value: 4, Requires DH/NIKE: No
 
-6.2.  LAKE Cipher Suites Registry
+6.2.  EDHOC Cipher Suites Registry
 
-   IANA is requested to update the LAKE Cipher Suites registry with a
+   IANA is requested to update the EDHOC Cipher Suites registry with a
    column with heading "Supports DH/NIKE" indicating that the cipher
    suite supports Diffie-Hellman or Non-Interactive Key Exchange.  Valid
    table entries in this column are "Yes" and "No".
@@ -375,7 +375,7 @@ Table of Contents
    inserted in the new "Supports DH/NIKE" column.
 
    Furthermore, following Table 6 of [RFC9528], IANA is requested to
-   register the following entries in the LAKE Cipher Suites Registry:
+   register the following entries in the EDHOC Cipher Suites Registry:
 
    Value: TBD1
    Array: 30, -45, 16, TBD10, -48, 10, -16
