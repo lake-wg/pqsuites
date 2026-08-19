@@ -212,11 +212,11 @@ TBD
 
 # IANA Considerations
 
-This section specifies IANA updates for LAKE Methods and Cipher Suites registration.
+This section specifies IANA updates for EDHOC Methods and Cipher Suites registration.
 
-## LAKE Method Type Registry {#method-update}
+## EDHOC Method Type Registry {#method-update}
 
-IANA is requested to update the LAKE Method Type registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the EDHOC Method Type registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:
 
@@ -234,13 +234,13 @@ Once the LAKE PSK authentication method {{I-D.ietf-lake-edhoc-psk}} is standardi
 Value: 4, Requires DH/NIKE: No
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-## LAKE Cipher Suites Registry {#suites-registry}
+## EDHOC Cipher Suites Registry {#suites-registry}
 
-IANA is requested to update the LAKE Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the EDHOC Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Cipher Suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.
 
-Furthermore, following Table 6 of {{RFC9528}}, IANA is requested to register the following entries in the LAKE Cipher Suites Registry:
+Furthermore, following Table 6 of {{RFC9528}}, IANA is requested to register the following entries in the EDHOC Cipher Suites Registry:
 
 ~~~~~~~~~~~~~~~~~~~~~~~
 Value: TBD1
