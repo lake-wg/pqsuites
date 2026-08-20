@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-16T01:03:58.254611+00:00",
+  "timestamp": "2026-08-20T01:00:08.398833+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -228,13 +228,13 @@
       "labels": [],
       "body": "Section 2: details about SHA256 and post-quantum efficiency.\r\nSection 3: correction of the decapsulation algorithm and a short paragraph explaining the behaviour of G_X in this pq setting.\r\nSection 4: proposal to restructure the section, separating classical properties from the post-quantum aspect of the protocol security.\r\nSection 6: minor corrections (EDHOC -> LAKE ?).",
       "createdAt": "2026-08-15T13:50:55Z",
-      "updatedAt": "2026-08-15T13:50:56Z",
+      "updatedAt": "2026-08-19T09:52:55Z",
       "baseRepository": "lake-wg/pqsuites",
       "baseRefName": "main",
       "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
       "headRepository": "lake-wg/pqsuites",
       "headRefName": "fix-issue-5-global-review",
-      "headRefOid": "13f33256c0becb0bbd1accc378ed28ead6336be4",
+      "headRefOid": "3fbe4d05e962f0c5e6c08808ffb8cda4e145f502",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
