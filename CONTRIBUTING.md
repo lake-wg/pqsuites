@@ -50,7 +50,15 @@ In addition to contributions in GitHub, you are encouraged to participate in
 discussions there.
 
 **Note**: Some working groups adopt a policy whereby substantive discussion of
-technical issues needs to occur on the mailing list.
+technical 6, by @gselander on 15 June 2026.
+
+From @kamil-kielbasa: 
+
+typo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.
+
+> Response from @nkar123412-hub on 15 June 2026.
+
+Fixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https: needs to occur on the mailing list.
 
 You might also like to familiarize yourself with other
 [Working Group documents](https://datatracker.ietf.org/wg/lake/documents/).

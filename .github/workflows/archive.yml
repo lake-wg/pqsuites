@@ -18,7 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      issues: read
+      6, by @gselander on 15 June 2026.
+
+From @kamil-kielbasa: 
+
+typo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.
+
+> Response from @nkar123412-hub on 15 June 2026.
+
+Fixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https:: read
       pull-requests: read
     steps:
     - name: "Checkout"

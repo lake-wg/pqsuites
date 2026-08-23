@@ -23,7 +23,15 @@ jobs:
         fetch-depth: 0
         fetch-tags: true
 
-    # See https://github.com/actions/checkout/issues/290
+    # See https://github.com/actions/checkout/6, by @gselander on 15 June 2026.
+
+From @kamil-kielbasa: 
+
+typo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.
+
+> Response from @nkar123412-hub on 15 June 2026.
+
+Fixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https:/290
     - name: "Get Tag Annotations"
       run: git fetch -f origin ${{ github.ref }}:${{ github.ref }}
 
