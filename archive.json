@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-20T01:00:08.398833+00:00",
+  "timestamp": "2026-08-25T01:01:50.360981+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -240,6 +240,40 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOTe1l7M8AAAABAu3NSQ",
+      "title": "fix: fix: Typo",
+      "url": "https://github.com/lake-wg/pqsuites/pull/9",
+      "state": "CLOSED",
+      "author": "VedantMadane",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "## Summary\n\nfix: Typo\n\n## Changes\n\n- CONTRIBUTING.md: issues -> 6, by @gselander on 15 June 2026.\n\nFrom @kamil-kielbasa: \n\ntypo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.\n\n> Response from @nkar123412-hub on 15 June 2026.\n\nFixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https:\n- .github\\workflows\\archive.yml: issues -> 6, by @gselander on 15 June 2026.\n\nFrom @kamil-kielbasa: \n\ntypo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.\n\n> Response from @nkar123412-hub on 15 June 2026.\n\nFixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https:\n- .github\\workflows\\publish.yml: issues -> 6, by @gselander on 15 June 2026.\n\nFrom @kamil-kielbasa: \n\ntypo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.\n\n> Response from @nkar123412-hub on 15 June 2026.\n\nFixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https:\n\nFixes #4\n",
+      "createdAt": "2026-08-23T22:53:31Z",
+      "updatedAt": "2026-08-24T05:58:43Z",
+      "baseRepository": "lake-wg/pqsuites",
+      "baseRefName": "main",
+      "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
+      "headRepository": "VedantMadane/pqsuites",
+      "headRefName": "fix/issue-4",
+      "headRefOid": "a6dfae0c3ee6383dfed5733610ef94e93308d600",
+      "closedAt": "2026-08-24T05:58:43Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "VedantMadane",
+          "authorAssociation": "NONE",
+          "body": "Closing this PR after an internal quality audit.\n\nIt replaces an existing project-specific CONTRIBUTING guide with a short generic template, which deletes maintainer documentation. That is not an acceptable contribution.\n\nSorry for the noise.",
+          "createdAt": "2026-08-24T05:58:42Z",
+          "updatedAt": "2026-08-24T05:58:42Z"
+        }
+      ],
       "reviews": []
     }
   ]
