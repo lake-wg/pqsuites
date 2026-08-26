@@ -40,6 +40,11 @@ author:
     name: John Preuß Mattsson
     org: Ericsson
     email: john.mattsson@ericsson.com
+-
+    ins: C. Papon
+    name: Clément Papon
+    org: Limoges University
+    email: clement.papon@unilim.fr
 
 normative:
   RFC9528:
