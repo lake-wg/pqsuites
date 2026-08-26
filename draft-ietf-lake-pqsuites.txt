@@ -5,7 +5,9 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 25 January 2027                                    24 July 2026
+Expires: 27 February 2027                                       C. Papon
+                                                      Limoges University
+                                                          26 August 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -52,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 January 2027.
+   This Internet-Draft will expire on 27 February 2027.
 
 Copyright Notice
 
@@ -377,3 +379,8 @@ Authors' Addresses
    John Preuß Mattsson
    Ericsson
    Email: john.mattsson@ericsson.com
+
+
+   Clément Papon
+   Limoges University
+   Email: clement.papon@unilim.fr
