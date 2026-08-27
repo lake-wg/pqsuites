@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-25T01:01:50.360981+00:00",
+  "timestamp": "2026-08-27T07:02:07.776125+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -103,31 +103,39 @@
       "id": "I_kwDOTe1l7M8AAAABL9lMmQ",
       "title": "Create an acceptable repository",
       "url": "https://github.com/lake-wg/pqsuites/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/5, by @emanjon on 13 June 2026.\n\nThe repository needs to compile as soon as someone has made an update and have references to editor's copy etc.\n\n--\n\nThis needs to be fixed before transferring to LAKE WG Github",
       "createdAt": "2026-08-08T13:38:30Z",
-      "updatedAt": "2026-08-08T13:38:30Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-08-26T13:15:52Z",
+      "closedAt": "2026-08-26T13:15:52Z",
+      "comments": [
+        {
+          "author": "emanjon",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Fixed",
+          "createdAt": "2026-08-26T13:15:52Z",
+          "updatedAt": "2026-08-26T13:15:52Z"
+        }
+      ]
     },
     {
       "number": 4,
       "id": "I_kwDOTe1l7M8AAAABL9naSg",
       "title": "Typo",
       "url": "https://github.com/lake-wg/pqsuites/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/6, by @gselander on 15 June 2026.\n\nFrom @kamil-kielbasa: \n\ntypo in draft-spm-lake-pqsuites-02: Cipher suite TBD3 ML-DSA-85 -> ML-DSA-87.\n\n> Response from @nkar123412-hub on 15 June 2026.\n\nFixed the typo ML-DSA-85 -> ML-DSA-87 in draft-spm-lake-pqsuites.md. PR is here: https://github.com/gselander/pq-suites/pull/7. Wallet: UQAVD5f6XBxXDlK4SDbvRpq_btbnmniWroIXv55bvgFnceaz",
       "createdAt": "2026-08-08T13:48:18Z",
-      "updatedAt": "2026-08-13T16:10:34Z",
-      "closedAt": null,
+      "updatedAt": "2026-08-26T13:12:02Z",
+      "closedAt": "2026-08-26T13:12:02Z",
       "comments": [
         {
           "author": "clementpapon",
@@ -135,6 +143,13 @@
           "body": "Fixed the typo of ML-DSA and the associated IANA number in the PR: https://github.com/lake-wg/pqsuites/pull/6",
           "createdAt": "2026-08-13T16:10:34Z",
           "updatedAt": "2026-08-13T16:10:34Z"
+        },
+        {
+          "author": "emanjon",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Fixed in #6",
+          "createdAt": "2026-08-26T13:12:02Z",
+          "updatedAt": "2026-08-26T13:12:02Z"
         }
       ]
     },
@@ -161,6 +176,30 @@
           "updatedAt": "2026-08-15T13:51:48Z"
         }
       ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOTe1l7M8AAAABOTEJMg",
+      "title": "Add Cl\u00e9ment as co-author",
+      "url": "https://github.com/lake-wg/pqsuites/issues/10",
+      "state": "CLOSED",
+      "author": "gselander",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-08-26T07:30:32Z",
+      "updatedAt": "2026-08-26T13:09:08Z",
+      "closedAt": "2026-08-26T13:09:08Z",
+      "comments": [
+        {
+          "author": "emanjon",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Fixed in main",
+          "createdAt": "2026-08-26T13:09:08Z",
+          "updatedAt": "2026-08-26T13:09:08Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -169,24 +208,26 @@
       "id": "PR_kwDOTe1l7M79_bvy",
       "title": "Fix issue 4: ML-DSA-85 -> ML-DSA-87, IANA -48 -> -50",
       "url": "https://github.com/lake-wg/pqsuites/pull/6",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Fixing issue 4.\r\nCorrection of  ML-DSA-85 -> ML-DSA-87, and of the associated IANA number -48 -> -50 in the array.",
       "createdAt": "2026-08-12T10:09:45Z",
-      "updatedAt": "2026-08-12T10:09:46Z",
+      "updatedAt": "2026-08-26T13:10:54Z",
       "baseRepository": "lake-wg/pqsuites",
       "baseRefName": "main",
       "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
       "headRepository": "lake-wg/pqsuites",
       "headRefName": "fix-issue-4-ML-DSA",
       "headRefOid": "f288fdc2a6f429fec76d11d6cdee0a81600618af",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-08-26T13:10:53Z",
+      "mergedAt": "2026-08-26T13:10:53Z",
+      "mergedBy": "emanjon",
+      "mergeCommit": {
+        "oid": "2e5ef2ecf4dee578fd8fde31ca2b749585df9352"
+      },
       "comments": [],
       "reviews": []
     },
