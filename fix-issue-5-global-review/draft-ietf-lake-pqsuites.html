@@ -1046,7 +1046,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Selander &amp; Preuß Mattsson</td>
-<td class="center">Expires 20 February 2027</td>
+<td class="center">Expires 1 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1059,12 +1059,12 @@ svg {
 <dd class="internet-draft">draft-ietf-lake-pqsuites-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-08-19" class="published">19 August 2026</time>
+<time datetime="2026-08-28" class="published">28 August 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-02-20">20 February 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-01">1 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1117,7 +1117,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 1 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1246,7 +1246,7 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-lake-with-quantum-resistant" class="section-name selfRef">LAKE with Quantum-Resistant Algorithms</a>
       </h2>
 <p id="section-2-1">Method 0 in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, which uses digital signatures for authentication by both the Initiator and Responder, and also the PSK method in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, is straightforward to use with standardized post-quantum algorithms.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">A quantum-resistant signature algorithm, such as ML-DSA <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span>, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>, can be applied directly to the LAKE protocol, as is detailed in <a href="#KEM" class="auto internal xref">Section 3</a>, in order to replace the Ephemeral Diffie-Hellman key exchange.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-2">A quantum-resistant signature algorithm, such as ML-DSA <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span>, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, in order to replace the Ephemeral Diffie-Hellman key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>, can be applied directly to the LAKE protocol, as is detailed in <a href="#KEM" class="auto internal xref">Section 3</a>.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span> for key exchange, and ML-DSA-44 and ML-DSA-87 <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span> for digital signatures are specified in <a href="#suites-registry" class="auto internal xref">Section 6.2</a>. As both ML-KEM <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> and ML-DSA <span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span> internally use SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>, it was natural to also use SHAKE256 for key derivation. Additional post-quantum cipher suites may be specified.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">However, note that for application-layer use, e.g., with EDHOC_exporter, the use of SHA-256 or SHA-384 provides sufficient security against quantum pre-image attacks, offering 128-bit (or 192-bit) security levels, see <a href="#suites-registry" class="auto internal xref">Section 6.2</a>.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">Methods 1–3 in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods that require DH/NIKE a column is added to the EDHOC Method Type registry, see <a href="#method-update" class="auto internal xref">Section 6.1</a>. To highlight matching cipher suites a corresponding column indicating support for DH/NIKE is added, see <a href="#suites-registry" class="auto internal xref">Section 6.2</a>.<a href="#section-2-5" class="pilcrow">¶</a></p>

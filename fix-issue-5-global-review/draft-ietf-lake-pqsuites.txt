@@ -5,7 +5,7 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 20 February 2027                                 19 August 2026
+Expires: 1 March 2027                                     28 August 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 February 2027.
+   This Internet-Draft will expire on 1 March 2027.
 
 Copyright Notice
 
@@ -136,10 +136,10 @@ Table of Contents
    A quantum-resistant signature algorithm, such as ML-DSA
    [I-D.ietf-cose-dilithium], is a drop-in replacement for classical
    signature algorithms such as ECDSA.  For post-quantum secure key
+   exchange, in order to replace the Ephemeral Diffie-Hellman key
    exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such
    as ML-KEM [I-D.ietf-jose-pqc-kem], can be applied directly to the
-   LAKE protocol, as is detailed in Section 3, in order to replace the
-   Ephemeral Diffie-Hellman key exchange.
+   LAKE protocol, as is detailed in Section 3.
 
    To enable post-quantum security support for LAKE it suffices to
    register new cipher suites using COSE registered algorithms.  Cipher
