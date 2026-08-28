@@ -172,7 +172,7 @@ Table of Contents
    introduce significantly higher overhead [FIPS203][FIPS204], but
    currently are the most lightweight standardized post-quantum
    algorithms to use with LAKE.  More efficient post-quantum signature
-   schemes are being standardized, such as FN-DSA which could offer
+   schemes are being standardized, such as FN-DSA, which could offer
    smaller signatures.  This remains a possible direction for future
    research, analysis and standardization, after which they may be
    included in new cipher suites.
