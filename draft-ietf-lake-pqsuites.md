@@ -118,7 +118,7 @@ Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (
 
 An alternative path to post-quantum support for the LAKE protocol, not pursued in this document, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs).
 
-Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87) introduce significantly higher overhead {{FIPS203}}{{FIPS204}}, but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.
+Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87) introduce significantly higher overhead {{FIPS203}}{{FIPS204}}, but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.
 
 However, it is important to note that these cipher suites may not be usable for certain classes of constrained devices (see {{I-D.ietf-iotops-7228bis}}) due to  for example, increased size of signatures or of KEM keys in quantum-resistant algorithms.
 
