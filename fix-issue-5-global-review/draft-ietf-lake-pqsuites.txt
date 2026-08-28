@@ -169,18 +169,18 @@ Table of Contents
 
    Compared to elliptic curve algorithms such as ECDHE, ECDSA, and
    EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87)
-   introduce significantly higher overhead [FIPS203][FIPS204] (but
-   currently are the most effective and the lightest standardized post-
-   quantum algorithms to implement on LAKE).  More efficient post-
-   quantum signature schemes are being standardized, such as FN-DSA
-   which could offer smaller signatures.  This remains a possible
-   direction for future work and could lead to the definition of new
-   cipher suites.
+   introduce significantly higher overhead [FIPS203][FIPS204], but
+   currently are the most lightweight standardized post-quantum
+   algorithms to use with LAKE.  More efficient post-quantum signature
+   schemes are being standardized, such as FN-DSA which could offer
+   smaller signatures.  This remains a possible direction for future
+   research, analysis and standardization, after which they may be
+   included in new cipher suites.
 
-   However, it is important to note that the post-quantum counterpart
-   implies that these cipher suites may not be usable for certain Class
-   of Constrained Devices (e.g., Class 0/C0) due to the technical
-   characteristics of KEM and Signatures (key and message sizes).
+   However, it is important to note that these cipher suites may not be
+   usable for certain classes of constrained devices (see
+   [I-D.ietf-iotops-7228bis]) due to for example, increased size of
+   signatures or of KEM keys in quantum-resistant algorithms.
 
 3.  Using KEMs in the Key Exchange
 
@@ -472,6 +472,13 @@ Table of Contents
               Progress, Internet-Draft, draft-connolly-cfrg-xwing-kem-
               10, 2 March 2026, <https://datatracker.ietf.org/doc/html/
               draft-connolly-cfrg-xwing-kem-10>.
+
+   [I-D.ietf-iotops-7228bis]
+              Bormann, C., Ersue, M., Keränen, A., and C. Gomez,
+              "Terminology for Constrained-Node Networks", Work in
+              Progress, Internet-Draft, draft-ietf-iotops-7228bis-10, 6
+              July 2026, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-iotops-7228bis-10>.
 
    [I-D.ietf-lake-edhoc-psk]
               Lopez-Perez, Selander, G., Mattsson, J. P., Marin-Lopez,

@@ -22,7 +22,7 @@
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.11.3
+    platformdirs 4.11.5
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
@@ -1251,8 +1251,8 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
 <p id="section-2-4">However, note that for application-layer use, e.g., with EDHOC_exporter, the use of SHA-256 or SHA-384 provides sufficient security against quantum pre-image attacks, offering 128-bit (or 192-bit) security levels, see <a href="#suites-registry" class="auto internal xref">Section 6.2</a>.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">Methods 1–3 in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods that require DH/NIKE a column is added to the EDHOC Method Type registry, see <a href="#method-update" class="auto internal xref">Section 6.1</a>. To highlight matching cipher suites a corresponding column indicating support for DH/NIKE is added, see <a href="#suites-registry" class="auto internal xref">Section 6.2</a>.<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6">An alternative path to post-quantum support for the LAKE protocol, not pursued in this document, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs).<a href="#section-2-6" class="pilcrow">¶</a></p>
-<p id="section-2-7">Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87) introduce significantly higher overhead <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span><span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span> (but currently are the most effective and the lightest standardized post-quantum algorithms to implement on LAKE). More efficient post-quantum signature schemes are being standardized, such as FN-DSA which could offer smaller signatures. This remains a possible direction for future work and could lead to the definition of new cipher suites.<a href="#section-2-7" class="pilcrow">¶</a></p>
-<p id="section-2-8">However, it is important to note that the post-quantum counterpart implies that these cipher suites may not be usable for certain Class of Constrained Devices (e.g., Class 0/C0) due to the technical characteristics of KEM and Signatures (key and message sizes).<a href="#section-2-8" class="pilcrow">¶</a></p>
+<p id="section-2-7">Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87) introduce significantly higher overhead <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span><span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span>, but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-8">However, it is important to note that these cipher suites may not be usable for certain classes of constrained devices (see <span>[<a href="#I-D.ietf-iotops-7228bis" class="cite xref">I-D.ietf-iotops-7228bis</a>]</span>) due to  for example, increased size of signatures or of KEM keys in quantum-resistant algorithms.<a href="#section-2-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="KEM">
@@ -1511,6 +1511,10 @@ Reference: [[This document]]
 <dt id="I-D.connolly-cfrg-xwing-kem">[I-D.connolly-cfrg-xwing-kem]</dt>
         <dd>
 <span class="refAuthor">Connolly, D.</span>, <span class="refAuthor">Schwabe, P.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"X-Wing: general-purpose hybrid post-quantum KEM"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-connolly-cfrg-xwing-kem-10</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-xwing-kem-10">https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-xwing-kem-10</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-iotops-7228bis">[I-D.ietf-iotops-7228bis]</dt>
+        <dd>
+<span class="refAuthor">Bormann, C.</span>, <span class="refAuthor">Ersue, M.</span>, <span class="refAuthor">Keränen, A.</span>, and <span class="refAuthor">C. Gomez</span>, <span class="refTitle">"Terminology for Constrained-Node Networks"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-iotops-7228bis-10</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-iotops-7228bis-10">https://datatracker.ietf.org/doc/html/draft-ietf-iotops-7228bis-10</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lake-edhoc-psk">[I-D.ietf-lake-edhoc-psk]</dt>
         <dd>
