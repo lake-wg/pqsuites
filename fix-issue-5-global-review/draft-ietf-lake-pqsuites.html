@@ -1292,11 +1292,9 @@ message_2 = (
 </div>
 <p id="section-3-6">and G_Y_CIPHERTEXT_2 remains the concatenation of G_Y and CIPHERTEXT_2, the latter is defined in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-5.3.2" class="relref">Section 5.3.2</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>. But now G_Y is a KEM ciphertext.<a href="#section-3-6" class="pilcrow">¶</a></p>
 <p id="section-3-7">Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see <a href="#fig-ct-length" class="auto internal xref">Figure 1</a>. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.<a href="#section-3-7" class="pilcrow">¶</a></p>
-<p id="section-3-8">The same applies to the length of the encapsulation key pk (whose size differs from that of the usual ephemeral key G_X). Upon receiving message_1, the Responder must first analyze the SUITES_I element to determine which KEM wants to be used by the Initiator, and then be able to correctly parse the rest of the message according to the length of the encapsulation key.<a href="#section-3-8" class="pilcrow">¶</a></p>
-<p id="section-3-9">Also note that the size of signatures exchanged in message_2 and message_3 of LAKE Method 0 also differs in this situation.<a href="#section-3-9" class="pilcrow">¶</a></p>
 <span id="name-length-of-ml-kem-ciphertext"></span><div id="fig-ct-length">
 <figure id="figure-1">
-        <div class="alignLeft art-text artwork" id="section-3-10.1">
+        <div class="alignLeft art-text artwork" id="section-3-8.1">
 <pre>
 +-------------+------------------------------+
 |     KEM     | Length of ciphertext (bytes) |
@@ -1311,8 +1309,8 @@ message_2 = (
 <a href="#name-length-of-ml-kem-ciphertext" class="selfRef">Length of ML-KEM Ciphertext.</a>
         </figcaption></figure>
 </div>
-<p id="section-3-11">Note also that this use of KEM applies both to standalone KEM and hybrid KEMs such as, e.g., X-wing <span>[<a href="#I-D.connolly-cfrg-xwing-kem" class="cite xref">I-D.connolly-cfrg-xwing-kem</a>]</span>.<a href="#section-3-11" class="pilcrow">¶</a></p>
-<p id="section-3-12">Conventions for using post-quantum KEMs within COSE are described in <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>. The shared secret key K corresponds to the initial shared secret SS' in that document.<a href="#section-3-12" class="pilcrow">¶</a></p>
+<p id="section-3-9">Note also that this use of KEM applies both to standalone KEM and hybrid KEMs such as, e.g., X-wing <span>[<a href="#I-D.connolly-cfrg-xwing-kem" class="cite xref">I-D.connolly-cfrg-xwing-kem</a>]</span>.<a href="#section-3-9" class="pilcrow">¶</a></p>
+<p id="section-3-10">Conventions for using post-quantum KEMs within COSE are described in <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>. The shared secret key K corresponds to the initial shared secret SS' in that document.<a href="#section-3-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
