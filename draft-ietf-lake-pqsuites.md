@@ -153,10 +153,6 @@ and G_Y_CIPHERTEXT_2 remains the concatenation of G_Y and CIPHERTEXT_2, the latt
 
 Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see {{fig-ct-length}}. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.
 
-The same applies to the length of the encapsulation key pk (whose size differs from that of the usual ephemeral key G_X). Upon receiving message_1, the Responder must first analyze the SUITES_I element to determine which KEM wants to be used by the Initiator, and then be able to correctly parse the rest of the message according to the length of the encapsulation key.
-
-Also note that the size of signatures exchanged in message_2 and message_3 of LAKE Method 0 also differs in this situation.
-
 ~~~~~~~~~~~
 +-------------+------------------------------+
 |     KEM     | Length of ciphertext (bytes) |
