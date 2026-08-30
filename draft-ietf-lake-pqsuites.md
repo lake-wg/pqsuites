@@ -217,7 +217,7 @@ Implementations MUST follow the side-channel guidance given in the specification
 
 # Privacy Considerations
 
-TBD
+This document does not add any new privacy considerations to those discussed in {{RFC9528}}.
 
 # IANA Considerations
 
