@@ -181,7 +181,7 @@ Conventions for using post-quantum KEMs within COSE are described in {{I-D.ietf-
 
 The cipher suites defined in {{RFC9528}} rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication, which would be broken by a Cryptographically Relevant Quantum Computer (CRQC). In this section we discuss the security considerations brought by the new cipher suites.
 
-## Usual LAKE security properties
+## Classical LAKE security properties
 
 When used with Method 0 from {{RFC9528}}, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in {{I-D.ietf-lake-edhoc-psk}}, these cipher suites preserve the security properties discussed in {{Section 9 of RFC9528}} (for Method 0) and in {{Section 9 of I-D.ietf-lake-edhoc-psk}} (for PSK method). Let us cite, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.
 
