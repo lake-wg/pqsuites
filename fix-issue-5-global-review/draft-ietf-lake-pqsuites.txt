@@ -147,13 +147,11 @@ Table of Contents
    key exchange, and ML-DSA-44 and ML-DSA-87 [I-D.ietf-cose-dilithium]
    for digital signatures are specified in Section 6.2.  As both ML-KEM
    [FIPS203] and ML-DSA [FIPS204] internally use SHAKE256 [FIPS202], it
-   was natural to also use SHAKE256 for key derivation.  Additional
-   post-quantum cipher suites may be specified.
-
-   However, note that for application-layer use, e.g., with
-   EDHOC_exporter, the use of SHA-256 or SHA-384 provides sufficient
-   security against quantum pre-image attacks, offering 128-bit (or
-   192-bit) security levels, see Section 6.2.
+   was natural to have SHAKE256 as EDHOC hash algorithm in the cipher
+   suite, and thus used also in the key derivation, see Section 4 of
+   [RFC9528].  Note that as AEAD hash function in these cipher suites,
+   the legacy algorithms SHA-256 or SHA-384 are still used, see
+   Section 6.2.  Additional post-quantum cipher suites may be specified.
 
    Methods 1–3 in [RFC9528] use a Diffie-Hellman/Non-Interactive Key
    Exchange (NIKE) based API for authentication.  As of this writing, no
