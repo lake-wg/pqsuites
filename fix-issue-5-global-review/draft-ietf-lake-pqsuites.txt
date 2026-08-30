@@ -78,7 +78,7 @@ Table of Contents
      4.1.  Classical LAKE security properties
      4.2.  Post-quantum security
        4.2.1.  Store Now Decrypt Later
-       4.2.2.  Hybridation
+       4.2.2.  PQ/T Hybridization
        4.2.3.  Side-channel considerations
    5.  Privacy Considerations
    6.  IANA Considerations
@@ -303,7 +303,7 @@ Table of Contents
    Method 0 and PSK protects against Store Now Decrypt Later (SNDL)
    attacks from an adversary equipped with a CRQC.
 
-4.2.2.  Hybridation
+4.2.2.  PQ/T Hybridization
 
    In the event that a feasible attack against ML-KEM or ML-DSA is
    discovered (that does not require a CRQC), the use of hybrid
@@ -312,6 +312,9 @@ Table of Contents
    signature-based authentication, ensures the continuity of the
    (classical) security of the LAKE Method 0 and PSK protocols in post-
    quantum settings (as long as the classical algorithms remain secure).
+
+   PQ/T hybrid algorithms such as [I-D.irtf-cfrg-concrete-hybrid-kems]
+   could be registered in the future.
 
 4.2.3.  Side-channel considerations
 
@@ -483,6 +486,13 @@ Table of Contents
               draft-ietf-lake-edhoc-psk-08, 16 June 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-lake-
               edhoc-psk-08>.
+
+   [I-D.irtf-cfrg-concrete-hybrid-kems]
+              Connolly, D. and R. Barnes, "Concrete Hybrid PQ/T Key
+              Encapsulation Mechanisms", Work in Progress, Internet-
+              Draft, draft-irtf-cfrg-concrete-hybrid-kems-04, 6 July
+              2026, <https://datatracker.ietf.org/doc/html/draft-irtf-
+              cfrg-concrete-hybrid-kems-04>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
