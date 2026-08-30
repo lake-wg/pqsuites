@@ -194,7 +194,9 @@ Cipher suites specified in this document use ML-KEM for ephemeral key exchange, 
 
 The security of LAKE for methods 0 to 3, specified in {{RFC9528}}, and for the PSK mode, estalished in {{I-D.ietf-lake-edhoc-psk}} has been estalished in the Random Oracle Model (ROM), i.e., against "classical" adversaries. Proving the same security properties against quantum adversaries, i.e., in the Quantum Random Oracle Model (QROM), for LAKE Method 0 and PSK, is left for futur work. To date, only the standalone primitives ML-KEM and ML-DSA have been analyzed in the QROM, and their integration into cipher suites is not sufficient to claim the overall post-quantum security of LAKE Method 0 and PSK in post-quantum settings.
 
-The first two proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5.
+The first two cipher suite proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5, see {{suites-registry}}.
+
+As discussed above, SHA-256 and SHA-384, used as application hash functions in these cipher suites are still considered to provide adequate security against quantum pre-image attacks, providing 128-bit and 192-bit security levels, respectively.
 
 ### Store Now Decrypt Later
 
@@ -202,13 +204,12 @@ The use of PQ-KEM, e.g., ML-KEM, for ephemeral key exchange in LAKE Method 0 and
 
 ### Hybridation
 
-
 In the event that a feasible attack against ML-KEM or ML-DSA is discovered (that does not require a CRQC), the use of hybrid algorithms in a cipher suite, i.e., a cipher suite combining classical and post-quantum algorithms for ephemeral key exchange and signature-based authentication, ensures the continuity of the (classical) security of the LAKE Method 0 and PSK protocols in post-quantum settings (as long as the classical algorithms remain secure).
 
 
 ### Side-channel considerations
 
-Implementation of lattice-based algorithms have been shown to be susceptible to side-channel attacks, e.g., regarding timing or power analysis attacks. Side-channel resistance of ML-KEM and ML-DSA depends both on their implementation and on how they are used within the protocol itself.
+Implementations of post-quantum algorithms, e.g., lattice-based or code-based algorithms, have been shown to be susceptible to side-channel attacks, e.g., regarding timing or power analysis attacks. Side-channel resistance of ML-KEM and ML-DSA depends both on their implementation and on how they are used within the protocol itself.
 
 Implementations MUST follow the side-channel guidance given in the specifications of ML-KEM {{I-D.sfluhrer-cfrg-ml-kem-security-considerations}} and ML-DSA {{I-D.connolly-cfrg-ml-dsa-security-considerations}}. Moreover, ML-KEM key used for ephemeral key exchange MUST be freshly generated for each LAKE protocol session. In addition, analyzing the resistance of LAKE Method 0 and PSK to side-channel attacks, in post-quantum settings is out of scope of this document and left for future work.
 
