@@ -1046,7 +1046,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Selander &amp; Preuß Mattsson</td>
-<td class="center">Expires 1 March 2027</td>
+<td class="center">Expires 3 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1059,12 +1059,12 @@ svg {
 <dd class="internet-draft">draft-ietf-lake-pqsuites-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-08-28" class="published">28 August 2026</time>
+<time datetime="2026-08-30" class="published">30 August 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-03-01">1 March 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-03">3 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1117,7 +1117,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1335,6 +1335,7 @@ message_2 = (
         </h3>
 <p id="section-4.2-1">Cipher suites specified in this document use ML-KEM for ephemeral key exchange, and ML-DSA for authentication. These algorithms are believed secure against a quantum adversary. Security considerations of ML-KEM are discussed in <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>, and those of ML-DSA are addressed in <span>[<a href="#I-D.connolly-cfrg-ml-dsa-security-considerations" class="cite xref">I-D.connolly-cfrg-ml-dsa-security-considerations</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">The security of LAKE for methods 0 to 3, specified in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, and for the PSK mode, estalished in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> has been estalished in the Random Oracle Model (ROM), i.e., against "classical" adversaries. Proving the same security properties against quantum adversaries, i.e., in the Quantum Random Oracle Model (QROM), for LAKE Method 0 and PSK, is left for futur work. To date, only the standalone primitives ML-KEM and ML-DSA have been analyzed in the QROM, and their integration into cipher suites is not sufficient to claim the overall post-quantum security of LAKE Method 0 and PSK in post-quantum settings.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2-3">The first two proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <div id="store-now-decrypt-later">
 <section id="section-4.2.1">
           <h4 id="name-store-now-decrypt-later">
@@ -1377,13 +1378,13 @@ message_2 = (
       <h2 id="name-iana-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">This section specifies IANA updates for EDHOC Methods and Cipher Suites registration.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This section specifies IANA updates for EDHOC Method Types and Cipher Suites registration.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div id="method-update">
 <section id="section-6.1">
         <h3 id="name-edhoc-method-type-registry">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-edhoc-method-type-registry" class="section-name selfRef">EDHOC Method Type Registry</a>
         </h3>
-<p id="section-6.1-1">IANA is requested to update the EDHOC Method Type registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">IANA is requested to update the EDHOC Method Type registry <span>[<a href="#IANA_edhoc_method_types" class="cite xref">IANA_edhoc_method_types</a>]</span> with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6.1-3">
 <pre>
@@ -1407,9 +1408,9 @@ Value: 4, Requires DH/NIKE: No
         <h3 id="name-edhoc-cipher-suites-registr">
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-edhoc-cipher-suites-registr" class="section-name selfRef">EDHOC Cipher Suites Registry</a>
         </h3>
-<p id="section-6.2-1">IANA is requested to update the EDHOC Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">For the existing Cipher Suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
-<p id="section-6.2-3">Furthermore, following Table 6 of <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, IANA is requested to register the following entries in the EDHOC Cipher Suites Registry:<a href="#section-6.2-3" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">IANA is requested to update the EDHOC Cipher Suites registry <span>[<a href="#IANA_edhoc_cipher_suites" class="cite xref">IANA_edhoc_cipher_suites</a>]</span> with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-3">Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:<a href="#section-6.2-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6.2-4">
 <pre>
 Value: TBD1
@@ -1441,7 +1442,6 @@ Reference: [[This document]]
 </pre><a href="#section-6.2-6" class="pilcrow">¶</a>
 </div>
 <p id="section-6.2-7">Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite <span>[<a href="#CNSA20" class="cite xref">CNSA20</a>]</span>.<a href="#section-6.2-7" class="pilcrow">¶</a></p>
-<p id="section-6.2-8">The first two proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5.<a href="#section-6.2-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1519,8 +1519,16 @@ Reference: [[This document]]
 <span class="refAuthor">Lopez-Perez</span>, <span class="refAuthor">Selander, G.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Marin-Lopez, R.</span>, and <span class="refAuthor">F. Lopez-Gomez</span>, <span class="refTitle">"EDHOC Authenticated with Pre-Shared Keys (PSK)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lake-edhoc-psk-08</span>, <time datetime="2026-06-16" class="refDate">16 June 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-08">https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-08</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.sfluhrer-cfrg-ml-kem-security-considerations">[I-D.sfluhrer-cfrg-ml-kem-security-considerations]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Dang, Q.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Milner, K.</span>, and <span class="refAuthor">D. Shiu</span>, <span class="refTitle">"ML-KEM Security Considerations"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-sfluhrer-cfrg-ml-kem-security-considerations-05</span>, <time datetime="2026-05-13" class="refDate">13 May 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05">https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IANA_edhoc_cipher_suites">[IANA_edhoc_cipher_suites]</dt>
+        <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"EDHOC Cipher Suites"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/edhoc#edhoc-cipher-suites">https://www.iana.org/assignments/edhoc#edhoc-cipher-suites</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IANA_edhoc_method_types">[IANA_edhoc_method_types]</dt>
+      <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"EDHOC Method Types"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/edhoc#edhoc-method-types">https://www.iana.org/assignments/edhoc#edhoc-method-types</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

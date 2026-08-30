@@ -5,7 +5,7 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 1 March 2027                                     28 August 2026
+Expires: 3 March 2027                                     30 August 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 March 2027.
+   This Internet-Draft will expire on 3 March 2027.
 
 Copyright Notice
 
@@ -290,6 +290,9 @@ Table of Contents
    sufficient to claim the overall post-quantum security of LAKE Method
    0 and PSK in post-quantum settings.
 
+   The first two proposals have Category 1 security level (according to
+   NIST), while proposal 3 is in Category 5.
+
 4.2.1.  Store Now Decrypt Later
 
    The use of PQ-KEM, e.g., ML-KEM, for ephemeral key exchange in LAKE
@@ -329,15 +332,16 @@ Table of Contents
 
 6.  IANA Considerations
 
-   This section specifies IANA updates for EDHOC Methods and Cipher
+   This section specifies IANA updates for EDHOC Method Types and Cipher
    Suites registration.
 
 6.1.  EDHOC Method Type Registry
 
-   IANA is requested to update the EDHOC Method Type registry with a
-   column with heading "Requires DH/NIKE" indicating that the method
-   requires Diffie-Hellman or Non-Interactive Key Exchange.  Valid table
-   entries in this column are "Yes" and "No".
+   IANA is requested to update the EDHOC Method Type registry
+   [IANA_edhoc_method_types] with a column with heading "Requires DH/
+   NIKE" indicating that the method requires Diffie-Hellman or Non-
+   Interactive Key Exchange.  Valid table entries in this column are
+   "Yes" and "No".
 
    For the existing Method Types, the following entries are inserted in
    the new "Requires DH/NIKE" column:
@@ -355,16 +359,17 @@ Table of Contents
 
 6.2.  EDHOC Cipher Suites Registry
 
-   IANA is requested to update the EDHOC Cipher Suites registry with a
-   column with heading "Supports DH/NIKE" indicating that the cipher
-   suite supports Diffie-Hellman or Non-Interactive Key Exchange.  Valid
-   table entries in this column are "Yes" and "No".
+   IANA is requested to update the EDHOC Cipher Suites registry
+   [IANA_edhoc_cipher_suites] with a column with heading "Supports DH/
+   NIKE" indicating that the cipher suite supports Diffie-Hellman or
+   Non-Interactive Key Exchange.  Valid table entries in this column are
+   "Yes" and "No".
 
-   For the existing Cipher Suites 0-6, 24, 25, the entry "Yes" is
+   For the existing cipher suites 0-6, 24, 25, the entry "Yes" is
    inserted in the new "Supports DH/NIKE" column.
 
-   Furthermore, following Table 6 of [RFC9528], IANA is requested to
-   register the following entries in the EDHOC Cipher Suites Registry:
+   Furthermore, IANA is requested to register the following entries in
+   the EDHOC Cipher Suites registry:
 
    Value: TBD1
    Array: 30, -45, 16, TBD10, -48, 10, -16
@@ -391,9 +396,6 @@ Table of Contents
    as government use and financial applications.  This cipher suites
    consists of algorithms from the Commercial National Security
    Algorithm (CNSA) 2.0 suite [CNSA20].
-
-   The first two proposals have Category 1 security level (according to
-   NIST), while proposal 3 is in Category 5.
 
 7.  References
 
@@ -484,6 +486,16 @@ Table of Contents
               considerations-05, 13 May 2026,
               <https://datatracker.ietf.org/doc/html/draft-sfluhrer-
               cfrg-ml-kem-security-considerations-05>.
+
+   [IANA_edhoc_cipher_suites]
+              IANA, "EDHOC Cipher Suites", n.d.,
+              <https://www.iana.org/assignments/edhoc#edhoc-cipher-
+              suites>.
+
+   [IANA_edhoc_method_types]
+              IANA, "EDHOC Method Types", n.d.,
+              <https://www.iana.org/assignments/edhoc#edhoc-method-
+              types>.
 
 Acknowledgments
 
