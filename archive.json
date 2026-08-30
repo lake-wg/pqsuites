@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-08-27T07:02:07.776125+00:00",
+  "timestamp": "2026-08-30T03:22:36.002638+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -62,7 +62,7 @@
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/3, by @emanjon on 11 June 2026.\n\nDiscussed today during LAKE DT meeting.\n\nDraft should mention that hybrid algorithms could be registered in the future.",
       "createdAt": "2026-08-08T13:32:25Z",
-      "updatedAt": "2026-08-15T14:00:28Z",
+      "updatedAt": "2026-08-28T07:47:04Z",
       "closedAt": null,
       "comments": [
         {
@@ -71,6 +71,13 @@
           "body": "From Lidia Pocero Fraile on 3 July 2026:\n\nhttps://mailarchive.ietf.org/arch/msg/lake/D5r0X-GKUyQ-X4k8PtJow3rYFxA/\n\nAs a possible suggestion for future consideration, I think the draft could also benefit from including PQ/T hybrid KEM cipher suites. Section 3 already states that \u201cKEM applies both to standalone KEMs and hybrid KEMs,\u201d and I think this could be directly leveraged to provide protection against Harvest Now, Decrypt Later (HNDL) attacks simply by defining a cipher suite that includes a hybrid KEM.",
           "createdAt": "2026-08-15T14:00:28Z",
           "updatedAt": "2026-08-15T14:00:28Z"
+        },
+        {
+          "author": "emanjon",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I would prefer to not have to register new COSE algorithms, and do as LAKE have done in the past. We would prefer to wait for COSE to register KEMs that we can use.\n\nAn alternative would be to hybridise on the protocol level like TLS, but that would require a sepearate draft and new formal verification.\n\nI think we should just add that\n\n```\n\"PQ/T hybrid algorithms such as [X] could be registered in the future.\"\n\n[X] draft-irtf-cfrg-concrete-hybrid-kems\n\n```\n",
+          "createdAt": "2026-08-28T07:47:04Z",
+          "updatedAt": "2026-08-28T07:47:04Z"
         }
       ]
     },
@@ -200,6 +207,22 @@
           "updatedAt": "2026-08-26T13:09:08Z"
         }
       ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOTe1l7M8AAAABOphxiw",
+      "title": "New notation for G_X, G_Y?",
+      "url": "https://github.com/lake-wg/pqsuites/issues/11",
+      "state": "OPEN",
+      "author": "gselander",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "RFC9528 uses G_X and G_Y for DH keys. This notation does not map well when DH is replaced by KEM. We also want to cover potential future NIKE. Should we change notation? \n\nTo what? After discussion with GPT-5.4 mini we agreed on \"key contribution\".\n\nG_X := KC_I = key contribution of Initiator\nG_Y := KC_R = key contribution of Responder\n\n\n\n\n\n",
+      "createdAt": "2026-08-28T12:06:33Z",
+      "updatedAt": "2026-08-28T12:06:52Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -269,13 +292,13 @@
       "labels": [],
       "body": "Section 2: details about SHA256 and post-quantum efficiency.\r\nSection 3: correction of the decapsulation algorithm and a short paragraph explaining the behaviour of G_X in this pq setting.\r\nSection 4: proposal to restructure the section, separating classical properties from the post-quantum aspect of the protocol security.\r\nSection 6: minor corrections (EDHOC -> LAKE ?).",
       "createdAt": "2026-08-15T13:50:55Z",
-      "updatedAt": "2026-08-19T09:52:55Z",
+      "updatedAt": "2026-08-28T11:36:13Z",
       "baseRepository": "lake-wg/pqsuites",
       "baseRefName": "main",
       "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
       "headRepository": "lake-wg/pqsuites",
       "headRefName": "fix-issue-5-global-review",
-      "headRefOid": "3fbe4d05e962f0c5e6c08808ffb8cda4e145f502",
+      "headRefOid": "3243dc63dedd47decc9c6a0b28d6c0f8ea42fe1b",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
