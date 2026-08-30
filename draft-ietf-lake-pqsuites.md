@@ -52,6 +52,7 @@ informative:
   I-D.connolly-cfrg-xwing-kem:
   I-D.sfluhrer-cfrg-ml-kem-security-considerations:
   I-D.connolly-cfrg-ml-dsa-security-considerations:
+  I-D.irtf-cfrg-concrete-hybrid-kems:
   FIPS202:
     target: https://doi.org/10.6028/NIST.FIPS.202
     title: SHA-3 Standard - Permutation-Based Hash and Extendable-Output Functions
@@ -202,10 +203,11 @@ As discussed above, SHA-256 and SHA-384, used as application hash functions in t
 
 The use of PQ-KEM, e.g., ML-KEM, for ephemeral key exchange in LAKE Method 0 and PSK protects against Store Now Decrypt Later (SNDL) attacks from an adversary equipped with a CRQC.
 
-### Hybridation
+### PQ/T Hybridization
 
 In the event that a feasible attack against ML-KEM or ML-DSA is discovered (that does not require a CRQC), the use of hybrid algorithms in a cipher suite, i.e., a cipher suite combining classical and post-quantum algorithms for ephemeral key exchange and signature-based authentication, ensures the continuity of the (classical) security of the LAKE Method 0 and PSK protocols in post-quantum settings (as long as the classical algorithms remain secure).
 
+PQ/T hybrid algorithms such as {{I-D.irtf-cfrg-concrete-hybrid-kems}} could be registered in the future.
 
 ### Side-channel considerations
 
