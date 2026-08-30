@@ -75,7 +75,7 @@ Table of Contents
    2.  LAKE with Quantum-Resistant Algorithms
    3.  Using KEMs in the Key Exchange
    4.  Security Considerations
-     4.1.  Usual LAKE security properties
+     4.1.  Classical LAKE security properties
      4.2.  Post-quantum security
        4.2.1.  Store Now Decrypt Later
        4.2.2.  Hybridation
@@ -248,7 +248,7 @@ Table of Contents
    In this section we discuss the security considerations brought by the
    new cipher suites.
 
-4.1.  Usual LAKE security properties
+4.1.  Classical LAKE security properties
 
    When used with Method 0 from [RFC9528], where both the Initiator and
    Responder authenticate using digital signatures, or with the PSK
