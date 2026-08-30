@@ -288,8 +288,14 @@ Table of Contents
    sufficient to claim the overall post-quantum security of LAKE Method
    0 and PSK in post-quantum settings.
 
-   The first two proposals have Category 1 security level (according to
-   NIST), while proposal 3 is in Category 5.
+   The first two cipher suite proposals have Category 1 security level
+   (according to NIST), while proposal 3 is in Category 5, see
+   Section 6.2.
+
+   As discussed above, SHA-256 and SHA-384, used as application hash
+   functions in these cipher suites are still considered to provide
+   adequate security against quantum pre-image attacks, providing
+   128-bit and 192-bit security levels, respectively.
 
 4.2.1.  Store Now Decrypt Later
 
@@ -309,11 +315,11 @@ Table of Contents
 
 4.2.3.  Side-channel considerations
 
-   Implementation of lattice-based algorithms have been shown to be
-   susceptible to side-channel attacks, e.g., regarding timing or power
-   analysis attacks.  Side-channel resistance of ML-KEM and ML-DSA
-   depends both on their implementation and on how they are used within
-   the protocol itself.
+   Implementations of post-quantum algorithms, e.g., lattice-based or
+   code-based algorithms, have been shown to be susceptible to side-
+   channel attacks, e.g., regarding timing or power analysis attacks.
+   Side-channel resistance of ML-KEM and ML-DSA depends both on their
+   implementation and on how they are used within the protocol itself.
 
    Implementations MUST follow the side-channel guidance given in the
    specifications of ML-KEM
