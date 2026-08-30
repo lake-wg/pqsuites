@@ -328,7 +328,8 @@ Table of Contents
 
 5.  Privacy Considerations
 
-   TBD
+   This document does not add any new privacy considerations to those
+   discussed in [RFC9528].
 
 6.  IANA Considerations
 
