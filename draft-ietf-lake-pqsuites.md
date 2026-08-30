@@ -79,7 +79,18 @@ informative:
       - org: National Security Agency
     date: September 2022
     target: "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/3148990/nsa-releases-future-quantum-resistant-qr-algorithm-requirements-for-national-se/"
-
+  IANA_edhoc_cipher_suites:
+    title: EDHOC Cipher Suites
+    author:
+      - org: IANA
+    date:
+    target: https://www.iana.org/assignments/edhoc#edhoc-cipher-suites
+  IANA_edhoc_method_types:
+    title: EDHOC Method Types
+    author:
+      - org: IANA
+    date:
+    target: https://www.iana.org/assignments/edhoc#edhoc-method-types
 
 
 --- abstract
@@ -185,6 +196,7 @@ Cipher suites specified in this document use ML-KEM for ephemeral key exchange, 
 
 The security of LAKE for methods 0 to 3, specified in {{RFC9528}}, and for the PSK mode, estalished in {{I-D.ietf-lake-edhoc-psk}} has been estalished in the Random Oracle Model (ROM), i.e., against "classical" adversaries. Proving the same security properties against quantum adversaries, i.e., in the Quantum Random Oracle Model (QROM), for LAKE Method 0 and PSK, is left for futur work. To date, only the standalone primitives ML-KEM and ML-DSA have been analyzed in the QROM, and their integration into cipher suites is not sufficient to claim the overall post-quantum security of LAKE Method 0 and PSK in post-quantum settings.
 
+The first two proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5.
 
 ### Store Now Decrypt Later
 
@@ -209,11 +221,11 @@ TBD
 
 # IANA Considerations
 
-This section specifies IANA updates for EDHOC Methods and Cipher Suites registration.
+This section specifies IANA updates for EDHOC Method Types and Cipher Suites registration.
 
 ## EDHOC Method Type Registry {#method-update}
 
-IANA is requested to update the EDHOC Method Type registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the EDHOC Method Type registry {{IANA_edhoc_method_types}} with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:
 
@@ -233,11 +245,11 @@ Value: 4, Requires DH/NIKE: No
 
 ## EDHOC Cipher Suites Registry {#suites-registry}
 
-IANA is requested to update the EDHOC Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the EDHOC Cipher Suites registry {{IANA_edhoc_cipher_suites}} with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
-For the existing Cipher Suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.
+For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.
 
-Furthermore, following Table 6 of {{RFC9528}}, IANA is requested to register the following entries in the EDHOC Cipher Suites Registry:
+Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:
 
 ~~~~~~~~~~~~~~~~~~~~~~~
 Value: TBD1
@@ -257,7 +269,6 @@ Supports DH/NIKE: No
 Reference: [[This document]]
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~
 Value: TBD3
 Array: 3, -43, 16, TBD12, -48, 3, -43
@@ -268,8 +279,6 @@ Reference: [[This document]]
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
-
-The first two proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5.
 
 --- back
 
