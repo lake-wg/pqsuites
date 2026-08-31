@@ -193,7 +193,11 @@ This is because the security properties of LAKE (methods 0 and PSK) are affected
 
 Cipher suites specified in this document use ML-KEM for ephemeral key exchange, and ML-DSA for authentication. These algorithms are believed secure against a quantum adversary. Security considerations of ML-KEM are discussed in {{I-D.sfluhrer-cfrg-ml-kem-security-considerations}}, and those of ML-DSA are addressed in {{I-D.connolly-cfrg-ml-dsa-security-considerations}}.
 
-The security of LAKE for methods 0 to 3, specified in {{RFC9528}}, and for the PSK mode, estalished in {{I-D.ietf-lake-edhoc-psk}} has been estalished in the Random Oracle Model (ROM), i.e., against "classical" adversaries. Proving the same security properties against quantum adversaries, i.e., in the Quantum Random Oracle Model (QROM), for LAKE Method 0 and PSK, is left for futur work. To date, only the standalone primitives ML-KEM and ML-DSA have been analyzed in the QROM, and their integration into cipher suites is not sufficient to claim the overall post-quantum security of LAKE Method 0 and PSK in post-quantum settings.
+The security of LAKE for methods 0 to 3, specified in {{RFC9528}}, and for the PSK mode, settled in {{I-D.ietf-lake-edhoc-psk}}, has been established in the Random Oracle Model (ROM), i.e., against "classical" adversaries.
+
+In the Quantum Random Oracle Model (QROM), two adversary models are relevant: a Q1 adversary, able to perform offline quantum computations, but who can only make classical queries to oracles defined according to the protocol; and a Q2 adversary, able to query all the oracles in superposition.
+
+The Q1 adversary is considered as the most realistic and practicable threat model currently. However, establishing the security properties of LAKE Method 0 and PSK with quantum-resistant cipher suites in the Q1 model is left for future work. To date, only the standalone primitives ML-KEM and ML-DSA have been analyzed in the QROM, and their integration into cipher suites is not sufficient to claim the overall post-quantum security of LAKE Method 0 and PSK with these new cipher suites.
 
 The first two cipher suite proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5, see {{suites-registry}}.
 
