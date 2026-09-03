@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-09-01T03:21:19.455491+00:00",
+  "timestamp": "2026-09-03T02:45:11.400394+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -220,7 +220,45 @@
       "labels": [],
       "body": "RFC9528 uses G_X and G_Y for DH keys. This notation does not map well when DH is replaced by KEM. We also want to cover potential future NIKE. Should we change notation? \n\nTo what? After discussion with GPT-5.4 mini we agreed on \"key contribution\".\n\nG_X := KC_I = key contribution of Initiator\nG_Y := KC_R = key contribution of Responder\n\n\n\n\n\n",
       "createdAt": "2026-08-28T12:06:33Z",
-      "updatedAt": "2026-08-28T12:06:52Z",
+      "updatedAt": "2026-09-01T08:47:19Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "gselander",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Alternatively \"key share\"\n\nG_X := KS_I = key share of Initiator\nG_Y := KS_R = key share of Responder\n\n\n\n",
+          "createdAt": "2026-09-01T08:41:33Z",
+          "updatedAt": "2026-09-01T08:41:33Z"
+        },
+        {
+          "author": "gselander",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Also may want to rename the message_2 field:\nG_Y_CIPHERTEXT_2 := KI_R_CIPHERTEXT_2, etc.\n\nand Shared Secret:\nG_XY := SS",
+          "createdAt": "2026-09-01T08:44:57Z",
+          "updatedAt": "2026-09-01T08:44:57Z"
+        },
+        {
+          "author": "gselander",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This is not targeting retroactive updates, just to have a common terminology in current drafts and going forward.",
+          "createdAt": "2026-09-01T08:47:18Z",
+          "updatedAt": "2026-09-01T08:47:18Z"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOTe1l7M8AAAABPIB9ng",
+      "title": "What is \"DH/NIKE\"?",
+      "url": "https://github.com/lake-wg/pqsuites/issues/12",
+      "state": "OPEN",
+      "author": "cabo",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "ChatGPT had this definition:\n\n> In sneaker circles, \u201cDH/Nike\u201d usually refers to fake Nike shoes bought from DHgate.\n\nI'm sure something else is meant, but that should be defined as a term (beyond just expanding the abbreviations, which doesn't help with the undefined meaning of the slash construction).\n\n",
+      "createdAt": "2026-09-01T09:13:23Z",
+      "updatedAt": "2026-09-01T09:13:23Z",
       "closedAt": null,
       "comments": []
     }
