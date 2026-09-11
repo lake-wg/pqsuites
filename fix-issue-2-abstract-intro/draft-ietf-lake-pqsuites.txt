@@ -5,7 +5,7 @@
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Intended status: Standards Track                                Ericsson
-Expires: 3 March 2027                                     30 August 2026
+Expires: 15 March 2027                                 11 September 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -16,17 +16,14 @@ Abstract
    The Lightweight Authenticated Key Exchange (LAKE) protocol [RFC9528],
    also known as Ephemeral Diffie-Hellman over COSE (EDHOC), currently
    relies on Elliptic Curve Cryptography (ECC) for key exchange and
-   authentication.  While well-suited for constrained environments,
-   existing cipher suites do not provide post-quantum security.  This
-   document specifies how the LAKE protocol operates in a post-quantum
-   setting by adding new cipher suites with quantum-resistant
-   algorithms, such as ML-DSA for digital signatures and ML-KEM for key
-   exchange.  These new cipher suites are compatible with signature-
-   based and PSK-based authentication methods.  Moreover, as PQ-KEM
-   constructions are, in general, not Diffie-Hellman / Non-Interactive
-   Key Exchange (DH/NIKE) primitives, this document updates the EDHOC
-   Method Types and Cipher Suites registries to indicate DH/NIKE
-   requirements and support respectively.
+   authentication.  This document specifies how the LAKE protocol
+   operates in a post-quantum setting by adding new cipher suites
+   compatible with signature-based and PSK-based authentication methods
+   using quantum-resistant algorithms, such as ML-DSA for digital
+   signatures and ML-KEM for key exchange.  This document also updates
+   the EDHOC Method Types and Cipher Suites registries to indicate,
+   respectively, requirement and support for Diffie-Hellman / Non-
+   Interactive Key Exchange primitives.
 
 About This Document
 
@@ -59,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 March 2027.
+   This Internet-Draft will expire on 15 March 2027.
 
 Copyright Notice
 
@@ -104,9 +101,9 @@ Table of Contents
    [I-D.ietf-lake-edhoc-psk].
 
    Currently defined cipher suites rely on Elliptic Curve Cryptography
-   (ECC) for key exchange and authentication, making them vulnerable in
-   the event that a Cryptographically Relevant Quantum Computer (CRQC)
-   is constructed.
+   (ECC) for key exchange and authentication, while well-suited for
+   constrained environments, making them vulnerable in the event that a
+   Cryptographically Relevant Quantum Computer (CRQC) is constructed.
 
    This document specifies how the LAKE protocol can operate in a post-
    quantum setting using both signature-based and PSK-based
@@ -114,17 +111,17 @@ Table of Contents
    KEM on COSE [I-D.ietf-jose-pqc-kem] for key exchange and ML-DSA on
    COSE [I-D.ietf-cose-dilithium] for authentication.  The use of a
    Post-Quantum KEM (PQ-KEM) serves as a post-quantum replacement for
-   the ephemeral Diffie-Hellman key exchange, and makes the protocol no
-   longer depend on it.  Thus EDHOC is a misnomer and we henceforth use
-   the name LAKE for the protocol.
+   the ephemeral Diffie-Hellman key exchange.  A dedicated Post-Quantum
+   KEM based authentication method is described in a separate document
+   [I-D.ietf-lake-authkem-edhoc].
 
-   Moreover, as PQ-KEM constructions are, in general, not Diffie-Hellman
-   / Non-Interactive Key Exchange (DH/NIKE) primitives, this document
-   updates the EDHOC Method Type registry to indicate whether a given
-   method requires DH/NIKE, and the EDHOC Cipher Suites registry to
-   indicate whether a cipher suite supports DH/NIKE-based key exchange,
-   see Section 6.1 and Section 6.2.  New cipher suites combining ML-KEM
-   and ML-DSA are registered accordingly.
+   Moreover, as currently standardized PQ-KEM constructions are not
+   Diffie-Hellman / Non-Interactive Key Exchange (DH/NIKE) primitives,
+   this document updates the EDHOC Method Type registry to indicate
+   whether a given method requires DH/NIKE, and updates the EDHOC Cipher
+   Suites registry to indicate whether a cipher suite supports DH/NIKE-
+   based key exchange, see Section 6.1 and Section 6.2.  New cipher
+   suites combining ML-KEM and ML-DSA are registered accordingly.
 
 1.1.  Terminology
 
@@ -134,11 +131,15 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-   Readers are expected to be familiar with [RFC9528].  To avoid
-   misunderstanding of the capabilities of the protocol, the name EDHOC
-   is replaced by LAKE.  To avoid misunderstanding with terminology from
-   [RFC9528], the prefix EDHOC is retained when needed, for example in
-   the IANA registries.
+   Readers are expected to be familiar with [RFC9528].
+
+   With the addition of KEM based key exchange, the protocol is no
+   longer dependent on Diffie-Hellman, and thus the name Ephemeral
+   Diffie-Hellman over COSE (EDHOC) is a misnomer.  To avoid
+   misunderstanding of the capabilities of the protocol, we henceforth
+   use the name LAKE for the protocol.  To avoid misunderstanding with
+   terminology from [RFC9528], the prefix EDHOC is retained when needed,
+   for example in the IANA registries.
 
 2.  LAKE with Quantum-Resistant Algorithms
 
@@ -365,13 +366,20 @@ Table of Contents
               10, 2 March 2026, <https://datatracker.ietf.org/doc/html/
               draft-connolly-cfrg-xwing-kem-10>.
 
+   [I-D.ietf-lake-authkem-edhoc]
+              Fraile, L. P., Koulamas, C., Fournaris, A., and E.
+              Haleplidis, "KEM-based Authentication for EDHOC", Work in
+              Progress, Internet-Draft, draft-ietf-lake-authkem-edhoc-
+              00, 6 July 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lake-authkem-edhoc-00>.
+
    [I-D.ietf-lake-edhoc-psk]
               Lopez-Perez, Selander, G., Mattsson, J. P., Marin-Lopez,
               R., and F. Lopez-Gomez, "EDHOC Authenticated with Pre-
               Shared Keys (PSK)", Work in Progress, Internet-Draft,
-              draft-ietf-lake-edhoc-psk-08, 16 June 2026,
+              draft-ietf-lake-edhoc-psk-09, 8 September 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-lake-
-              edhoc-psk-08>.
+              edhoc-psk-09>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
