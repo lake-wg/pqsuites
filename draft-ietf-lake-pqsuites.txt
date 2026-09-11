@@ -15,9 +15,9 @@ Expires: 15 March 2027                                          C. Papon
 
 Abstract
 
-   The Lightweight Authenticated Key Exchange (LAKE) protocol [RFC9528],
-   also known as Ephemeral Diffie-Hellman over COSE (EDHOC), currently
-   relies on Elliptic Curve Cryptography (ECC) for key exchange and
+   The Lightweight Authenticated Key Exchange (LAKE) protocol, also
+   known as Ephemeral Diffie-Hellman over COSE (EDHOC), currently relies
+   on Elliptic Curve Cryptography (ECC) for key exchange and
    authentication.  This document specifies how the LAKE protocol
    operates in a post-quantum setting by adding new cipher suites
    compatible with signature-based and PSK-based authentication methods
