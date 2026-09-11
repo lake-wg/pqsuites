@@ -241,18 +241,20 @@ Table of Contents
 
    Just as with the ephemeral key G_Y, the length of KEM ciphertext c is
    known from the corresponding algorithm in the selected cipher suite,
-   see Figure 1.  Hence the Initator can separate out the concatenated
+   see Table 1.  Hence the Initator can separate out the concatenated
    ciphertexts and decapsulate and decrypt, respectively.
 
-   +-------------+------------------------------+
-   |     KEM     | Length of ciphertext (bytes) |
-   +=============+==============================+
-   | ML-KEM-512  |                          768 |
-   | ML-KEM-768  |                         1088 |
-   | ML-KEM-1024 |                         1568 |
-   +-------------+------------------------------+
+              +=============+==============================+
+              | KEM         | Length of ciphertext (bytes) |
+              +=============+==============================+
+              | ML-KEM-512  |                          768 |
+              +-------------+------------------------------+
+              | ML-KEM-768  |                         1088 |
+              +-------------+------------------------------+
+              | ML-KEM-1024 |                         1568 |
+              +-------------+------------------------------+
 
-                   Figure 1: Length of ML-KEM Ciphertext.
+                  Table 1: Length of ML-KEM Ciphertext.
 
    Note also that this use of KEM applies both to standalone KEM and
    hybrid KEMs such as, e.g., X-wing [I-D.connolly-cfrg-xwing-kem].
