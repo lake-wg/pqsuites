@@ -81,11 +81,11 @@ Table of Contents
    2.  LAKE with Quantum-Resistant Algorithms
    3.  Using KEMs in the Key Exchange
    4.  Security Considerations
-     4.1.  Classical LAKE security properties
-     4.2.  Post-quantum security
+     4.1.  Classical LAKE Security Properties
+     4.2.  Post-quantum Security
        4.2.1.  Store Now Decrypt Later
        4.2.2.  PQ/T Hybridization
-       4.2.3.  Side-channel considerations
+       4.2.3.  Side-channel Considerations
    5.  Privacy Considerations
    6.  IANA Considerations
      6.1.  EDHOC Method Type Registry
@@ -269,7 +269,7 @@ Table of Contents
    In this section we discuss the security considerations brought by the
    new cipher suites.
 
-4.1.  Classical LAKE security properties
+4.1.  Classical LAKE Security Properties
 
    When used with Method 0 from [RFC9528], where both the Initiator and
    Responder authenticate using digital signatures, or with the PSK
@@ -288,7 +288,7 @@ Table of Contents
    against a classical adversary, the security properties are
    guaranteed.
 
-4.2.  Post-quantum security
+4.2.  Post-quantum Security
 
    Cipher suites specified in this document use ML-KEM for ephemeral key
    exchange, and ML-DSA for authentication.  These algorithms are
@@ -346,7 +346,7 @@ Table of Contents
    PQ/T hybrid algorithms such as [I-D.irtf-cfrg-concrete-hybrid-kems]
    could be registered in the future.
 
-4.2.3.  Side-channel considerations
+4.2.3.  Side-channel Considerations
 
    Implementations of post-quantum algorithms, e.g., lattice-based or
    code-based algorithms, have been shown to be susceptible to side-
