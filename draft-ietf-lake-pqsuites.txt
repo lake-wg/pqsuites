@@ -4,9 +4,9 @@
 
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
-Intended status: Standards Track                                Ericsson
-Expires: 15 March 2027                                          C. Papon
-                                                      Limoges University
+Updates: 7528 (if approved)                                     Ericsson
+Intended status: Standards Track                                C. Papon
+Expires: 15 March 2027                                Limoges University
                                                        11 September 2026
 
 
@@ -372,8 +372,8 @@ Table of Contents
 
 6.  IANA Considerations
 
-   This section specifies IANA updates for EDHOC Method Types and Cipher
-   Suites registration.
+   This section specifies updates to the EDHOC Method Types and Cipher
+   Suites registries.
 
 6.1.  EDHOC Method Type Registry
 
