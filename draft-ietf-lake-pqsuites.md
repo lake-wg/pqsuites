@@ -5,6 +5,7 @@ title: Quantum-Resistant Cipher Suites for LAKE
 abbrev: LAKE PQC
 docname: draft-ietf-lake-pqsuites-latest
 category: std
+updates: 7528
 submissiontype: IETF
 
 v3xml2rfc:
@@ -234,7 +235,7 @@ This document does not add any new privacy considerations to those discussed in 
 
 # IANA Considerations
 
-This section specifies IANA updates for EDHOC Method Types and Cipher Suites registration.
+This section specifies updates to the EDHOC Method Types and Cipher Suites registries.
 
 ## EDHOC Method Type Registry {#method-update}
 
