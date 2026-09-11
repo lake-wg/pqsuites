@@ -87,19 +87,11 @@ informative:
       - org: National Security Agency
     date: September 2022
     target: "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/3148990/nsa-releases-future-quantum-resistant-qr-algorithm-requirements-for-national-se/"
-  IANA_edhoc_cipher_suites:
-    title: EDHOC Cipher Suites
+  IANA_edhoc:
+    title: Ephemeral Diffie-Hellman Over COSE (EDHOC) Registry Group
     author:
-      - org: IANA
     date:
-    target: https://www.iana.org/assignments/edhoc#edhoc-cipher-suites
-  IANA_edhoc_method_types:
-    title: EDHOC Method Types
-    author:
-      - org: IANA
-    date:
-    target: https://www.iana.org/assignments/edhoc#edhoc-method-types
-
+    target: https://www.iana.org/assignments/edhoc
 
 --- abstract
 
@@ -239,7 +231,7 @@ This section specifies updates to the EDHOC Method Types and Cipher Suites regis
 
 ## EDHOC Method Type Registry {#method-update}
 
-IANA is requested to update the EDHOC Method Type registry {{IANA_edhoc_method_types}} with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the EDHOC Method Type registry {{IANA_edhoc}} with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:
 
@@ -259,7 +251,7 @@ Value: 4, Requires DH/NIKE: No
 
 ## EDHOC Cipher Suites Registry {#suites-registry}
 
-IANA is requested to update the EDHOC Cipher Suites registry {{IANA_edhoc_cipher_suites}} with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the EDHOC Cipher Suites registry {{IANA_edhoc}} with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.
 
