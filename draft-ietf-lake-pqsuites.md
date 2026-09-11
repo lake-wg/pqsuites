@@ -135,7 +135,7 @@ Method 0 in {{RFC9528}}, which uses digital signatures for authentication by bot
 
 A quantum-resistant signature algorithm, such as ML-DSA {{I-D.ietf-cose-dilithium}}, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, in order to replace the Ephemeral Diffie-Hellman key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM {{I-D.ietf-jose-pqc-kem}}, can be applied directly to the LAKE protocol, as is detailed in {{KEM}}.
 
-To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 {{I-D.ietf-jose-pqc-kem}} for key exchange, and ML-DSA-44 and ML-DSA-87 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256 {{FIPS202}}, it was natural to have SHAKE256 as EDHOC hash algorithm in the cipher suite, and thus used also in the key derivation, see {{Section 4 of RFC9528}}. Note that as AEAD hash function in these cipher suites, the legacy algorithms SHA-256 or SHA-384 are still used, see {{suites-registry}}. Additional post-quantum cipher suites may be specified.
+To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 {{I-D.ietf-jose-pqc-kem}} for key exchange, and ML-DSA-44 and ML-DSA-87 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256 {{FIPS202}}, it was natural to have SHAKE256 as EDHOC hash algorithm in the cipher suite, and thus used also in the key derivation, see {{Section 4 of RFC9528}}. Note that as application hash function in these cipher suites, the legacy algorithms SHA-256 or SHA-384 are still used, see {{suites-registry}}. Additional post-quantum cipher suites may be specified.
 
 Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods that require DH/NIKE a column is added to the EDHOC Method Type registry, see {{method-update}}. To highlight matching cipher suites a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
 
@@ -197,7 +197,7 @@ The cipher suites defined in {{RFC9528}} rely on Elliptic Curve Cryptography (EC
 
 ## Classical LAKE Security Properties
 
-When used with Method 0 from {{RFC9528}}, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in {{I-D.ietf-lake-edhoc-psk}}, these cipher suites preserve the security properties discussed in {{Section 9 of RFC9528}} (for Method 0) and in {{Section 9 of I-D.ietf-lake-edhoc-psk}} (for PSK method). Let us cite, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.
+When used with Method 0 from {{RFC9528}}, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in {{I-D.ietf-lake-edhoc-psk}}, these cipher suites preserve the security properties discussed in {{Section 9 of RFC9528}} (for Method 0) and in {{Section 9 of I-D.ietf-lake-edhoc-psk}} (for PSK method). These include, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.
 
 This is because the security properties of LAKE (methods 0 and PSK) are affected by cipher suites only through the security of the algorithms involved. Since the algorithms introduced in these cipher suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure, i.e., secure against a quantum adversary and, by extension, secure against a classical adversary, the security properties are guaranteed.
 
@@ -296,7 +296,7 @@ Supports DH/NIKE: No
 Reference: [[This document]]
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
+Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
 --- back
 
