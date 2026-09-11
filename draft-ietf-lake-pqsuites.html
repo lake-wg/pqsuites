@@ -1408,7 +1408,7 @@ message_2 = (
         <h3 id="name-edhoc-method-type-registry">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-edhoc-method-type-registry" class="section-name selfRef">EDHOC Method Type Registry</a>
         </h3>
-<p id="section-6.1-1">IANA is requested to update the EDHOC Method Type registry <span>[<a href="#IANA_edhoc_method_types" class="cite xref">IANA_edhoc_method_types</a>]</span> with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">IANA is requested to update the EDHOC Method Type registry <span>[<a href="#IANA_edhoc" class="cite xref">IANA_edhoc</a>]</span> with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6.1-3">
 <pre>
@@ -1432,7 +1432,7 @@ Value: 4, Requires DH/NIKE: No
         <h3 id="name-edhoc-cipher-suites-registr">
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-edhoc-cipher-suites-registr" class="section-name selfRef">EDHOC Cipher Suites Registry</a>
         </h3>
-<p id="section-6.2-1">IANA is requested to update the EDHOC Cipher Suites registry <span>[<a href="#IANA_edhoc_cipher_suites" class="cite xref">IANA_edhoc_cipher_suites</a>]</span> with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">IANA is requested to update the EDHOC Cipher Suites registry <span>[<a href="#IANA_edhoc" class="cite xref">IANA_edhoc</a>]</span> with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.2-3">Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:<a href="#section-6.2-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6.2-4">
@@ -1554,13 +1554,9 @@ Reference: [[This document]]
         <dd>
 <span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Dang, Q.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Milner, K.</span>, and <span class="refAuthor">D. Shiu</span>, <span class="refTitle">"ML-KEM Security Considerations"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-sfluhrer-cfrg-ml-kem-security-considerations-05</span>, <time datetime="2026-05-13" class="refDate">13 May 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05">https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="IANA_edhoc_cipher_suites">[IANA_edhoc_cipher_suites]</dt>
-        <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"EDHOC Cipher Suites"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/edhoc#edhoc-cipher-suites">https://www.iana.org/assignments/edhoc#edhoc-cipher-suites</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="IANA_edhoc_method_types">[IANA_edhoc_method_types]</dt>
+<dt id="IANA_edhoc">[IANA_edhoc]</dt>
       <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"EDHOC Method Types"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/edhoc#edhoc-method-types">https://www.iana.org/assignments/edhoc#edhoc-method-types</a>&gt;</span>. </dd>
+<span class="refTitle">"Ephemeral Diffie-Hellman Over COSE (EDHOC) Registry Group"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/edhoc">https://www.iana.org/assignments/edhoc</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

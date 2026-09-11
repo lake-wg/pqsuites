@@ -378,10 +378,9 @@ Table of Contents
 6.1.  EDHOC Method Type Registry
 
    IANA is requested to update the EDHOC Method Type registry
-   [IANA_edhoc_method_types] with a column with heading "Requires DH/
-   NIKE" indicating that the method requires Diffie-Hellman or Non-
-   Interactive Key Exchange.  Valid table entries in this column are
-   "Yes" and "No".
+   [IANA_edhoc] with a column with heading "Requires DH/NIKE" indicating
+   that the method requires Diffie-Hellman or Non-Interactive Key
+   Exchange.  Valid table entries in this column are "Yes" and "No".
 
    For the existing Method Types, the following entries are inserted in
    the new "Requires DH/NIKE" column:
@@ -400,10 +399,9 @@ Table of Contents
 6.2.  EDHOC Cipher Suites Registry
 
    IANA is requested to update the EDHOC Cipher Suites registry
-   [IANA_edhoc_cipher_suites] with a column with heading "Supports DH/
-   NIKE" indicating that the cipher suite supports Diffie-Hellman or
-   Non-Interactive Key Exchange.  Valid table entries in this column are
-   "Yes" and "No".
+   [IANA_edhoc] with a column with heading "Supports DH/NIKE" indicating
+   that the cipher suite supports Diffie-Hellman or Non-Interactive Key
+   Exchange.  Valid table entries in this column are "Yes" and "No".
 
    For the existing cipher suites 0-6, 24, 25, the entry "Yes" is
    inserted in the new "Supports DH/NIKE" column.
@@ -541,15 +539,9 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-sfluhrer-
               cfrg-ml-kem-security-considerations-05>.
 
-   [IANA_edhoc_cipher_suites]
-              IANA, "EDHOC Cipher Suites", n.d.,
-              <https://www.iana.org/assignments/edhoc#edhoc-cipher-
-              suites>.
-
-   [IANA_edhoc_method_types]
-              IANA, "EDHOC Method Types", n.d.,
-              <https://www.iana.org/assignments/edhoc#edhoc-method-
-              types>.
+   [IANA_edhoc]
+              "Ephemeral Diffie-Hellman Over COSE (EDHOC) Registry
+              Group", n.d., <https://www.iana.org/assignments/edhoc>.
 
 Acknowledgments
 
