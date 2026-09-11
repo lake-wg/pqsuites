@@ -120,7 +120,7 @@ This document specifies how the LAKE protocol can operate in a post-quantum sett
 Moreover, as currently standardized PQ-KEM constructions are not Diffie-Hellman / Non-Interactive Key Exchange (DH/NIKE) primitives, this document updates the EDHOC Method Type registry to indicate whether a given method requires DH/NIKE, and updates the EDHOC Cipher Suites registry to indicate whether a cipher suite supports DH/NIKE-based key exchange, see {{method-update}} and {{suites-registry}}. New cipher suites combining ML-KEM and ML-DSA are registered accordingly.
 
 
-## Terminology # {#terminology}
+## Terminology {#terminology}
 
 {::boilerplate bcp14}
 
@@ -195,14 +195,14 @@ Conventions for using post-quantum KEMs within COSE are described in {{I-D.ietf-
 
 The cipher suites defined in {{RFC9528}} rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication, which would be broken by a Cryptographically Relevant Quantum Computer (CRQC). In this section we discuss the security considerations brought by the new cipher suites.
 
-## Classical LAKE security properties
+## Classical LAKE Security Properties
 
 When used with Method 0 from {{RFC9528}}, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in {{I-D.ietf-lake-edhoc-psk}}, these cipher suites preserve the security properties discussed in {{Section 9 of RFC9528}} (for Method 0) and in {{Section 9 of I-D.ietf-lake-edhoc-psk}} (for PSK method). Let us cite, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.
 
 This is because the security properties of LAKE (methods 0 and PSK) are affected by cipher suites only through the security of the algorithms involved. Since the algorithms introduced in these cipher suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure, i.e., secure against a quantum adversary and, by extension, secure against a classical adversary, the security properties are guaranteed.
 
 
-## Post-quantum security
+## Post-quantum Security
 
 Cipher suites specified in this document use ML-KEM for ephemeral key exchange, and ML-DSA for authentication. These algorithms are believed secure against a quantum adversary. Security considerations of ML-KEM are discussed in {{I-D.sfluhrer-cfrg-ml-kem-security-considerations}}, and those of ML-DSA are addressed in {{I-D.connolly-cfrg-ml-dsa-security-considerations}}.
 
@@ -226,7 +226,7 @@ In the event that a feasible attack against ML-KEM or ML-DSA is discovered (that
 
 PQ/T hybrid algorithms such as {{I-D.irtf-cfrg-concrete-hybrid-kems}} could be registered in the future.
 
-### Side-channel considerations
+### Side-channel Considerations
 
 Implementations of post-quantum algorithms, e.g., lattice-based or code-based algorithms, have been shown to be susceptible to side-channel attacks, e.g., regarding timing or power analysis attacks. Side-channel resistance of ML-KEM and ML-DSA depends both on their implementation and on how they are used within the protocol itself.
 
@@ -301,7 +301,7 @@ Cipher suite TBD3 is intended for for high security applications such as governm
 --- back
 
 
-# Acknowledgments # {#acknowledgment}
+# Acknowledgments {#acknowledgment}
 {: numbered="no"}
 
 This work was supported partially by Vinnova - the Swedish Agency for Innovation Systems - through the EUREKA CELTIC-NEXT project CYPRESS.
