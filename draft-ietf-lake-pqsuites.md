@@ -174,18 +174,13 @@ message_2 = (
 
 and G_Y_CIPHERTEXT_2 remains the concatenation of G_Y and CIPHERTEXT_2, the latter is defined in {{Section 5.3.2 of RFC9528}}. But now G_Y is a KEM ciphertext.
 
-Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see {{fig-ct-length}}. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.
+Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see {{tab-ct-length}}. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.
 
-~~~~~~~~~~~
-+-------------+------------------------------+
-|     KEM     | Length of ciphertext (bytes) |
-+=============+==============================+
-| ML‑KEM‑512  |                          768 |
-| ML‑KEM‑768  |                         1088 |
-| ML‑KEM‑1024 |                         1568 |
-+-------------+------------------------------+
-~~~~~~~~~~~
-{: #fig-ct-length title="Length of ML-KEM Ciphertext."}
+| KEM | Length of ciphertext (bytes) |
+| ML‑KEM‑512 | 768 |
+| ML‑KEM‑768 | 1088 |
+| ML‑KEM‑1024 | 1568 |
+{: #tab-ct-length title="Length of ML-KEM Ciphertext." cols="l r"}
 
 Note also that this use of KEM applies both to standalone KEM and hybrid KEMs such as, e.g., X-wing {{I-D.connolly-cfrg-xwing-kem}}.
 
