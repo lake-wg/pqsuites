@@ -439,6 +439,10 @@ Table of Contents
    consists of algorithms from the Commercial National Security
    Algorithm (CNSA) 2.0 suite [CNSA20].
 
+   RFC Editor Note: Please verify during publication that the EDHOC
+   Cipher Suites registry has not been modified since the IANA
+   instructions in this document were finalized.
+
 7.  References
 
 7.1.  Normative References
