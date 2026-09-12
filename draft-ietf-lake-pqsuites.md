@@ -249,7 +249,7 @@ IANA is requested to update the EDHOC Cipher Suites registry {{IANA}} with a col
 
 For the existing Cipher Suites 0–6, 24, and 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column. The column is left empty for all other existing entries.
 
-Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:
+Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry, with this document as the reference:
 
 | Value | Array | Description | Supports DH/NIKE |
 | TBD1  | 30, -45, 16, TBD10, -48, 10, -16 | AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44, AES-CCM-16-64-128, SHA-256 | No |
@@ -260,7 +260,6 @@ Furthermore, IANA is requested to register the following entries in the EDHOC Ci
 Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
 --- back
-
 
 # Acknowledgments {#acknowledgment}
 {: numbered="no"}
