@@ -247,7 +247,7 @@ Value: 4, Requires DH/NIKE: No
 
 IANA is requested to update the EDHOC Cipher Suites registry {{IANA}} with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
-For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.
+For the existing Cipher Suites 0–6, 24, and 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column. The column is left empty for all other existing entries.
 
 Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:
 
