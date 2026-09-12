@@ -245,7 +245,7 @@ Table of Contents
 
    Just as with the ephemeral key G_Y, the length of KEM ciphertext c is
    known from the corresponding algorithm in the selected cipher suite,
-   see Table 1.  Hence the Initator can separate out the concatenated
+   see Table 1.  Hence the Initiator can separate out the concatenated
    ciphertexts and decapsulate and decrypt, respectively.
 
               +=============+==============================+
