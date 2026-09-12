@@ -53,12 +53,11 @@ normative:
 
 informative:
   I-D.ietf-iotops-7228bis:
-  I-D.ietf-lake-edhoc-psk:
-  I-D.connolly-cfrg-xwing-kem:
-  I-D.sfluhrer-cfrg-ml-kem-security-considerations:
   I-D.ietf-lake-authkem-edhoc:
-  I-D.connolly-cfrg-ml-dsa-security-considerations:
+  I-D.ietf-lake-edhoc-psk:
   I-D.irtf-cfrg-concrete-hybrid-kems:
+  I-D.connolly-cfrg-ml-dsa-security-considerations:
+  I-D.sfluhrer-cfrg-ml-kem-security-considerations:
   FIPS202:
     target: https://doi.org/10.6028/NIST.FIPS.202
     title: SHA-3 Standard - Permutation-Based Hash and Extendable-Output Functions
@@ -168,7 +167,7 @@ Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from
 | ML‑KEM‑1024 | 1568 |
 {: #tab-ct-length title="Length of ML-KEM Ciphertext." cols="l r"}
 
-Note also that this use of KEM applies both to standalone KEM and hybrid KEMs such as, e.g., X-wing {{I-D.connolly-cfrg-xwing-kem}}.
+Note also that this use of KEM applies both to standalone KEM and composite hybrid KEMs such as, e.g., {{I-D.irtf-cfrg-concrete-hybrid-kems}}.
 
 Conventions for using post-quantum KEMs within COSE are described in {{I-D.ietf-jose-pqc-kem}}. The shared secret key K corresponds to the initial shared secret SS' in that document.
 
