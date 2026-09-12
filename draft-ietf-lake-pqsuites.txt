@@ -4,7 +4,7 @@
 
 LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
-Updates: 7528 (if approved)                                     Ericsson
+Updates: 9528 (if approved)                                     Ericsson
 Intended status: Standards Track                                C. Papon
 Expires: 16 March 2027                                Limoges University
                                                        12 September 2026
