@@ -1435,37 +1435,43 @@ Value: 4, Requires DH/NIKE: No
 <p id="section-6.2-1">IANA is requested to update the EDHOC Cipher Suites registry <span>[<a href="#IANA" class="cite xref">IANA</a>]</span> with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.2-3">Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:<a href="#section-6.2-3" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6.2-4">
-<pre>
-Value: TBD1
-Array: 30, -45, 16, TBD10, -48, 10, -16
-Description: AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44,
-             AES-CCM-16-64-128, SHA-256
-Supports DH/NIKE: No
-Reference: [[This document]]
-</pre><a href="#section-6.2-4" class="pilcrow">¶</a>
+<span id="name-edhoc-cipher-suites"></span><div id="tab-cipher-suites">
+<table class="center" id="table-2">
+          <caption>
+<a href="#table-2" class="selfRef">Table 2</a>:
+<a href="#name-edhoc-cipher-suites" class="selfRef">EDHOC Cipher Suites.</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Value</th>
+              <th class="text-left" rowspan="1" colspan="1">Array</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Supports DH/NIKE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD1</td>
+              <td class="text-left" rowspan="1" colspan="1">30, -45, 16, TBD10, -48, 10, -16</td>
+              <td class="text-left" rowspan="1" colspan="1">AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44, AES-CCM-16-64-128, SHA-256</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD2</td>
+              <td class="text-left" rowspan="1" colspan="1">3, -45, 16, TBD10, -48, 3, -16</td>
+              <td class="text-left" rowspan="1" colspan="1">A256GCM, SHAKE256, 16, MLKEM512, ML-DSA-44, A256GCM, SHA-256</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD3</td>
+              <td class="text-left" rowspan="1" colspan="1">3, -43, 16, TBD12, -50, 3, -43</td>
+              <td class="text-left" rowspan="1" colspan="1">A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87, A256GCM, SHA-384</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+          </tbody>
+        </table>
 </div>
-<div class="alignLeft art-text artwork" id="section-6.2-5">
-<pre>
-Value: TBD2
-Array: 3, -45, 16, TBD10, -48, 3, -16
-Description: A256GCM, SHAKE256, 16, MLKEM512, ML-DSA-44,
-             A256GCM, SHA-256
-Supports DH/NIKE: No
-Reference: [[This document]]
-</pre><a href="#section-6.2-5" class="pilcrow">¶</a>
-</div>
-<div class="alignLeft art-text artwork" id="section-6.2-6">
-<pre>
-Value: TBD3
-Array: 3, -43, 16, TBD12, -50, 3, -43
-Description: A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87,
-             A256GCM, SHA-384
-Supports DH/NIKE: No
-Reference: [[This document]]
-</pre><a href="#section-6.2-6" class="pilcrow">¶</a>
-</div>
-<p id="section-6.2-7">Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite <span>[<a href="#CNSA20" class="cite xref">CNSA20</a>]</span>.<a href="#section-6.2-7" class="pilcrow">¶</a></p>
+<p id="section-6.2-5">Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite <span>[<a href="#CNSA20" class="cite xref">CNSA20</a>]</span>.<a href="#section-6.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
