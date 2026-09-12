@@ -251,32 +251,11 @@ For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the n
 
 Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:
 
-~~~~~~~~~~~~~~~~~~~~~~~
-Value: TBD1
-Array: 30, -45, 16, TBD10, -48, 10, -16
-Description: AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44,
-             AES-CCM-16-64-128, SHA-256
-Supports DH/NIKE: No
-Reference: [[This document]]
-~~~~~~~~~~~~~~~~~~~~~~~
-
-~~~~~~~~~~~~~~~~~~~~~~~
-Value: TBD2
-Array: 3, -45, 16, TBD10, -48, 3, -16
-Description: A256GCM, SHAKE256, 16, MLKEM512, ML-DSA-44,
-             A256GCM, SHA-256
-Supports DH/NIKE: No
-Reference: [[This document]]
-~~~~~~~~~~~~~~~~~~~~~~~
-
-~~~~~~~~~~~~~~~~~~~~~~~
-Value: TBD3
-Array: 3, -43, 16, TBD12, -50, 3, -43
-Description: A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87,
-             A256GCM, SHA-384
-Supports DH/NIKE: No
-Reference: [[This document]]
-~~~~~~~~~~~~~~~~~~~~~~~
+| Value | Array | Description | Supports DH/NIKE |
+| TBD1  | 30, -45, 16, TBD10, -48, 10, -16 | AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44, AES-CCM-16-64-128, SHA-256 | No |
+| TBD2  | 3, -45, 16, TBD10, -48, 3, -16 | A256GCM, SHAKE256, 16, MLKEM512, ML-DSA-44, A256GCM, SHA-256 | No |
+| TBD3  | 3, -43, 16, TBD12, -50, 3, -43 | A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87, A256GCM, SHA-384 | No |
+{: #tab-cipher-suites title="EDHOC Cipher Suites."}
 
 Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
