@@ -126,16 +126,15 @@ To enable post-quantum security support for LAKE it suffices to register new cip
 
 Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods that require DH/NIKE a column is added to the EDHOC Method Type registry, see {{method-update}}. To highlight matching cipher suites a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
 
-An alternative path to post-quantum support for the LAKE protocol, not pursued in this document, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs).
+An alternative path to post-quantum support for the LAKE protocol, pursued in {{I-D.ietf-lake-authkem-edhoc}}, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs). The cipher suites defined in this document can also be used with these authentication methods.
 
-Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87) introduce significantly higher overhead {{FIPS203}}{{FIPS204}}, but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.
+Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM and ML-DSA introduce significantly higher overhead {{FIPS203}}{{FIPS204}}, but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.
 
 However, it is important to note that these cipher suites may not be usable for certain classes of constrained devices (see {{I-D.ietf-iotops-7228bis}}) due to  for example, increased size of signatures or of KEM keys in quantum-resistant algorithms.
 
 # Using KEMs in the Key Exchange {#KEM}
 
 Given a quantum-resistant KEM, such as ML-KEM-512, with encapsulation key ek, decapsulation key dk, ciphertext c, and shared secret key K (using the notation of {{FIPS203}}), the Diffie-Hellman procedure in the key exchange is replaced by a KEM procedure as follows:
-
 
 * The Initiator generates a new encapsulation / decapsulation key pair matching the selected cipher suite.
 
