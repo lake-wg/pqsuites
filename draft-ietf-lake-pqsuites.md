@@ -259,6 +259,8 @@ Furthermore, IANA is requested to register the following entries in the EDHOC Ci
 
 Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
+RFC Editor Note: Please verify during publication that the EDHOC Cipher Suites registry has not been modified since the IANA instructions in this document were finalized.
+
 --- back
 
 # Acknowledgments {#acknowledgment}
