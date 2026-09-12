@@ -412,7 +412,8 @@ Table of Contents
    empty for all other existing entries.
 
    Furthermore, IANA is requested to register the following entries in
-   the EDHOC Cipher Suites registry:
+   the EDHOC Cipher Suites registry, with this document as the
+   reference:
 
     +=======+==============+===============================+==========+
     | Value | Array        | Description                   | Supports |
