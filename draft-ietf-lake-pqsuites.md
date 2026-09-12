@@ -223,25 +223,22 @@ This document does not add any new privacy considerations to those discussed in 
 
 This section specifies updates to the EDHOC Method Types and Cipher Suites registries.
 
-## EDHOC Method Type Registry {#method-update}
+## EDHOC Method Types Registry {#method-update}
 
-IANA is requested to update the EDHOC Method Type registry {{IANA}} with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the EDHOC Method Types registry {{IANA}} with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:
 
-~~~~~~~~~~~~~~~~~~~~~~~
-Value: 0, Requires DH/NIKE: No
-Value: 1, Requires DH/NIKE: Yes
-Value: 2, Requires DH/NIKE: Yes
-Value: 3, Requires DH/NIKE: Yes
-~~~~~~~~~~~~~~~~~~~~~~~
+| Value | Initiator Key | Responder Key | Requires DH/NIKE |
+|     0 | Signature Key | Signature Key |        No        |
+|     1 | Signature Key | Static DH Key |        Yes       |
+|     2 | Static DH Key | Signature Key |        Yes       |
+|     3 | Static DH Key | Static DH Key |        Yes       |
+|     4 | PSK           | PSK           |        No        |
+|    23 | Reserved      | Reserved      |                  |
+{: #tab-method-types title="EDHOC Method Types."}
 
-This note is to be removed before publishing as an RFC.
-Once the LAKE PSK authentication method {{I-D.ietf-lake-edhoc-psk}} is standardized and registered with IANA, add the line:
-
-~~~~~~~~~~~~~~~~~~~~~~~
-Value: 4, Requires DH/NIKE: No
-~~~~~~~~~~~~~~~~~~~~~~~
+RFC Editor Note: Please verify during publication that the EDHOC Method Types registry has not been modified since the IANA instructions in this document were written. The table above assumes that {{I-D.ietf-lake-edhoc-psk}} is published before this document and registers value 4, and that {{I-D.ietf-lake-authkem-edhoc}} is published after this document.
 
 ## EDHOC Cipher Suites Registry {#suites-registry}
 
@@ -259,7 +256,7 @@ Furthermore, IANA is requested to register the following entries in the EDHOC Ci
 
 Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
-RFC Editor Note: Please verify during publication that the EDHOC Cipher Suites registry has not been modified since the IANA instructions in this document were finalized.
+RFC Editor Note: Please verify during publication that the EDHOC Cipher Suites registry has not been modified since the IANA instructions in this document were written.
 
 --- back
 
