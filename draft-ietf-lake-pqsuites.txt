@@ -100,17 +100,20 @@ Table of Contents
 1.  Introduction
 
    The Lightweight Authenticated Key Exchange (LAKE) protocol defined in
-   [RFC9528], also known as Ephemeral Diffie-Hellman over COSE (EDHOC),
-   supports the use of multiple authentication methods and the
-   negotiation of cipher suites based on COSE algorithms.  Currently,
-   four asymmetric authentication methods (0, 1, 2, and 3) are defined.
-   In addition, a symmetric key-based authentication method is being
-   developed, see [I-D.ietf-lake-edhoc-psk].
+   [RFC9528], previously known as Ephemeral Diffie-Hellman over COSE
+   (EDHOC), supports multiple authentication methods and negotiation of
+   cipher suites based on COSE algorithms.  Four asymmetric
+   authentication methods (0–3) are defined in [RFC9528].  A symmetric
+   key-based authentication method and a Key Encapsulation Mechanism
+   (KEM)-based authentication method are being developed; see
+   [I-D.ietf-lake-edhoc-psk] and [I-D.ietf-lake-authkem-edhoc],
+   respectively.
 
-   Currently defined cipher suites rely on Elliptic Curve Cryptography
-   (ECC) for key exchange and authentication, while well-suited for
-   constrained environments, making them vulnerable in the event that a
-   Cryptographically Relevant Quantum Computer (CRQC) is constructed.
+   The cipher suites defined in [RFC9528] rely on Elliptic Curve
+   Cryptography (ECC) for key exchange and authentication, while well-
+   suited for constrained environments, making them vulnerable in the
+   event that a Cryptographically Relevant Quantum Computer (CRQC) is
+   constructed.
 
    This document specifies how the LAKE protocol can operate in a post-
    quantum setting using both signature-based and PSK-based
