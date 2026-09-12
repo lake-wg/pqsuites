@@ -5,7 +5,7 @@ title: Quantum-Resistant Cipher Suites for LAKE
 abbrev: LAKE PQC
 docname: draft-ietf-lake-pqsuites-latest
 category: std
-updates: 7528
+updates: 9528
 submissiontype: IETF
 
 v3xml2rfc:
