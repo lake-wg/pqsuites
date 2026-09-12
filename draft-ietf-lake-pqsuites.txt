@@ -262,7 +262,8 @@ Table of Contents
                   Table 1: Length of ML-KEM Ciphertext.
 
    Note also that this use of KEM applies both to standalone KEM and
-   hybrid KEMs such as, e.g., X-wing [I-D.connolly-cfrg-xwing-kem].
+   composite hybrid KEMs such as, e.g.,
+   [I-D.irtf-cfrg-concrete-hybrid-kems].
 
    Conventions for using post-quantum KEMs within COSE are described in
    [I-D.ietf-jose-pqc-kem].  The shared secret key K corresponds to the
@@ -517,13 +518,6 @@ Table of Contents
               security-considerations-02, 19 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-connolly-
               cfrg-ml-dsa-security-considerations-02>.
-
-   [I-D.connolly-cfrg-xwing-kem]
-              Connolly, D., Schwabe, P., and B. Westerbaan, "X-Wing:
-              general-purpose hybrid post-quantum KEM", Work in
-              Progress, Internet-Draft, draft-connolly-cfrg-xwing-kem-
-              10, 2 March 2026, <https://datatracker.ietf.org/doc/html/
-              draft-connolly-cfrg-xwing-kem-10>.
 
    [I-D.ietf-iotops-7228bis]
               Bormann, C., Ersue, M., Keränen, A., and C. Gomez,
