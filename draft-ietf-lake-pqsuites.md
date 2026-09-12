@@ -117,8 +117,7 @@ Moreover, as currently standardized PQ-KEM constructions are not Diffie-Hellman 
 
 Readers are expected to be familiar with {{RFC9528}}.
 
-With the addition of KEM based key exchange, the protocol is no longer dependent on Diffie-Hellman, and thus the name Ephemeral Diffie-Hellman over COSE (EDHOC) is a misnomer. To avoid misunderstanding of the capabilities of the protocol, we henceforth use the name LAKE for the protocol. To avoid misunderstanding with terminology from {{RFC9528}}, the prefix EDHOC is retained when needed, for example in the IANA registries.
-
+With the addition of KEM based key exchange, the protocol is no longer dependent on Diffie-Hellman, and thus the name Ephemeral Diffie-Hellman over COSE (EDHOC) is a misnomer. To avoid misunderstanding of the capabilities of the protocol, the LAKE WG henceforth uses the name LAKE for the protocol. To avoid misunderstanding with terminology from {{RFC9528}}, the prefix EDHOC is retained when needed, for example in the IANA registries.
 
 # LAKE with Quantum-Resistant Algorithms
 
