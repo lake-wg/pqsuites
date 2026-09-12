@@ -89,7 +89,7 @@ Table of Contents
        4.2.3.  Side-channel Considerations
    5.  Privacy Considerations
    6.  IANA Considerations
-     6.1.  EDHOC Method Type Registry
+     6.1.  EDHOC Method Types Registry
      6.2.  EDHOC Cipher Suites Registry
    7.  References
      7.1.  Normative References
@@ -379,9 +379,9 @@ Table of Contents
    This section specifies updates to the EDHOC Method Types and Cipher
    Suites registries.
 
-6.1.  EDHOC Method Type Registry
+6.1.  EDHOC Method Types Registry
 
-   IANA is requested to update the EDHOC Method Type registry [IANA]
+   IANA is requested to update the EDHOC Method Types registry [IANA]
    with a column with heading "Requires DH/NIKE" indicating that the
    method requires Diffie-Hellman or Non-Interactive Key Exchange.
    Valid table entries in this column are "Yes" and "No".
@@ -389,16 +389,30 @@ Table of Contents
    For the existing Method Types, the following entries are inserted in
    the new "Requires DH/NIKE" column:
 
-   Value: 0, Requires DH/NIKE: No
-   Value: 1, Requires DH/NIKE: Yes
-   Value: 2, Requires DH/NIKE: Yes
-   Value: 3, Requires DH/NIKE: Yes
+       +=======+===============+===============+==================+
+       | Value | Initiator Key | Responder Key | Requires DH/NIKE |
+       +=======+===============+===============+==================+
+       | 0     | Signature Key | Signature Key | No               |
+       +-------+---------------+---------------+------------------+
+       | 1     | Signature Key | Static DH Key | Yes              |
+       +-------+---------------+---------------+------------------+
+       | 2     | Static DH Key | Signature Key | Yes              |
+       +-------+---------------+---------------+------------------+
+       | 3     | Static DH Key | Static DH Key | Yes              |
+       +-------+---------------+---------------+------------------+
+       | 4     | PSK           | PSK           | No               |
+       +-------+---------------+---------------+------------------+
+       | 23    | Reserved      | Reserved      |                  |
+       +-------+---------------+---------------+------------------+
 
-   This note is to be removed before publishing as an RFC.  Once the
-   LAKE PSK authentication method [I-D.ietf-lake-edhoc-psk] is
-   standardized and registered with IANA, add the line:
+                       Table 2: EDHOC Method Types.
 
-   Value: 4, Requires DH/NIKE: No
+   RFC Editor Note: Please verify during publication that the EDHOC
+   Method Types registry has not been modified since the IANA
+   instructions in this document were written.  The table above assumes
+   that [I-D.ietf-lake-edhoc-psk] is published before this document and
+   registers value 4, and that [I-D.ietf-lake-authkem-edhoc] is
+   published after this document.
 
 6.2.  EDHOC Cipher Suites Registry
 
@@ -432,7 +446,7 @@ Table of Contents
     |       | 3, -43       | A256GCM, SHA-384              |          |
     +-------+--------------+-------------------------------+----------+
 
-                       Table 2: EDHOC Cipher Suites.
+                       Table 3: EDHOC Cipher Suites.
 
    Cipher suite TBD3 is intended for high security applications such as
    government use and financial applications.  This cipher suites
@@ -441,7 +455,7 @@ Table of Contents
 
    RFC Editor Note: Please verify during publication that the EDHOC
    Cipher Suites registry has not been modified since the IANA
-   instructions in this document were finalized.
+   instructions in this document were written.
 
 7.  References
 

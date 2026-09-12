@@ -1197,7 +1197,7 @@ svg {
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-edhoc-method-type-registry" class="internal xref">EDHOC Method Type Registry</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-edhoc-method-types-registry" class="internal xref">EDHOC Method Types Registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-edhoc-cipher-suites-registr" class="internal xref">EDHOC Cipher Suites Registry</a></p>
@@ -1405,26 +1405,66 @@ message_2 = (
 <p id="section-6-1">This section specifies updates to the EDHOC Method Types and Cipher Suites registries.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div id="method-update">
 <section id="section-6.1">
-        <h3 id="name-edhoc-method-type-registry">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-edhoc-method-type-registry" class="section-name selfRef">EDHOC Method Type Registry</a>
+        <h3 id="name-edhoc-method-types-registry">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-edhoc-method-types-registry" class="section-name selfRef">EDHOC Method Types Registry</a>
         </h3>
-<p id="section-6.1-1">IANA is requested to update the EDHOC Method Type registry <span>[<a href="#IANA" class="cite xref">IANA</a>]</span> with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">IANA is requested to update the EDHOC Method Types registry <span>[<a href="#IANA" class="cite xref">IANA</a>]</span> with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6.1-3">
-<pre>
-Value: 0, Requires DH/NIKE: No
-Value: 1, Requires DH/NIKE: Yes
-Value: 2, Requires DH/NIKE: Yes
-Value: 3, Requires DH/NIKE: Yes
-</pre><a href="#section-6.1-3" class="pilcrow">¶</a>
+<span id="name-edhoc-method-types"></span><div id="tab-method-types">
+<table class="center" id="table-2">
+          <caption>
+<a href="#table-2" class="selfRef">Table 2</a>:
+<a href="#name-edhoc-method-types" class="selfRef">EDHOC Method Types.</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Value</th>
+              <th class="text-left" rowspan="1" colspan="1">Initiator Key</th>
+              <th class="text-left" rowspan="1" colspan="1">Responder Key</th>
+              <th class="text-left" rowspan="1" colspan="1">Requires DH/NIKE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">0</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">1</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">3</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">4</td>
+              <td class="text-left" rowspan="1" colspan="1">PSK</td>
+              <td class="text-left" rowspan="1" colspan="1">PSK</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">23</td>
+              <td class="text-left" rowspan="1" colspan="1">Reserved</td>
+              <td class="text-left" rowspan="1" colspan="1">Reserved</td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+            </tr>
+          </tbody>
+        </table>
 </div>
-<p id="section-6.1-4">This note is to be removed before publishing as an RFC.
-Once the LAKE PSK authentication method <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> is standardized and registered with IANA, add the line:<a href="#section-6.1-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6.1-5">
-<pre>
-Value: 4, Requires DH/NIKE: No
-</pre><a href="#section-6.1-5" class="pilcrow">¶</a>
-</div>
+<p id="section-6.1-4">RFC Editor Note: Please verify during publication that the EDHOC Method Types registry has not been modified since the IANA instructions in this document were written. The table above assumes that <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> is published before this document and registers value 4, and that <span>[<a href="#I-D.ietf-lake-authkem-edhoc" class="cite xref">I-D.ietf-lake-authkem-edhoc</a>]</span> is published after this document.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="suites-registry">
@@ -1436,9 +1476,9 @@ Value: 4, Requires DH/NIKE: No
 <p id="section-6.2-2">For the existing Cipher Suites 0–6, 24, and 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column. The column is left empty for all other existing entries.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.2-3">Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry, with this document as the reference:<a href="#section-6.2-3" class="pilcrow">¶</a></p>
 <span id="name-edhoc-cipher-suites"></span><div id="tab-cipher-suites">
-<table class="center" id="table-2">
+<table class="center" id="table-3">
           <caption>
-<a href="#table-2" class="selfRef">Table 2</a>:
+<a href="#table-3" class="selfRef">Table 3</a>:
 <a href="#name-edhoc-cipher-suites" class="selfRef">EDHOC Cipher Suites.</a>
           </caption>
 <thead>
@@ -1472,7 +1512,7 @@ Value: 4, Requires DH/NIKE: No
         </table>
 </div>
 <p id="section-6.2-5">Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite <span>[<a href="#CNSA20" class="cite xref">CNSA20</a>]</span>.<a href="#section-6.2-5" class="pilcrow">¶</a></p>
-<p id="section-6.2-6">RFC Editor Note: Please verify during publication that the EDHOC Cipher Suites registry has not been modified since the IANA instructions in this document were finalized.<a href="#section-6.2-6" class="pilcrow">¶</a></p>
+<p id="section-6.2-6">RFC Editor Note: Please verify during publication that the EDHOC Cipher Suites registry has not been modified since the IANA instructions in this document were written.<a href="#section-6.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
