@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-09-03T02:45:11.400394+00:00",
+  "timestamp": "2026-09-13T02:55:04.034723+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOTe1l7M8AAAABL9j22A",
       "title": "Mention hybrid algorithms",
       "url": "https://github.com/lake-wg/pqsuites/issues/1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/3, by @emanjon on 11 June 2026.\n\nDiscussed today during LAKE DT meeting.\n\nDraft should mention that hybrid algorithms could be registered in the future.",
       "createdAt": "2026-08-08T13:32:25Z",
-      "updatedAt": "2026-08-28T07:47:04Z",
-      "closedAt": null,
+      "updatedAt": "2026-09-11T09:27:35Z",
+      "closedAt": "2026-09-11T09:27:35Z",
       "comments": [
         {
           "author": "clementpapon",
@@ -86,15 +86,15 @@
       "id": "I_kwDOTe1l7M8AAAABL9kgkQ",
       "title": "Update abstract and introduction",
       "url": "https://github.com/lake-wg/pqsuites/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/4, by @emanjon on 13 June 2026.\n\nI think the abstract should be updated to better explain that the draft does for things:\n\n1. Defines how ML-KEM as defined in draft-ietf-jose-pqc-kem is use in EDHOC\n2. Updates the EDHOC Method Type Registry with \"Requires DH/NIKE\"\n3. Updates the EDHOC Cipher Suites Registry with \"Supports DH/NIKE\"\n4. Registers cipher suites with ML-KEM and ML-DSA",
       "createdAt": "2026-08-08T13:35:24Z",
-      "updatedAt": "2026-08-13T16:22:50Z",
-      "closedAt": null,
+      "updatedAt": "2026-09-11T09:26:45Z",
+      "closedAt": "2026-09-11T09:26:45Z",
       "comments": [
         {
           "author": "clementpapon",
@@ -165,15 +165,15 @@
       "id": "I_kwDOTe1l7M8AAAABL9nwKQ",
       "title": "Cl\u00e9ment's review",
       "url": "https://github.com/lake-wg/pqsuites/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "> Originally reported at https://github.com/gselander/pq-suites/issues/8, by @gselander on 16 July 2026.\n\nhttps://mailarchive.ietf.org/arch/msg/lake/BH2ugEAuLOiVPVeV5zbNMnXWh78/\n\nSection 2: The document should maybe clarify that SHA-256 remains available at the application layer, for consistency with the cipher suites proposed in Section 6.2.\n\nSection 3: Minor correction on the KEM definition (K = decaps (sk, c)). A paragraph should maybe be added clarifying that G_X follows the same behaviour as G_Y, and stating the impact of PQ algorithm on key and signature sizes.\n\nSection 4: In my opinion, this section should be significantly expanded to cover the properties preserved by the transition to a KEM-based key exchange, with references to existing formal analysis results (in particular, the formal verification of EDHOC-PSK with KEM, and also Jacomme et al. analysis of EDHOC Method 0 with a KEM (\u00ab A comprehensive, formal and automated analysis of the EDHOC protocol \u00bb). The section should also explicitly state that these cipher suites provide protection against Store-Now Decrypt-Later (SNDL) attacks.\n\nSection 6.1: Perhaps the draft could anticipate the arrival of EDHOC-PSK and suggest an additional line for PSK mode, similar to Value: 0.\n\nSection 6.2: For cipher suite 3, there is an error: according to IANA, we have ML-DSA-87 (not 85) and -50 (not -48). A paragraph should maybe be added stating that ML-DSA and ML-KEM are the most interesting algorithms to implement currently, but there is a counterpart with their larger key and signature sizes that may preclude their use on the most constrained device classes (e.g., Class 0/C0 devices).\n\nAlso, perhaps a more delicate point to raise about cipher suite negotiation: if the Initiator supports PQ but the Responder does not, I think this follows the standard EDHOC fallback mechanism. However, this scenario may affect the Identity Protection property and deserves explicit discussion in the Security Considerations section in my opinion.",
       "createdAt": "2026-08-08T13:49:54Z",
-      "updatedAt": "2026-08-15T13:51:48Z",
-      "closedAt": null,
+      "updatedAt": "2026-09-11T09:27:03Z",
+      "closedAt": "2026-09-11T09:27:03Z",
       "comments": [
         {
           "author": "clementpapon",
@@ -251,16 +251,64 @@
       "id": "I_kwDOTe1l7M8AAAABPIB9ng",
       "title": "What is \"DH/NIKE\"?",
       "url": "https://github.com/lake-wg/pqsuites/issues/12",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cabo",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "ChatGPT had this definition:\n\n> In sneaker circles, \u201cDH/Nike\u201d usually refers to fake Nike shoes bought from DHgate.\n\nI'm sure something else is meant, but that should be defined as a term (beyond just expanding the abbreviations, which doesn't help with the undefined meaning of the slash construction).\n\n",
       "createdAt": "2026-09-01T09:13:23Z",
-      "updatedAt": "2026-09-01T09:13:23Z",
-      "closedAt": null,
+      "updatedAt": "2026-09-11T09:07:13Z",
+      "closedAt": "2026-09-11T09:07:13Z",
+      "comments": [
+        {
+          "author": "gselander",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Fixed in #7:\n\n> \"Diffie-Hellman / Non-Interactive Key Exchange (DH/NIKE)\"",
+          "createdAt": "2026-09-11T08:26:28Z",
+          "updatedAt": "2026-09-11T08:26:28Z"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOTe1l7M8AAAABQ2eAWg",
+      "title": "IANA tables should be tables not figures",
+      "url": "https://github.com/lake-wg/pqsuites/issues/13",
+      "state": "CLOSED",
+      "author": "emanjon",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-09-11T15:03:07Z",
+      "updatedAt": "2026-09-12T09:23:00Z",
+      "closedAt": "2026-09-12T09:23:00Z",
       "comments": []
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOTe1l7M8AAAABQ8o0Tg",
+      "title": "The IANA section is missing instructions for many rows",
+      "url": "https://github.com/lake-wg/pqsuites/issues/14",
+      "state": "CLOSED",
+      "author": "emanjon",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "For example\n\n23\tReserved\tReserved",
+      "createdAt": "2026-09-12T08:48:21Z",
+      "updatedAt": "2026-09-12T09:23:01Z",
+      "closedAt": "2026-09-12T09:23:01Z",
+      "comments": [
+        {
+          "author": "emanjon",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Should also have a note to check if anything has been registered when publishing",
+          "createdAt": "2026-09-12T09:05:53Z",
+          "updatedAt": "2026-09-12T09:05:53Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -297,50 +345,75 @@
       "id": "PR_kwDOTe1l7M7-r3Rn",
       "title": "Fix issue 2: work on abstract and intro",
       "url": "https://github.com/lake-wg/pqsuites/pull/7",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Abstract and introduction proposal, taking into account John's comments.",
       "createdAt": "2026-08-13T16:17:10Z",
-      "updatedAt": "2026-08-30T22:24:39Z",
+      "updatedAt": "2026-09-11T09:20:46Z",
       "baseRepository": "lake-wg/pqsuites",
       "baseRefName": "main",
       "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
       "headRepository": "lake-wg/pqsuites",
       "headRefName": "fix-issue-2-abstract-intro",
-      "headRefOid": "0c105bafafe4d30d47b6ec84ddf3f1bdec414d25",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "7f598d11d04da2afd67ab5d27ba7bbaf8f9b3d0f",
+      "closedAt": "2026-09-11T09:20:46Z",
+      "mergedAt": "2026-09-11T09:20:46Z",
+      "mergedBy": "gselander",
+      "mergeCommit": {
+        "oid": "71f0a331ae1da354b62f295c48c3f5325bdcb4b1"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOTe1l7M8AAAABNI6F-w",
+          "commit": {
+            "abbreviatedOid": "932d01c"
+          },
+          "author": "github-actions",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-09-11T08:53:52Z",
+          "updatedAt": "2026-09-11T08:53:52Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "````suggestion\nReaders are expected to be familiar with {{RFC9528}}.\n````",
+              "createdAt": "2026-09-11T08:53:52Z",
+              "updatedAt": "2026-09-11T08:53:52Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 8,
       "id": "PR_kwDOTe1l7M7_fcve",
       "title": "Fix issue 5: some reviews and additions on sections 2, 3, 4, and 6",
       "url": "https://github.com/lake-wg/pqsuites/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "clementpapon",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Section 2: details about SHA256 and post-quantum efficiency.\r\nSection 3: correction of the decapsulation algorithm and a short paragraph explaining the behaviour of G_X in this pq setting.\r\nSection 4: proposal to restructure the section, separating classical properties from the post-quantum aspect of the protocol security.\r\nSection 6: minor corrections (EDHOC -> LAKE ?).",
       "createdAt": "2026-08-15T13:50:55Z",
-      "updatedAt": "2026-08-31T12:03:51Z",
+      "updatedAt": "2026-09-11T09:25:47Z",
       "baseRepository": "lake-wg/pqsuites",
       "baseRefName": "main",
-      "baseRefOid": "514feb81d2fdf524a0b6f53a115f868e672f0a5e",
+      "baseRefOid": "71f0a331ae1da354b62f295c48c3f5325bdcb4b1",
       "headRepository": "lake-wg/pqsuites",
       "headRefName": "fix-issue-5-global-review",
-      "headRefOid": "dd0e15f1486dccaa694385de3ee2cedce5430554",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "9f48feb8d50f84527f4855b229fdf291100c4f00",
+      "closedAt": "2026-09-11T09:25:47Z",
+      "mergedAt": "2026-09-11T09:25:47Z",
+      "mergedBy": "gselander",
+      "mergeCommit": {
+        "oid": "5541654b4fcc9535942e65d25294c04f76479ddc"
+      },
       "comments": [],
       "reviews": []
     },
