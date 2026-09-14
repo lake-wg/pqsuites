@@ -1047,7 +1047,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Selander, et al.</td>
-<td class="center">Expires 16 March 2027</td>
+<td class="center">Expires 18 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1063,12 +1063,12 @@ svg {
 <a href="https://www.rfc-editor.org/rfc/rfc9528" class="eref">9528</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-09-12" class="published">12 September 2026</time>
+<time datetime="2026-09-14" class="published">14 September 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-03-16">16 March 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-18">18 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1125,7 +1125,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1232,7 +1232,7 @@ svg {
       </h2>
 <p id="section-1-1">The Lightweight Authenticated Key Exchange (LAKE) protocol defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, previously known as Ephemeral Diffie-Hellman over COSE (EDHOC), supports multiple authentication methods and negotiation of cipher suites based on COSE algorithms. Four asymmetric authentication methods (0–3) are defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>. A symmetric key-based authentication method and a Key Encapsulation Mechanism (KEM)-based authentication method are being developed; see <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> and <span>[<a href="#I-D.ietf-lake-authkem-edhoc" class="cite xref">I-D.ietf-lake-authkem-edhoc</a>]</span>, respectively.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">The cipher suites defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication. While ECC is well suited to constrained environments, it is vulnerable to attacks by a Cryptographically Relevant Quantum Computer (CRQC).<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using ML-KEM <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span> for key exchange and ML-DSA <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span> for digital signatures. ML-KEM provides a post-quantum replacement for the ephemeral Diffie-Hellman key exchange. The new cipher suites can be used with signature-based authentication, as well as with the PSK-based and KEM-based authentication methods being developed.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-3">This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using ML-KEM <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span> for key exchange and ML-DSA <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span> for digital signatures. ML-KEM provides a post-quantum replacement for the ephemeral Diffie-Hellman key exchange. The new cipher suites can be used with signature-based authentication, as well as with the PSK-based and KEM-based authentication methods being developed, as explained in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-3.6" class="relref">Section 3.6</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">KEM algorithms such as ML-KEM are not Diffie-Hellman or Non-Interactive Key Exchange (DH/NIKE) primitives. Consequently, the new ML-KEM cipher suites cannot be used with methods 0–3, which require DH/NIKE. This document therefore updates the EDHOC Method Types and Cipher Suites registries to add columns indicating, respectively, whether a method requires and whether a cipher suite supports DH/NIKE-based key exchange; see <a href="#method-update" class="auto internal xref">Section 6.1</a> and <a href="#suites-registry" class="auto internal xref">Section 6.2</a>. The new cipher suites combining ML-KEM and ML-DSA are registered accordingly.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">With the addition of KEM-based key exchange, the protocol is no longer dependent on Diffie-Hellman, and the name Ephemeral Diffie-Hellman over COSE (EDHOC) no longer accurately describes the protocol. Accordingly, this document updates <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> by changing the name of the protocol from EDHOC to Lightweight Authenticated Key Exchange (LAKE). The EDHOC prefix is retained where needed to avoid ambiguity with terminology and registry entries defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, for example in the IANA registries.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <div id="terminology">

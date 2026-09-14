@@ -6,8 +6,8 @@ LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Updates: 9528 (if approved)                                     Ericsson
 Intended status: Standards Track                                C. Papon
-Expires: 16 March 2027                                Limoges University
-                                                       12 September 2026
+Expires: 18 March 2027                                Limoges University
+                                                       14 September 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 March 2027.
+   This Internet-Draft will expire on 18 March 2027.
 
 Copyright Notice
 
@@ -121,7 +121,8 @@ Table of Contents
    post-quantum replacement for the ephemeral Diffie-Hellman key
    exchange.  The new cipher suites can be used with signature-based
    authentication, as well as with the PSK-based and KEM-based
-   authentication methods being developed.
+   authentication methods being developed, as explained in Section 3.6
+   of [RFC9528].
 
    KEM algorithms such as ML-KEM are not Diffie-Hellman or Non-
    Interactive Key Exchange (DH/NIKE) primitives.  Consequently, the new
