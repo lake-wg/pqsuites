@@ -103,7 +103,7 @@ The Lightweight Authenticated Key Exchange (LAKE) protocol defined in {{RFC9528}
 
 The cipher suites defined in {{RFC9528}} rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication. While ECC is well suited to constrained environments, it is vulnerable to attacks by a Cryptographically Relevant Quantum Computer (CRQC).
 
-This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using ML-KEM {{I-D.ietf-jose-pqc-kem}} for key exchange and ML-DSA {{I-D.ietf-cose-dilithium}} for digital signatures. ML-KEM provides a post-quantum replacement for the ephemeral Diffie-Hellman key exchange. The new cipher suites can be used with signature-based authentication, as well as with the PSK-based and KEM-based authentication methods being developed, as explained in {{Section 3.6 of RFC9528}}.
+This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using ML-KEM {{I-D.ietf-jose-pqc-kem}} for key exchange and ML-DSA {{I-D.ietf-cose-dilithium}} for digital signatures. ML-KEM provides a post-quantum replacement for the ephemeral Diffie-Hellman key exchange. The new cipher suites can be used with signature-based authentication, as well as with the PSK-based and KEM-based authentication methods being developed; see {{Section 3.6 of RFC9528}} on algorithms not used in certain methods.
 
 KEM algorithms such as ML-KEM are not Diffie-Hellman or Non-Interactive Key Exchange (DH/NIKE) primitives. Consequently, the new ML-KEM cipher suites cannot be used with methods 0–3, which require DH/NIKE. This document therefore updates the EDHOC Method Types and Cipher Suites registries to add columns indicating, respectively, whether a method requires and whether a cipher suite supports DH/NIKE-based key exchange; see {{method-update}} and {{suites-registry}}. The new cipher suites combining ML-KEM and ML-DSA are registered accordingly.
 
@@ -117,19 +117,19 @@ Readers are expected to be familiar with {{RFC9528}}.
 
 # LAKE with Quantum-Resistant Algorithms
 
-Method 0 in {{RFC9528}}, which uses digital signatures for authentication by both the Initiator and Responder, and also the PSK method in {{I-D.ietf-lake-edhoc-psk}}, is straightforward to use with standardized post-quantum algorithms.
+Method 0 in {{RFC9528}}, which uses digital signatures for authentication by both the Initiator and Responder, and also the PSK method in {{I-D.ietf-lake-edhoc-psk}}, are straightforward to use with standardized post-quantum algorithms.
 
 A quantum-resistant signature algorithm, such as ML-DSA {{I-D.ietf-cose-dilithium}}, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, in order to replace the Ephemeral Diffie-Hellman key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM {{I-D.ietf-jose-pqc-kem}}, can be applied directly to the LAKE protocol, as is detailed in {{KEM}}.
 
 To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 {{I-D.ietf-jose-pqc-kem}} for key exchange, and ML-DSA-44 and ML-DSA-87 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256 {{FIPS202}}, it was natural to have SHAKE256 as EDHOC hash algorithm in the cipher suite, and thus used also in the key derivation, see {{Section 4 of RFC9528}}. Note that as application hash function in these cipher suites, the legacy algorithms SHA-256 or SHA-384 are still used, see {{suites-registry}}. Additional post-quantum cipher suites may be specified.
 
-Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods that require DH/NIKE a column is added to the EDHOC Method Type registry, see {{method-update}}. To highlight matching cipher suites a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
+Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods require DH/NIKE, a column is added to the EDHOC Method Type registry, see {{method-update}}. To highlight matching cipher suites, a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
 
 An alternative path to post-quantum support for the LAKE protocol, pursued in {{I-D.ietf-lake-authkem-edhoc}}, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs). The cipher suites defined in this document can also be used with these authentication methods.
 
-Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM and ML-DSA introduce significantly higher overhead {{FIPS203}}{{FIPS204}}, but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.
+Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM and ML-DSA introduce significantly higher overhead (see {{FIPS203}} and {{FIPS204}} respectively), but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.
 
-However, it is important to note that these cipher suites may not be usable for certain classes of constrained devices (see {{I-D.ietf-iotops-7228bis}}) due to  for example, increased size of signatures or of KEM keys in quantum-resistant algorithms.
+However, it is important to note that these cipher suites may not be usable for certain classes of constrained devices (see {{I-D.ietf-iotops-7228bis}}) due to, e.g., increased size of signatures or of KEM keys in quantum-resistant algorithms.
 
 # Using KEMs in the Key Exchange {#KEM}
 
@@ -147,7 +147,7 @@ Given a quantum-resistant KEM, such as ML-KEM-512, with encapsulation key ek, de
 
 * G_XY is the shared secret key K.
 
-The security requirements and security considerations of {{RFC9528}} and the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for each LAKE session.
+The security requirements and security considerations of {{RFC9528}} and of the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for each LAKE session.
 
 Note that G_Y does not contain a public key when a KEM is used in this way. The definition of LAKE message_2 in {{Section 5.3.1 of RFC9528}} remains the same:
 
@@ -159,7 +159,7 @@ message_2 = (
 
 and G_Y_CIPHERTEXT_2 remains the concatenation of G_Y and CIPHERTEXT_2, the latter is defined in {{Section 5.3.2 of RFC9528}}. But now G_Y is a KEM ciphertext.
 
-Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see {{tab-ct-length}}. Hence the Initiator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.
+Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see {{tab-ct-length}}. Hence the Initiator can separate out the concatenated ciphertexts, decapsulate and decrypt, respectively.
 
 | KEM | Length of ciphertext (bytes) |
 | ML‑KEM‑512 | 768 |
@@ -179,7 +179,7 @@ The cipher suites defined in {{RFC9528}} rely on Elliptic Curve Cryptography (EC
 
 When used with Method 0 from {{RFC9528}}, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in {{I-D.ietf-lake-edhoc-psk}}, these cipher suites preserve the security properties discussed in {{Section 9 of RFC9528}} (for Method 0) and in {{Section 9 of I-D.ietf-lake-edhoc-psk}} (for PSK method). These include, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.
 
-This is because the security properties of LAKE (methods 0 and PSK) are affected by cipher suites only through the security of the algorithms involved. Since the algorithms introduced in these cipher suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure, i.e., secure against a quantum adversary and, by extension, secure against a classical adversary, the security properties are guaranteed.
+This is because the security properties of LAKE (methods 0 and PSK) are affected by cipher suites only through the security of the algorithms involved. Since the algorithms introduced in these cipher suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure, i.e., secure against a quantum adversary and, by extension, secure against a classical adversary, the classical security properties are guaranteed.
 
 
 ## Post-quantum Security
