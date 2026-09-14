@@ -301,8 +301,8 @@ Table of Contents
 
    Cipher suites specified in this document use ML-KEM for ephemeral key
    exchange, and ML-DSA for authentication.  These algorithms are
-   believed secure against a quantum adversary.  Security considerations
-   of ML-KEM are discussed in
+   constructed to provide security against a quantum adversary.
+   Security considerations of ML-KEM are discussed in
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations], and those of ML-
    DSA are addressed in
    [I-D.connolly-cfrg-ml-dsa-security-considerations].
@@ -363,14 +363,17 @@ Table of Contents
    Side-channel resistance of ML-KEM and ML-DSA depends both on their
    implementation and on how they are used within the protocol itself.
 
-   Implementations MUST follow the side-channel guidance given in the
-   specifications of ML-KEM
-   [I-D.sfluhrer-cfrg-ml-kem-security-considerations] and ML-DSA
-   [I-D.connolly-cfrg-ml-dsa-security-considerations].  Moreover, ML-KEM
-   key used for ephemeral key exchange MUST be freshly generated for
-   each LAKE protocol session.  In addition, analyzing the resistance of
-   LAKE Method 0 and PSK to side-channel attacks, in post-quantum
-   settings is out of scope of this document and left for future work.
+   Implementations MUST follow the side-channel requirements given in
+   the specifications of ML-KEM [FIPS203] and ML-DSA [FIPS204].
+   Additional implementation guidance on side-channel attack resistance
+   can be found in [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
+   and [I-D.connolly-cfrg-ml-dsa-security-considerations].  These
+   documents are expected to provide more detailed guidance for
+   implementations once standardized.  Moreover, ML-KEM key used for
+   ephemeral key exchange MUST be freshly generated for each LAKE
+   protocol session.  In addition, analyzing the resistance of LAKE
+   Method 0 and PSK to side-channel attacks, in post-quantum settings is
+   out of scope of this document and left for future work.
 
 5.  Privacy Considerations
 
