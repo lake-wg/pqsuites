@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-09-13T02:55:04.034723+00:00",
+  "timestamp": "2026-09-15T03:11:02.332573+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -309,6 +309,22 @@
           "updatedAt": "2026-09-12T09:05:53Z"
         }
       ]
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOTe1l7M8AAAABRESK5w",
+      "title": "Update name of IANA registries",
+      "url": "https://github.com/lake-wg/pqsuites/issues/15",
+      "state": "OPEN",
+      "author": "emanjon",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "`The EDHOC prefix is retained where needed to avoid ambiguity with terminology and registry entries defined in [[RFC9528](https://lake-wg.github.io/pqsuites/draft-ietf-lake-pqsuites.html#RFC9528)], for example in the IANA registries.[\u00b6](https://lake-wg.github.io/pqsuites/draft-ietf-lake-pqsuites.html#section-1-5)\n`\n\nThis seems like a weird motivation. I think this draft should update the names of the IANA registries.",
+      "createdAt": "2026-09-13T13:24:35Z",
+      "updatedAt": "2026-09-13T13:24:35Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
