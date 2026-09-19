@@ -210,7 +210,7 @@ PQ/T hybrid algorithms such as {{I-D.irtf-cfrg-concrete-hybrid-kems}} could be r
 
 Implementations of post-quantum algorithms, e.g., lattice-based or code-based algorithms, have been shown to be susceptible to side-channel attacks, e.g., regarding timing or power analysis attacks. Side-channel resistance of ML-KEM and ML-DSA depends both on their implementation and on how they are used within the protocol itself.
 
-Implementations MUST follow the side-channel requirements given in the specifications of ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}}. Additional implementation guidance on side-channel attack resistance can be found in {{I-D.sfluhrer-cfrg-ml-kem-security-considerations}} and {{I-D.connolly-cfrg-ml-dsa-security-considerations}}. These documents are expected to provide more detailed guidance for implementations if standardized. Moreover, ML-KEM key used for ephemeral key exchange MUST be freshly generated for each LAKE protocol session. In addition, analyzing the resistance of LAKE Method 0 and PSK to side-channel attacks, in post-quantum settings is out of scope of this document and left for future work.
+Implementations MUST follow the side-channel requirements given in the specifications of ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}}. Additional implementation guidance on side-channel attack resistance can be found in {{I-D.sfluhrer-cfrg-ml-kem-security-considerations}} and {{I-D.connolly-cfrg-ml-dsa-security-considerations}}. Moreover, ML-KEM key used for ephemeral key exchange MUST be freshly generated for each LAKE protocol session. In addition, analyzing the resistance of LAKE Method 0 and PSK to side-channel attacks, in post-quantum settings is out of scope of this document and left for future work.
 
 
 # Privacy Considerations
