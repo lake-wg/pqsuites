@@ -6,8 +6,8 @@ LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Updates: 9528 (if approved)                                     Ericsson
 Intended status: Standards Track                                C. Papon
-Expires: 18 March 2027                                Limoges University
-                                                       14 September 2026
+Expires: 23 March 2027                                Limoges University
+                                                       19 September 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 March 2027.
+   This Internet-Draft will expire on 23 March 2027.
 
 Copyright Notice
 
@@ -367,13 +367,12 @@ Table of Contents
    the specifications of ML-KEM [FIPS203] and ML-DSA [FIPS204].
    Additional implementation guidance on side-channel attack resistance
    can be found in [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
-   and [I-D.connolly-cfrg-ml-dsa-security-considerations].  These
-   documents are expected to provide more detailed guidance for
-   implementations if standardized.  Moreover, ML-KEM key used for
-   ephemeral key exchange MUST be freshly generated for each LAKE
-   protocol session.  In addition, analyzing the resistance of LAKE
-   Method 0 and PSK to side-channel attacks, in post-quantum settings is
-   out of scope of this document and left for future work.
+   and [I-D.connolly-cfrg-ml-dsa-security-considerations].  Moreover,
+   ML-KEM key used for ephemeral key exchange MUST be freshly generated
+   for each LAKE protocol session.  In addition, analyzing the
+   resistance of LAKE Method 0 and PSK to side-channel attacks, in post-
+   quantum settings is out of scope of this document and left for future
+   work.
 
 5.  Privacy Considerations
 
