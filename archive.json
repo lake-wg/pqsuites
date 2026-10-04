@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-10-01T03:54:04.191254+00:00",
+  "timestamp": "2026-10-04T04:05:48.033470+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -220,7 +220,7 @@
       "labels": [],
       "body": "RFC9528 uses G_X and G_Y for DH keys. This notation does not map well when DH is replaced by KEM. We also want to cover potential future NIKE. Should we change notation? \n\nTo what? After discussion with GPT-5.4 mini we agreed on \"key contribution\".\n\nG_X := KC_I = key contribution of Initiator\nG_Y := KC_R = key contribution of Responder\n\n\n\n\n\n",
       "createdAt": "2026-08-28T12:06:33Z",
-      "updatedAt": "2026-09-01T08:47:19Z",
+      "updatedAt": "2026-10-01T12:33:22Z",
       "closedAt": null,
       "comments": [
         {
@@ -233,9 +233,9 @@
         {
           "author": "gselander",
           "authorAssociation": "CONTRIBUTOR",
-          "body": "Also may want to rename the message_2 field:\nG_Y_CIPHERTEXT_2 := KI_R_CIPHERTEXT_2, etc.\n\nand Shared Secret:\nG_XY := SS",
+          "body": "Also may want to rename the message_2 field:\nG_Y_CIPHERTEXT_2 := KS_R_CIPHERTEXT_2, etc.\n\nand Shared Secret:\nG_XY := SS",
           "createdAt": "2026-09-01T08:44:57Z",
-          "updatedAt": "2026-09-01T08:44:57Z"
+          "updatedAt": "2026-10-01T12:33:22Z"
         },
         {
           "author": "gselander",
