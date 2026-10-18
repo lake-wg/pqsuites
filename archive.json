@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-10-04T04:05:48.033470+00:00",
+  "timestamp": "2026-10-18T02:50:28.743123+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -333,6 +333,22 @@
           "updatedAt": "2026-09-30T09:05:57Z"
         }
       ]
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOTe1l7M8AAAABXsanQQ",
+      "title": "New names for EDHOC Exporter, EDHOC AEAD algorithm, etc.",
+      "url": "https://github.com/lake-wg/pqsuites/issues/16",
+      "state": "OPEN",
+      "author": "emanjon",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Draft should point out the the name change apply to New names for EDHOC Exporter, EDHOC AEAD algorithm, etc.\n\nI.e. new drafts should use LAKE Exporter, LAKE AEAD algorithm, etc.",
+      "createdAt": "2026-10-16T13:31:45Z",
+      "updatedAt": "2026-10-16T13:31:45Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
