@@ -9,25 +9,25 @@
 <meta content="John Preuß Mattsson" name="author">
 <meta content="Clément Papon" name="author">
 <meta content="
-       The Lightweight Authenticated Key Exchange (LAKE) protocol  , also known as Ephemeral Diffie-Hellman over COSE (EDHOC), currently relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by adding new cipher suites compatible with signature-based and PSK-based authentication methods using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates the EDHOC Method Types and Cipher Suites registries to indicate, respectively, requirement and support for Diffie-Hellman / Non-Interactive Key Exchange primitives. 
+       The Lightweight Authenticated Key Exchange (LAKE) protocol, formerly known as Ephemeral Diffie-Hellman over COSE (EDHOC), as originally specified in RFC 9528, relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates RFC 9528 by changing the name of the protocol and associated IANA registries from EDHOC to LAKE, and updating the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange (NIKE) primitives. 
     " name="description">
-<meta content="xml2rfc 3.34.0" name="generator">
+<meta content="xml2rfc 3.34.1" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-lake-pqsuites-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.34.0
-    Python 3.14.7
-    ConfigArgParse 1.7.5
+  xml2rfc 3.34.1
+    Python 3.14.8
+    ConfigArgParse 1.8.0
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.11.7
+    platformdirs 4.13.4
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.8.3
+    wcwidth 0.9.2
 -->
 <link href="draft-ietf-lake-pqsuites.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1043,11 +1043,11 @@ svg {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">LAKE PQC</td>
-<td class="right">September 2026</td>
+<td class="right">October 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Selander, et al.</td>
-<td class="center">Expires 15 March 2027</td>
+<td class="center">Expires 25 April 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1058,14 +1058,17 @@ svg {
 <dd class="workgroup">LAKE Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
 <dd class="internet-draft">draft-ietf-lake-pqsuites-latest</dd>
+<dt class="label-updates">Updates:</dt>
+<dd class="updates">
+<a href="https://www.rfc-editor.org/rfc/rfc9528" class="eref">9528</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-09-11" class="published">11 September 2026</time>
+<time datetime="2026-10-22" class="published">22 October 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-03-15">15 March 2027</time></dd>
+<dd class="expires"><time datetime="2027-04-25">25 April 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1086,7 +1089,7 @@ svg {
 <h1 id="title">Quantum-Resistant Cipher Suites for LAKE</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">The Lightweight Authenticated Key Exchange (LAKE) protocol <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, also known as Ephemeral Diffie-Hellman over COSE (EDHOC), currently relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by adding new cipher suites compatible with signature-based and PSK-based authentication methods using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates the EDHOC Method Types and Cipher Suites registries to indicate, respectively, requirement and support for Diffie-Hellman / Non-Interactive Key Exchange primitives.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">The Lightweight Authenticated Key Exchange (LAKE) protocol, formerly known as Ephemeral Diffie-Hellman over COSE (EDHOC), as originally specified in RFC 9528, relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates RFC 9528 by changing the name of the protocol and associated IANA registries from EDHOC to LAKE, and updating the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange (NIKE) primitives.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1122,7 +1125,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 15 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 April 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1169,10 +1172,10 @@ svg {
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-classical-lake-security-pro" class="internal xref">Classical LAKE security properties</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-classical-lake-security-pro" class="internal xref">Classical LAKE Security Properties</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-post-quantum-security" class="internal xref">Post-quantum security</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-post-quantum-security" class="internal xref">Post-quantum Security</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
                     <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-store-now-decrypt-later" class="internal xref">Store Now Decrypt Later</a></p>
@@ -1181,7 +1184,7 @@ svg {
                     <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-pq-t-hybridization" class="internal xref">PQ/T Hybridization</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
-                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-side-channel-considerations" class="internal xref">Side-channel considerations</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-side-channel-considerations" class="internal xref">Side-channel Considerations</a></p>
 </li>
                 </ul>
 </li>
@@ -1194,10 +1197,16 @@ svg {
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-edhoc-method-type-registry" class="internal xref">EDHOC Method Type Registry</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-name-change-of-edhoc-regist" class="internal xref">Name Change of EDHOC Registry Group</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-edhoc-cipher-suites-registr" class="internal xref">EDHOC Cipher Suites Registry</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-name-change-of-edhoc-registr" class="internal xref">Name Change of EDHOC Registries</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-lake-method-types-registry" class="internal xref">LAKE Method Types Registry</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-lake-cipher-suites-registry" class="internal xref">LAKE Cipher Suites Registry</a></p>
 </li>
             </ul>
 </li>
@@ -1227,10 +1236,11 @@ svg {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The Lightweight Authenticated Key Exchange (LAKE) protocol defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, also known as Ephemeral Diffie-Hellman over COSE (EDHOC), supports the use of multiple authentication methods and the negotiation of cipher suites based on COSE algorithms. Currently, four asymmetric authentication methods (0, 1, 2, and 3) are defined. In addition, a symmetric key-based authentication method is being developed, see <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Currently defined cipher suites rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication, while well-suited for constrained environments, making them vulnerable in the event that a Cryptographically Relevant Quantum Computer (CRQC) is constructed.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">This document specifies how the LAKE protocol can operate in a post-quantum setting using both signature-based and PSK-based authentication. It defines corresponding cipher suites combining ML-KEM on COSE <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span> for key exchange and ML-DSA on COSE <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span> for authentication. The use of a Post-Quantum KEM (PQ-KEM) serves as a post-quantum replacement for the ephemeral Diffie-Hellman key exchange. A dedicated Post-Quantum KEM based authentication method is described in a separate document <span>[<a href="#I-D.ietf-lake-authkem-edhoc" class="cite xref">I-D.ietf-lake-authkem-edhoc</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">Moreover, as currently standardized PQ-KEM constructions are not Diffie-Hellman / Non-Interactive Key Exchange (DH/NIKE) primitives, this document updates the EDHOC Method Type registry to indicate whether a given method requires DH/NIKE, and updates the EDHOC Cipher Suites registry to indicate whether a cipher suite supports DH/NIKE-based key exchange, see <a href="#method-update" class="auto internal xref">Section 6.1</a> and <a href="#suites-registry" class="auto internal xref">Section 6.2</a>. New cipher suites combining ML-KEM and ML-DSA are registered accordingly.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-1">The Lightweight Authenticated Key Exchange (LAKE) protocol defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, previously known as Ephemeral Diffie-Hellman over COSE (EDHOC), supports multiple authentication methods and negotiation of cipher suites based on COSE algorithms. Four asymmetric authentication methods (0–3) are defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>. A symmetric key-based authentication method and a Key Encapsulation Mechanism (KEM)-based authentication method are being developed; see <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> and <span>[<a href="#I-D.ietf-lake-authkem-edhoc" class="cite xref">I-D.ietf-lake-authkem-edhoc</a>]</span>, respectively.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">The cipher suites defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> rely on Elliptic Curve Cryptography (ECC) for key exchange and authentication. While ECC is well suited to constrained environments, it is vulnerable to attacks by a Cryptographically Relevant Quantum Computer (CRQC).<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using ML-KEM <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span> for key exchange and ML-DSA <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span> for digital signatures. ML-KEM provides a post-quantum replacement for the ephemeral Diffie-Hellman key exchange. The new cipher suites can be used with signature-based authentication, as well as with the PSK-based and KEM-based authentication methods being developed; see <span><a href="https://rfc-editor.org/rfc/rfc9528#section-3.6" class="relref">Section 3.6</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> on algorithms not used in certain methods.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">KEM algorithms such as ML-KEM are not Diffie-Hellman or Non-Interactive Key Exchange (DH/NIKE) primitives. Consequently, the new ML-KEM cipher suites cannot be used with methods 0–3, which require DH/NIKE. This document therefore updates the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports DH/NIKE-based key exchange; see <a href="#method-update" class="auto internal xref">Section 6.3</a> and <a href="#suites-registry" class="auto internal xref">Section 6.4</a>. The new cipher suites combining ML-KEM and ML-DSA are registered accordingly.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">With the addition of KEM-based key exchange, the protocol is no longer dependent on Diffie-Hellman, and the name Ephemeral Diffie-Hellman over COSE (EDHOC) no longer accurately describes the protocol. Accordingly, this document updates <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> by changing the name of the protocol from EDHOC to Lightweight Authenticated Key Exchange (LAKE). The EDHOC prefix is replaced by LAKE also in terminology and IANA registry entries defined in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <div id="terminology">
 <section id="section-1.1">
         <h3 id="name-terminology">
@@ -1242,7 +1252,7 @@ NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 <p id="section-1.1-2">Readers are expected to be familiar with <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
-<p id="section-1.1-3">With the addition of KEM based key exchange, the protocol is no longer dependent on Diffie-Hellman, and thus the name Ephemeral Diffie-Hellman over COSE (EDHOC) is a misnomer. To avoid misunderstanding of the capabilities of the protocol, we henceforth use the name LAKE for the protocol. To avoid misunderstanding with terminology from <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, the prefix EDHOC is retained when needed, for example in the IANA registries.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">Consistent with the change of protocol name, all terms using the prefix "EDHOC" should henceforth be replaced by corresponding terms with the prefix "LAKE", for example, LAKE_KDF, LAKE_Extract, LAKE_Expand, LAKE_Exporter, LAKE_KeyUpdate, LAKE AEAD Algorithm, LAKE hash algorithm, LAKE MAC algorithm, LAKE key exchange algorithm, LAKE signature algorithm, etc.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1252,13 +1262,13 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
       <h2 id="name-lake-with-quantum-resistant">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-lake-with-quantum-resistant" class="section-name selfRef">LAKE with Quantum-Resistant Algorithms</a>
       </h2>
-<p id="section-2-1">Method 0 in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, which uses digital signatures for authentication by both the Initiator and Responder, and also the PSK method in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, is straightforward to use with standardized post-quantum algorithms.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">Method 0 in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, which uses digital signatures for authentication by both the Initiator and Responder, and also the PSK method in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, are straightforward to use with standardized post-quantum algorithms.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">A quantum-resistant signature algorithm, such as ML-DSA <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span>, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, in order to replace the Ephemeral Diffie-Hellman key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>, can be applied directly to the LAKE protocol, as is detailed in <a href="#KEM" class="auto internal xref">Section 3</a>.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span> for key exchange, and ML-DSA-44 and ML-DSA-87 <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span> for digital signatures are specified in <a href="#suites-registry" class="auto internal xref">Section 6.2</a>. As both ML-KEM <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> and ML-DSA <span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span> internally use SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>, it was natural to have SHAKE256 as EDHOC hash algorithm in the cipher suite, and thus used also in the key derivation, see <span><a href="https://rfc-editor.org/rfc/rfc9528#section-4" class="relref">Section 4</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>. Note that as AEAD hash function in these cipher suites, the legacy algorithms SHA-256 or SHA-384 are still used, see <a href="#suites-registry" class="auto internal xref">Section 6.2</a>. Additional post-quantum cipher suites may be specified.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">Methods 1–3 in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods that require DH/NIKE a column is added to the EDHOC Method Type registry, see <a href="#method-update" class="auto internal xref">Section 6.1</a>. To highlight matching cipher suites a corresponding column indicating support for DH/NIKE is added, see <a href="#suites-registry" class="auto internal xref">Section 6.2</a>.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">An alternative path to post-quantum support for the LAKE protocol, not pursued in this document, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs).<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM-512 and ML-DSA-44 (and ML-KEM-1024 and ML-DSA-87) introduce significantly higher overhead <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span><span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span>, but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.<a href="#section-2-6" class="pilcrow">¶</a></p>
-<p id="section-2-7">However, it is important to note that these cipher suites may not be usable for certain classes of constrained devices (see <span>[<a href="#I-D.ietf-iotops-7228bis" class="cite xref">I-D.ietf-iotops-7228bis</a>]</span>) due to  for example, increased size of signatures or of KEM keys in quantum-resistant algorithms.<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-3">To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span> for key exchange, and ML-DSA-44 and ML-DSA-87 <span>[<a href="#I-D.ietf-cose-dilithium" class="cite xref">I-D.ietf-cose-dilithium</a>]</span> for digital signatures are specified in <a href="#suites-registry" class="auto internal xref">Section 6.4</a>. As both ML-KEM <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> and ML-DSA <span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span> internally use SHAKE256 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>, it was natural to have SHAKE256 as LAKE hash algorithm in the cipher suite, and thus used also in the key derivation, see <span><a href="https://rfc-editor.org/rfc/rfc9528#section-4" class="relref">Section 4</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>. Note that as application hash function in these cipher suites, the legacy algorithms SHA-256 or SHA-384 are still used, see <a href="#suites-registry" class="auto internal xref">Section 6.4</a>. Additional post-quantum cipher suites may be specified.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4">Methods 1–3 in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods require DH/NIKE, a column is added to the LAKE Method Type registry, see <a href="#method-update" class="auto internal xref">Section 6.3</a>. To highlight matching cipher suites, a corresponding column indicating support for DH/NIKE is added, see <a href="#suites-registry" class="auto internal xref">Section 6.4</a>.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-5">An alternative path to post-quantum support for the LAKE protocol, pursued in <span>[<a href="#I-D.ietf-lake-authkem-edhoc" class="cite xref">I-D.ietf-lake-authkem-edhoc</a>]</span>, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs). The cipher suites defined in this document can also be used with these authentication methods.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM and ML-DSA introduce significantly higher overhead (see <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> and <span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span> respectively), but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-7">However, it is important to note that these cipher suites may not be usable for certain classes of constrained devices (see <span>[<a href="#I-D.ietf-iotops-7228bis" class="cite xref">I-D.ietf-iotops-7228bis</a>]</span>) due to, e.g., increased size of signatures or of KEM keys in quantum-resistant algorithms.<a href="#section-2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="KEM">
@@ -1287,7 +1297,7 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
           <p id="section-3-2.6.1">G_XY is the shared secret key K.<a href="#section-3-2.6.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-3">The security requirements and security considerations of <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> and the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for each LAKE session.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-3">The security requirements and security considerations of <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> and of the KEM algorithm used apply. For example, the Initiator MUST generate a new encapsulation / decapsulation key pair for each LAKE session.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">Note that G_Y does not contain a public key when a KEM is used in this way. The definition of LAKE message_2 in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-5.3.1" class="relref">Section 5.3.1</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> remains the same:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <div class="lang-CDDL sourcecode" id="section-3-5">
 <pre>
@@ -1297,25 +1307,36 @@ message_2 = (
 </pre><a href="#section-3-5" class="pilcrow">¶</a>
 </div>
 <p id="section-3-6">and G_Y_CIPHERTEXT_2 remains the concatenation of G_Y and CIPHERTEXT_2, the latter is defined in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-5.3.2" class="relref">Section 5.3.2</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>. But now G_Y is a KEM ciphertext.<a href="#section-3-6" class="pilcrow">¶</a></p>
-<p id="section-3-7">Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see <a href="#fig-ct-length" class="auto internal xref">Figure 1</a>. Hence the Initator can separate out the concatenated ciphertexts and decapsulate and decrypt, respectively.<a href="#section-3-7" class="pilcrow">¶</a></p>
-<span id="name-length-of-ml-kem-ciphertext"></span><div id="fig-ct-length">
-<figure id="figure-1">
-        <div class="alignLeft art-text artwork" id="section-3-8.1">
-<pre>
-+-------------+------------------------------+
-|     KEM     | Length of ciphertext (bytes) |
-+=============+==============================+
-| ML‑KEM‑512  |                          768 |
-| ML‑KEM‑768  |                         1088 |
-| ML‑KEM‑1024 |                         1568 |
-+-------------+------------------------------+
-</pre>
-</div>
-<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<p id="section-3-7">Just as with the ephemeral key G_Y, the length of KEM ciphertext c is known from the corresponding algorithm in the selected cipher suite, see <a href="#tab-ct-length" class="auto internal xref">Table 1</a>. Hence the Initiator can separate out the concatenated ciphertexts, decapsulate and decrypt, respectively.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<span id="name-length-of-ml-kem-ciphertext"></span><div id="tab-ct-length">
+<table class="center" id="table-1">
+        <caption>
+<a href="#table-1" class="selfRef">Table 1</a>:
 <a href="#name-length-of-ml-kem-ciphertext" class="selfRef">Length of ML-KEM Ciphertext.</a>
-        </figcaption></figure>
+        </caption>
+<thead>
+          <tr>
+            <th class="text-left" rowspan="1" colspan="1">KEM</th>
+            <th class="text-right" rowspan="1" colspan="1">Length of ciphertext (bytes)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">ML‑KEM‑512</td>
+            <td class="text-right" rowspan="1" colspan="1">768</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">ML‑KEM‑768</td>
+            <td class="text-right" rowspan="1" colspan="1">1088</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">ML‑KEM‑1024</td>
+            <td class="text-right" rowspan="1" colspan="1">1568</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
-<p id="section-3-9">Note also that this use of KEM applies both to standalone KEM and hybrid KEMs such as, e.g., X-wing <span>[<a href="#I-D.connolly-cfrg-xwing-kem" class="cite xref">I-D.connolly-cfrg-xwing-kem</a>]</span>.<a href="#section-3-9" class="pilcrow">¶</a></p>
+<p id="section-3-9">Note also that this use of KEM applies both to standalone KEM and composite hybrid KEMs such as, e.g., <span>[<a href="#I-D.irtf-cfrg-concrete-hybrid-kems" class="cite xref">I-D.irtf-cfrg-concrete-hybrid-kems</a>]</span>.<a href="#section-3-9" class="pilcrow">¶</a></p>
 <p id="section-3-10">Conventions for using post-quantum KEMs within COSE are described in <span>[<a href="#I-D.ietf-jose-pqc-kem" class="cite xref">I-D.ietf-jose-pqc-kem</a>]</span>. The shared secret key K corresponds to the initial shared secret SS' in that document.<a href="#section-3-10" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1328,22 +1349,22 @@ message_2 = (
 <div id="classical-lake-security-properties">
 <section id="section-4.1">
         <h3 id="name-classical-lake-security-pro">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-classical-lake-security-pro" class="section-name selfRef">Classical LAKE security properties</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-classical-lake-security-pro" class="section-name selfRef">Classical LAKE Security Properties</a>
         </h3>
-<p id="section-4.1-1">When used with Method 0 from <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, these cipher suites preserve the security properties discussed in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-9" class="relref">Section 9</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> (for Method 0) and in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-09#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> (for PSK method). Let us cite, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-<p id="section-4.1-2">This is because the security properties of LAKE (methods 0 and PSK) are affected by cipher suites only through the security of the algorithms involved. Since the algorithms introduced in these cipher suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure, i.e., secure against a quantum adversary and, by extension, secure against a classical adversary, the security properties are guaranteed.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">When used with Method 0 from <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, where both the Initiator and Responder authenticate using digital signatures, or with the PSK method defined in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, these cipher suites preserve the security properties discussed in <span><a href="https://rfc-editor.org/rfc/rfc9528#section-9" class="relref">Section 9</a> of [<a href="#RFC9528" class="cite xref">RFC9528</a>]</span> (for Method 0) and in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-10#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> (for PSK method). These include, for example, mutual authentication and confidentiality, keys security, identity protection, External Authorization Data (EAD) security, etc.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-2">This is because the security properties of LAKE (methods 0 and PSK) are affected by cipher suites only through the security of the algorithms involved. Since the algorithms introduced in these cipher suites -- ML-KEM, ML-DSA and SHAKE256 -- are post-quantum secure, i.e., secure against a quantum adversary and, by extension, secure against a classical adversary, the classical security properties are guaranteed.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="post-quantum-security">
 <section id="section-4.2">
         <h3 id="name-post-quantum-security">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-post-quantum-security" class="section-name selfRef">Post-quantum security</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-post-quantum-security" class="section-name selfRef">Post-quantum Security</a>
         </h3>
-<p id="section-4.2-1">Cipher suites specified in this document use ML-KEM for ephemeral key exchange, and ML-DSA for authentication. These algorithms are believed secure against a quantum adversary. Security considerations of ML-KEM are discussed in <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>, and those of ML-DSA are addressed in <span>[<a href="#I-D.connolly-cfrg-ml-dsa-security-considerations" class="cite xref">I-D.connolly-cfrg-ml-dsa-security-considerations</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">Cipher suites specified in this document use ML-KEM for ephemeral key exchange, and ML-DSA for authentication. These algorithms are constructed to provide security against a quantum adversary. Security considerations of ML-KEM are discussed in <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>, and those of ML-DSA are addressed in <span>[<a href="#I-D.connolly-cfrg-ml-dsa-security-considerations" class="cite xref">I-D.connolly-cfrg-ml-dsa-security-considerations</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">The security of LAKE for methods 0 to 3, specified in <span>[<a href="#RFC9528" class="cite xref">RFC9528</a>]</span>, and for the PSK mode, settled in <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span>, has been established in the Random Oracle Model (ROM), i.e., against "classical" adversaries.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2-3">In the Quantum Random Oracle Model (QROM), two adversary models are relevant: a Q1 adversary, able to perform offline quantum computations, but who can only make classical queries to oracles defined according to the protocol; and a Q2 adversary, able to query all the oracles in superposition.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <p id="section-4.2-4">The Q1 adversary is considered as the most realistic and practicable threat model currently. However, establishing the security properties of LAKE Method 0 and PSK with quantum-resistant cipher suites in the Q1 model is left for future work. To date, only the standalone primitives ML-KEM and ML-DSA have been analyzed in the QROM, and their integration into cipher suites is not sufficient to claim the overall post-quantum security of LAKE Method 0 and PSK with these new cipher suites.<a href="#section-4.2-4" class="pilcrow">¶</a></p>
-<p id="section-4.2-5">The first two cipher suite proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5, see <a href="#suites-registry" class="auto internal xref">Section 6.2</a>.<a href="#section-4.2-5" class="pilcrow">¶</a></p>
+<p id="section-4.2-5">The first two cipher suite proposals have Category 1 security level (according to NIST), while proposal 3 is in Category 5, see <a href="#suites-registry" class="auto internal xref">Section 6.4</a>.<a href="#section-4.2-5" class="pilcrow">¶</a></p>
 <p id="section-4.2-6">As discussed above, SHA-256 and SHA-384, used as application hash functions in these cipher suites are still considered to provide adequate security against quantum pre-image attacks, providing 128-bit and 192-bit security levels, respectively.<a href="#section-4.2-6" class="pilcrow">¶</a></p>
 <div id="store-now-decrypt-later">
 <section id="section-4.2.1">
@@ -1365,10 +1386,10 @@ message_2 = (
 <div id="side-channel-considerations">
 <section id="section-4.2.3">
           <h4 id="name-side-channel-considerations">
-<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-side-channel-considerations" class="section-name selfRef">Side-channel considerations</a>
+<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-side-channel-considerations" class="section-name selfRef">Side-channel Considerations</a>
           </h4>
 <p id="section-4.2.3-1">Implementations of post-quantum algorithms, e.g., lattice-based or code-based algorithms, have been shown to be susceptible to side-channel attacks, e.g., regarding timing or power analysis attacks. Side-channel resistance of ML-KEM and ML-DSA depends both on their implementation and on how they are used within the protocol itself.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-2">Implementations MUST follow the side-channel guidance given in the specifications of ML-KEM <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span> and ML-DSA <span>[<a href="#I-D.connolly-cfrg-ml-dsa-security-considerations" class="cite xref">I-D.connolly-cfrg-ml-dsa-security-considerations</a>]</span>. Moreover, ML-KEM key used for ephemeral key exchange MUST be freshly generated for each LAKE protocol session. In addition, analyzing the resistance of LAKE Method 0 and PSK to side-channel attacks, in post-quantum settings is out of scope of this document and left for future work.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-2">Implementations MUST follow the side-channel requirements given in the specifications of ML-KEM <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> and ML-DSA <span>[<a href="#FIPS204" class="cite xref">FIPS204</a>]</span>. Additional implementation guidance on side-channel attack resistance can be found in <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span> and <span>[<a href="#I-D.connolly-cfrg-ml-dsa-security-considerations" class="cite xref">I-D.connolly-cfrg-ml-dsa-security-considerations</a>]</span>. Moreover, ML-KEM key used for ephemeral key exchange MUST be freshly generated for each LAKE protocol session. In addition, analyzing the resistance of LAKE Method 0 and PSK to side-channel attacks, in post-quantum settings is out of scope of this document and left for future work.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1388,70 +1409,186 @@ message_2 = (
       <h2 id="name-iana-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">This section specifies IANA updates for EDHOC Method Types and Cipher Suites registration.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<div id="method-update">
+<p id="section-6-1">This section specifies the name change of the registries and the updates to the Method Types and Cipher Suites registries for the protocol.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<div id="name-change-of-edhoc-registry-group">
 <section id="section-6.1">
-        <h3 id="name-edhoc-method-type-registry">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-edhoc-method-type-registry" class="section-name selfRef">EDHOC Method Type Registry</a>
+        <h3 id="name-name-change-of-edhoc-regist">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-name-change-of-edhoc-regist" class="section-name selfRef">Name Change of EDHOC Registry Group</a>
         </h3>
-<p id="section-6.1-1">IANA is requested to update the EDHOC Method Type registry <span>[<a href="#IANA_edhoc_method_types" class="cite xref">IANA_edhoc_method_types</a>]</span> with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6.1-3">
-<pre>
-Value: 0, Requires DH/NIKE: No
-Value: 1, Requires DH/NIKE: Yes
-Value: 2, Requires DH/NIKE: Yes
-Value: 3, Requires DH/NIKE: Yes
-</pre><a href="#section-6.1-3" class="pilcrow">¶</a>
+<p id="section-6.1-1">Consistent with the change of protocol name, the IANA has changed the name of the registry group "Ephemeral Diffie-Hellman Over COSE (EDHOC)" to "Lightweight Authenticated Key Exchange (LAKE)".<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-2">A note is added to the preamble of the registry group:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.1-3">Renamed from "Ephemeral Diffie-Hellman Over COSE (EDHOC)"<a href="#section-6.1-3" class="pilcrow">¶</a></p>
+</section>
 </div>
-<p id="section-6.1-4">This note is to be removed before publishing as an RFC.
-Once the LAKE PSK authentication method <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> is standardized and registered with IANA, add the line:<a href="#section-6.1-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6.1-5">
-<pre>
-Value: 4, Requires DH/NIKE: No
-</pre><a href="#section-6.1-5" class="pilcrow">¶</a>
+<div id="name-change-of-edhoc-registries">
+<section id="section-6.2">
+        <h3 id="name-name-change-of-edhoc-registr">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-name-change-of-edhoc-registr" class="section-name selfRef">Name Change of EDHOC Registries</a>
+        </h3>
+<p id="section-6.2-1">Consistent with the change of protocol name, the name of all IANA registries that include the term "EDHOC" in the registry group of this protocol are changed:<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.2-2.1">
+            <p id="section-6.2-2.1.1">"EDHOC Exporter Labels" is renamed "LAKE Exporter Labels".<a href="#section-6.2-2.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.1.2">
+A note is added to the registry:<a href="#section-6.2-2.1.2" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.1.3">
+Renamed from "EDHOC Exporter Labels"<a href="#section-6.2-2.1.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.2-2.2">
+            <p id="section-6.2-2.2.1">"EDHOC Cipher Suites" is renamed "LAKE Cipher Suites".<a href="#section-6.2-2.2.1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.2.2">
+A note is added to the registry:<a href="#section-6.2-2.2.2" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.2.3">
+Renamed from "EDHOC Cipher Suites"<a href="#section-6.2-2.2.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.2-2.3">
+            <p id="section-6.2-2.3.1">"EDHOC Exporter Labels" is renamed "LAKE Exporter Labels".<a href="#section-6.2-2.3.1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.3.2">
+A note is added to the registry:<a href="#section-6.2-2.3.2" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.3.3">
+Renamed from "EDHOC Exporter Labels"<a href="#section-6.2-2.3.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.2-2.4">
+            <p id="section-6.2-2.4.1">"EDHOC Method Types" is renamed "LAKE Method Types".<a href="#section-6.2-2.4.1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.4.2">
+A note is added to the registry:<a href="#section-6.2-2.4.2" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.4.3">
+Renamed from "EDHOC Method Types"<a href="#section-6.2-2.4.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.2-2.5">
+            <p id="section-6.2-2.5.1">"EDHOC Error Codes" is renamed "LAKE Error Codes".<a href="#section-6.2-2.5.1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.5.2">
+A note is added to the registry:<a href="#section-6.2-2.5.2" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.5.3">
+Renamed from "EDHOC Error Codes"<a href="#section-6.2-2.5.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.2-2.6">
+            <p id="section-6.2-2.6.1">"EDHOC External Authorization Data" is renamed "LAKE External Authorization Data".<a href="#section-6.2-2.6.1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.6.2">
+A note is added to the registry:<a href="#section-6.2-2.6.2" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.6.3">
+Renamed from "EDHOC External Authorization Data"<a href="#section-6.2-2.6.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.2-2.7">
+            <p id="section-6.2-2.7.1">"EDHOC Authentication Credential Types" is renamed "LAKE Authentication Credential Types".<a href="#section-6.2-2.7.1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.7.2">
+A note is added to the registry:<a href="#section-6.2-2.7.2" class="pilcrow">¶</a></p>
+<p id="section-6.2-2.7.3">
+Renamed from "EDHOC Authentication Credential Types"<a href="#section-6.2-2.7.3" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
 </div>
+<div id="method-update">
+<section id="section-6.3">
+        <h3 id="name-lake-method-types-registry">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-lake-method-types-registry" class="section-name selfRef">LAKE Method Types Registry</a>
+        </h3>
+<p id="section-6.3-1">IANA is requested to update the LAKE Method Types registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-2">For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:<a href="#section-6.3-2" class="pilcrow">¶</a></p>
+<span id="name-lake-method-types"></span><div id="tab-method-types">
+<table class="center" id="table-2">
+          <caption>
+<a href="#table-2" class="selfRef">Table 2</a>:
+<a href="#name-lake-method-types" class="selfRef">LAKE Method Types.</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Value</th>
+              <th class="text-left" rowspan="1" colspan="1">Initiator Key</th>
+              <th class="text-left" rowspan="1" colspan="1">Responder Key</th>
+              <th class="text-left" rowspan="1" colspan="1">Requires DH/NIKE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">0</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">1</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Signature Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">3</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Static DH Key</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">4</td>
+              <td class="text-left" rowspan="1" colspan="1">PSK</td>
+              <td class="text-left" rowspan="1" colspan="1">PSK</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">23</td>
+              <td class="text-left" rowspan="1" colspan="1">Reserved</td>
+              <td class="text-left" rowspan="1" colspan="1">Reserved</td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+<p id="section-6.3-4">RFC Editor Note: Please verify during publication that the LAKE Method Types registry has not been modified since the IANA instructions in this document were written. The table above assumes that <span>[<a href="#I-D.ietf-lake-edhoc-psk" class="cite xref">I-D.ietf-lake-edhoc-psk</a>]</span> is published before this document and registers value 4, and that <span>[<a href="#I-D.ietf-lake-authkem-edhoc" class="cite xref">I-D.ietf-lake-authkem-edhoc</a>]</span> is published after this document.<a href="#section-6.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="suites-registry">
-<section id="section-6.2">
-        <h3 id="name-edhoc-cipher-suites-registr">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-edhoc-cipher-suites-registr" class="section-name selfRef">EDHOC Cipher Suites Registry</a>
+<section id="section-6.4">
+        <h3 id="name-lake-cipher-suites-registry">
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-lake-cipher-suites-registry" class="section-name selfRef">LAKE Cipher Suites Registry</a>
         </h3>
-<p id="section-6.2-1">IANA is requested to update the EDHOC Cipher Suites registry <span>[<a href="#IANA_edhoc_cipher_suites" class="cite xref">IANA_edhoc_cipher_suites</a>]</span> with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">For the existing cipher suites 0-6, 24, 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
-<p id="section-6.2-3">Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry:<a href="#section-6.2-3" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6.2-4">
-<pre>
-Value: TBD1
-Array: 30, -45, 16, TBD10, -48, 10, -16
-Description: AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44,
-             AES-CCM-16-64-128, SHA-256
-Supports DH/NIKE: No
-Reference: [[This document]]
-</pre><a href="#section-6.2-4" class="pilcrow">¶</a>
+<p id="section-6.4-1">IANA is requested to update the LAKE Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".<a href="#section-6.4-1" class="pilcrow">¶</a></p>
+<p id="section-6.4-2">For the existing Cipher Suites 0–6, 24, and 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column. The column is left empty for all other existing entries.<a href="#section-6.4-2" class="pilcrow">¶</a></p>
+<p id="section-6.4-3">Furthermore, IANA is requested to register the following entries in the LAKE Cipher Suites registry, with this document as the reference:<a href="#section-6.4-3" class="pilcrow">¶</a></p>
+<span id="name-lake-cipher-suites"></span><div id="tab-cipher-suites">
+<table class="center" id="table-3">
+          <caption>
+<a href="#table-3" class="selfRef">Table 3</a>:
+<a href="#name-lake-cipher-suites" class="selfRef">LAKE Cipher Suites.</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Value</th>
+              <th class="text-left" rowspan="1" colspan="1">Array</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Supports DH/NIKE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD1</td>
+              <td class="text-left" rowspan="1" colspan="1">30, -45, 16, TBD10, -48, 10, -16</td>
+              <td class="text-left" rowspan="1" colspan="1">AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44, AES-CCM-16-64-128, SHA-256</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD2</td>
+              <td class="text-left" rowspan="1" colspan="1">3, -45, 16, TBD10, -48, 3, -16</td>
+              <td class="text-left" rowspan="1" colspan="1">A256GCM, SHAKE256, 16, MLKEM512, ML-DSA-44, A256GCM, SHA-256</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">TBD3</td>
+              <td class="text-left" rowspan="1" colspan="1">3, -43, 16, TBD12, -50, 3, -43</td>
+              <td class="text-left" rowspan="1" colspan="1">A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87, A256GCM, SHA-384</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+          </tbody>
+        </table>
 </div>
-<div class="alignLeft art-text artwork" id="section-6.2-5">
-<pre>
-Value: TBD2
-Array: 3, -45, 16, TBD10, -48, 3, -16
-Description: A256GCM, SHAKE256, 16, MLKEM512, ML-DSA-44,
-             A256GCM, SHA-256
-Supports DH/NIKE: No
-Reference: [[This document]]
-</pre><a href="#section-6.2-5" class="pilcrow">¶</a>
-</div>
-<div class="alignLeft art-text artwork" id="section-6.2-6">
-<pre>
-Value: TBD3
-Array: 3, -43, 16, TBD12, -50, 3, -43
-Description: A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87,
-             A256GCM, SHA-384
-Supports DH/NIKE: No
-Reference: [[This document]]
-</pre><a href="#section-6.2-6" class="pilcrow">¶</a>
-</div>
-<p id="section-6.2-7">Cipher suite TBD3 is intended for for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite <span>[<a href="#CNSA20" class="cite xref">CNSA20</a>]</span>.<a href="#section-6.2-7" class="pilcrow">¶</a></p>
+<p id="section-6.4-5">Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite <span>[<a href="#CNSA20" class="cite xref">CNSA20</a>]</span>.<a href="#section-6.4-5" class="pilcrow">¶</a></p>
+<p id="section-6.4-6">RFC Editor Note: Please verify during publication that the LAKE Cipher Suites registry has not been modified since the IANA instructions in this document were written.<a href="#section-6.4-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1516,37 +1653,25 @@ Reference: [[This document]]
         <dd>
 <span class="refAuthor">Connolly, D.</span>, <span class="refTitle">"Security Considerations for ML-DSA"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-connolly-cfrg-ml-dsa-security-considerations-02</span>, <time datetime="2026-03-19" class="refDate">19 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-ml-dsa-security-considerations-02">https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-ml-dsa-security-considerations-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.connolly-cfrg-xwing-kem">[I-D.connolly-cfrg-xwing-kem]</dt>
-        <dd>
-<span class="refAuthor">Connolly, D.</span>, <span class="refAuthor">Schwabe, P.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"X-Wing: general-purpose hybrid post-quantum KEM"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-connolly-cfrg-xwing-kem-10</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-xwing-kem-10">https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-xwing-kem-10</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="I-D.ietf-iotops-7228bis">[I-D.ietf-iotops-7228bis]</dt>
         <dd>
 <span class="refAuthor">Bormann, C.</span>, <span class="refAuthor">Ersue, M.</span>, <span class="refAuthor">Keränen, A.</span>, and <span class="refAuthor">C. Gomez</span>, <span class="refTitle">"Terminology for Constrained-Node Networks"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-iotops-7228bis-10</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-iotops-7228bis-10">https://datatracker.ietf.org/doc/html/draft-ietf-iotops-7228bis-10</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lake-authkem-edhoc">[I-D.ietf-lake-authkem-edhoc]</dt>
         <dd>
-<span class="refAuthor">Fraile, L. P.</span>, <span class="refAuthor">Koulamas, C.</span>, <span class="refAuthor">Fournaris, A.</span>, and <span class="refAuthor">E. Haleplidis</span>, <span class="refTitle">"KEM-based Authentication for EDHOC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lake-authkem-edhoc-00</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-authkem-edhoc-00">https://datatracker.ietf.org/doc/html/draft-ietf-lake-authkem-edhoc-00</a>&gt;</span>. </dd>
+<span class="refAuthor">Fraile, L. P.</span>, <span class="refAuthor">Koulamas, C.</span>, <span class="refAuthor">Fournaris, A.</span>, and <span class="refAuthor">E. Haleplidis</span>, <span class="refTitle">"KEM-based Authentication for EDHOC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lake-authkem-edhoc-01</span>, <time datetime="2026-09-28" class="refDate">28 September 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-authkem-edhoc-01">https://datatracker.ietf.org/doc/html/draft-ietf-lake-authkem-edhoc-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lake-edhoc-psk">[I-D.ietf-lake-edhoc-psk]</dt>
         <dd>
-<span class="refAuthor">Lopez-Perez</span>, <span class="refAuthor">Selander, G.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Marin-Lopez, R.</span>, and <span class="refAuthor">F. Lopez-Gomez</span>, <span class="refTitle">"EDHOC Authenticated with Pre-Shared Keys (PSK)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lake-edhoc-psk-09</span>, <time datetime="2026-09-08" class="refDate">8 September 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-09">https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-09</a>&gt;</span>. </dd>
+<span class="refAuthor">Lopez-Perez</span>, <span class="refAuthor">Selander, G.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Marin-Lopez, R.</span>, and <span class="refAuthor">F. Lopez-Gomez</span>, <span class="refTitle">"LAKE Authenticated with Pre-Shared Keys (PSKs)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lake-edhoc-psk-10</span>, <time datetime="2026-10-05" class="refDate">5 October 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-10">https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-psk-10</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.irtf-cfrg-concrete-hybrid-kems">[I-D.irtf-cfrg-concrete-hybrid-kems]</dt>
         <dd>
 <span class="refAuthor">Connolly, D.</span> and <span class="refAuthor">R. Barnes</span>, <span class="refTitle">"Concrete Hybrid PQ/T Key Encapsulation Mechanisms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-concrete-hybrid-kems-04</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-concrete-hybrid-kems-04">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-concrete-hybrid-kems-04</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.sfluhrer-cfrg-ml-kem-security-considerations">[I-D.sfluhrer-cfrg-ml-kem-security-considerations]</dt>
-        <dd>
-<span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Dang, Q.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Milner, K.</span>, and <span class="refAuthor">D. Shiu</span>, <span class="refTitle">"ML-KEM Security Considerations"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-sfluhrer-cfrg-ml-kem-security-considerations-05</span>, <time datetime="2026-05-13" class="refDate">13 May 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05">https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="IANA_edhoc_cipher_suites">[IANA_edhoc_cipher_suites]</dt>
-        <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"EDHOC Cipher Suites"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/edhoc#edhoc-cipher-suites">https://www.iana.org/assignments/edhoc#edhoc-cipher-suites</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="IANA_edhoc_method_types">[IANA_edhoc_method_types]</dt>
       <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"EDHOC Method Types"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/edhoc#edhoc-method-types">https://www.iana.org/assignments/edhoc#edhoc-method-types</a>&gt;</span>. </dd>
+<span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Dang, Q.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Milner, K.</span>, and <span class="refAuthor">D. Shiu</span>, <span class="refTitle">"ML-KEM Security Considerations"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-sfluhrer-cfrg-ml-kem-security-considerations-05</span>, <time datetime="2026-05-13" class="refDate">13 May 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05">https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
