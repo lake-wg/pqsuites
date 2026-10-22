@@ -88,7 +88,7 @@ informative:
 
 --- abstract
 
-The Lightweight Authenticated Key Exchange (LAKE) protocol, formerly known as Ephemeral Diffie-Hellman over COSE (EDHOC), as originally specified in RFC 9528, relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates RFC 9528 by changing the name of the protocol and associated IANA registries from EDHOC to LAKE, and updating the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange (NIKE) primitives.
+The Lightweight Authenticated Key Exchange (LAKE) protocol, formerly known as Ephemeral Diffie-Hellman over COSE (EDHOC), as originally specified in RFC 9528, relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates RFC 9528 by changing the name of the protocol together with associated terminology and IANA registries from EDHOC to LAKE, as well as updating the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange (NIKE) primitives.
 
 --- middle
 
