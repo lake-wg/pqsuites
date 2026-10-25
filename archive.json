@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-10-18T02:50:28.743123+00:00",
+  "timestamp": "2026-10-25T03:00:19.144599+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -489,6 +489,32 @@
           "updatedAt": "2026-08-24T05:58:42Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOTe1l7M8AAAABKITDMA",
+      "title": "Changing EDHOC to LAKE",
+      "url": "https://github.com/lake-wg/pqsuites/pull/17",
+      "state": "OPEN",
+      "author": "gselander",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing issues #15 and #16.",
+      "createdAt": "2026-10-22T22:06:40Z",
+      "updatedAt": "2026-10-22T22:13:49Z",
+      "baseRepository": "lake-wg/pqsuites",
+      "baseRefName": "main",
+      "baseRefOid": "c15efdfbc9233dd32defb31535a461f647bd8ab2",
+      "headRepository": "lake-wg/pqsuites",
+      "headRefName": "name-change",
+      "headRefOid": "fd8759bc1ca35639d569c07a96e223214966bf6f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
