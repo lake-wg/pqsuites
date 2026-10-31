@@ -85,15 +85,10 @@ informative:
       - org: National Security Agency
     date: September 2022
     target: "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/3148990/nsa-releases-future-quantum-resistant-qr-algorithm-requirements-for-national-se/"
-  IANA:
-    title: Ephemeral Diffie-Hellman Over COSE (EDHOC) Registry Group
-    author:
-    date:
-    target: https://www.iana.org/assignments/edhoc
 
 --- abstract
 
-The Lightweight Authenticated Key Exchange (LAKE) protocol, formerly known as Ephemeral Diffie-Hellman over COSE (EDHOC), as originally specified in RFC 9528, relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates RFC 9528 by changing the name of the protocol from EDHOC to LAKE and updating the EDHOC Method Types and Cipher Suites registries to add columns indicating, respectively, whether a method requires and whether a cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange (NIKE) primitives.
+The Lightweight Authenticated Key Exchange (LAKE) protocol, formerly known as Ephemeral Diffie-Hellman over COSE (EDHOC), as originally specified in RFC 9528, relies on Elliptic Curve Cryptography (ECC) for key exchange and authentication. This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using quantum-resistant algorithms, such as ML-DSA for digital signatures and ML-KEM for key exchange. This document also updates RFC 9528 by changing the name of the protocol together with associated terminology and IANA registries from EDHOC to LAKE, as well as updating the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange (NIKE) primitives.
 
 --- middle
 
@@ -105,9 +100,9 @@ The cipher suites defined in {{RFC9528}} rely on Elliptic Curve Cryptography (EC
 
 This document specifies how the LAKE protocol operates in a post-quantum setting by defining new cipher suites using ML-KEM {{I-D.ietf-jose-pqc-kem}} for key exchange and ML-DSA {{I-D.ietf-cose-dilithium}} for digital signatures. ML-KEM provides a post-quantum replacement for the ephemeral Diffie-Hellman key exchange. The new cipher suites can be used with signature-based authentication, as well as with the PSK-based and KEM-based authentication methods being developed; see {{Section 3.6 of RFC9528}} on algorithms not used in certain methods.
 
-KEM algorithms such as ML-KEM are not Diffie-Hellman or Non-Interactive Key Exchange (DH/NIKE) primitives. Consequently, the new ML-KEM cipher suites cannot be used with methods 0–3, which require DH/NIKE. This document therefore updates the EDHOC Method Types and Cipher Suites registries to add columns indicating, respectively, whether a method requires and whether a cipher suite supports DH/NIKE-based key exchange; see {{method-update}} and {{suites-registry}}. The new cipher suites combining ML-KEM and ML-DSA are registered accordingly.
+KEM algorithms such as ML-KEM are not Diffie-Hellman or Non-Interactive Key Exchange (DH/NIKE) primitives. Consequently, the new ML-KEM cipher suites cannot be used with methods 0–3, which require DH/NIKE. This document therefore updates the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports DH/NIKE-based key exchange; see {{method-update}} and {{suites-registry}}. The new cipher suites combining ML-KEM and ML-DSA are registered accordingly.
 
-With the addition of KEM-based key exchange, the protocol is no longer dependent on Diffie-Hellman, and the name Ephemeral Diffie-Hellman over COSE (EDHOC) no longer accurately describes the protocol. Accordingly, this document updates {{RFC9528}} by changing the name of the protocol from EDHOC to Lightweight Authenticated Key Exchange (LAKE). The EDHOC prefix is retained where needed to avoid ambiguity with terminology and registry entries defined in {{RFC9528}}, for example in the IANA registries.
+With the addition of KEM-based key exchange, the protocol is no longer dependent on Diffie-Hellman, and the name Ephemeral Diffie-Hellman over COSE (EDHOC) no longer accurately describes the protocol. Accordingly, this document updates {{RFC9528}} by changing the name of the protocol from EDHOC to Lightweight Authenticated Key Exchange (LAKE), a name associated with the protocol in the literature. The EDHOC prefix is replaced by LAKE also in terminology and IANA registry entries defined in {{RFC9528}}.
 
 ## Terminology {#terminology}
 
@@ -115,15 +110,18 @@ With the addition of KEM-based key exchange, the protocol is no longer dependent
 
 Readers are expected to be familiar with {{RFC9528}}.
 
+Consistent with the change of protocol name, all terms using the prefix "EDHOC" should henceforth be replaced by corresponding terms with the prefix "LAKE", for example, LAKE_KDF, LAKE_Extract, LAKE_Expand, LAKE_Exporter, LAKE_KeyUpdate, LAKE AEAD Algorithm, LAKE hash algorithm, LAKE MAC algorithm, LAKE key exchange algorithm, LAKE signature algorithm, etc.
+
+
 # LAKE with Quantum-Resistant Algorithms
 
 Method 0 in {{RFC9528}}, which uses digital signatures for authentication by both the Initiator and Responder, and also the PSK method in {{I-D.ietf-lake-edhoc-psk}}, are straightforward to use with standardized post-quantum algorithms.
 
 A quantum-resistant signature algorithm, such as ML-DSA {{I-D.ietf-cose-dilithium}}, is a drop-in replacement for classical signature algorithms such as ECDSA. For post-quantum secure key exchange, in order to replace the Ephemeral Diffie-Hellman key exchange, a quantum-resistant Key Encapsulation Mechanism (KEM), such as ML-KEM {{I-D.ietf-jose-pqc-kem}}, can be applied directly to the LAKE protocol, as is detailed in {{KEM}}.
 
-To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 {{I-D.ietf-jose-pqc-kem}} for key exchange, and ML-DSA-44 and ML-DSA-87 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256 {{FIPS202}}, it was natural to have SHAKE256 as EDHOC hash algorithm in the cipher suite, and thus used also in the key derivation, see {{Section 4 of RFC9528}}. Note that as application hash function in these cipher suites, the legacy algorithms SHA-256 or SHA-384 are still used, see {{suites-registry}}. Additional post-quantum cipher suites may be specified.
+To enable post-quantum security support for LAKE it suffices to register new cipher suites using COSE registered algorithms. Cipher suites using ML-KEM-512 and ML-KEM-1024 {{I-D.ietf-jose-pqc-kem}} for key exchange, and ML-DSA-44 and ML-DSA-87 {{I-D.ietf-cose-dilithium}} for digital signatures are specified in {{suites-registry}}. As both ML-KEM {{FIPS203}} and ML-DSA {{FIPS204}} internally use SHAKE256 {{FIPS202}}, it was natural to have SHAKE256 as LAKE hash algorithm in the cipher suite, and thus used also in the key derivation, see {{Section 4 of RFC9528}}. Note that as application hash function in these cipher suites, the legacy algorithms SHA-256 or SHA-384 are still used, see {{suites-registry}}. Additional post-quantum cipher suites may be specified.
 
-Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods require DH/NIKE, a column is added to the EDHOC Method Type registry, see {{method-update}}. To highlight matching cipher suites, a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
+Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods require DH/NIKE, a column is added to the LAKE Method Type registry, see {{method-update}}. To highlight matching cipher suites, a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
 
 An alternative path to post-quantum support for the LAKE protocol is to define new authentication methods based on a Key Encapsulation Mechanisms (KEMs), one such method is specified in {{I-D.ietf-lake-authkem-edhoc}}. The cipher suites defined in this document can also be used with these authentication methods.
 
@@ -219,11 +217,59 @@ This document does not add any new privacy considerations to those discussed in 
 
 # IANA Considerations
 
-This section specifies updates to the EDHOC Method Types and Cipher Suites registries.
+This section specifies the name change of the registries and the updates to the Method Types and Cipher Suites registries for the protocol.
 
-## EDHOC Method Types Registry {#method-update}
+## Name Change of EDHOC Registry Group
 
-IANA is requested to update the EDHOC Method Types registry {{IANA}} with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+Consistent with the change of protocol name, the IANA has changed the name of the registry group "Ephemeral Diffie-Hellman Over COSE (EDHOC)" to "Lightweight Authenticated Key Exchange (LAKE)".
+
+A note is added to the preamble of the registry group:
+
+Renamed from "Ephemeral Diffie-Hellman Over COSE (EDHOC)"
+
+## Name Change of EDHOC Registries
+
+Consistent with the change of protocol name, the name of all IANA registries that include the term "EDHOC" in the registry group of this protocol are changed:
+
+* "EDHOC Exporter Labels" is renamed "LAKE Exporter Labels".
+
+  A note is added to the registry:
+
+  Renamed from "EDHOC Exporter Labels"
+
+* "EDHOC Cipher Suites" is renamed "LAKE Cipher Suites".
+
+  A note is added to the registry:
+
+  Renamed from "EDHOC Cipher Suites"
+
+* "EDHOC Method Types" is renamed "LAKE Method Types".
+
+  A note is added to the registry:
+
+  Renamed from "EDHOC Method Types"
+
+* "EDHOC Error Codes" is renamed "LAKE Error Codes".
+
+  A note is added to the registry:
+
+  Renamed from "EDHOC Error Codes"
+
+* "EDHOC External Authorization Data" is renamed "LAKE External Authorization Data".
+
+  A note is added to the registry:
+
+  Renamed from "EDHOC External Authorization Data"
+
+* "EDHOC Authentication Credential Types" is renamed "LAKE Authentication Credential Types".
+
+  A note is added to the registry:
+
+  Renamed from "EDHOC Authentication Credential Types"
+
+## LAKE Method Types Registry {#method-update}
+
+IANA is requested to update the LAKE Method Types registry with a column with heading "Requires DH/NIKE" indicating that the method requires Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Method Types, the following entries are inserted in the new "Requires DH/NIKE" column:
 
@@ -234,27 +280,28 @@ For the existing Method Types, the following entries are inserted in the new "Re
 |     3 | Static DH Key | Static DH Key |        Yes       |
 |     4 | PSK           | PSK           |        No        |
 |    23 | Reserved      | Reserved      |                  |
-{: #tab-method-types title="EDHOC Method Types."}
+{: #tab-method-types title="LAKE Method Types."}
 
-RFC Editor Note: Please verify during publication that the EDHOC Method Types registry has not been modified since the IANA instructions in this document were written. The table above assumes that {{I-D.ietf-lake-edhoc-psk}} is published before this document and registers value 4, and that {{I-D.ietf-lake-authkem-edhoc}} is published after this document.
+RFC Editor Note: Please verify during publication that the LAKE Method Types registry has not been modified since the IANA instructions in this document were written. The table above assumes that {{I-D.ietf-lake-edhoc-psk}} is published before this document and registers value 4, and that {{I-D.ietf-lake-authkem-edhoc}} is published after this document.
 
-## EDHOC Cipher Suites Registry {#suites-registry}
+## LAKE Cipher Suites Registry {#suites-registry}
 
-IANA is requested to update the EDHOC Cipher Suites registry {{IANA}} with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
+IANA is requested to update the LAKE Cipher Suites registry with a column with heading "Supports DH/NIKE" indicating that the cipher suite supports Diffie-Hellman or Non-Interactive Key Exchange. Valid table entries in this column are "Yes" and "No".
 
 For the existing Cipher Suites 0–6, 24, and 25, the entry "Yes" is inserted in the new "Supports DH/NIKE" column. The column is left empty for all other existing entries.
 
-Furthermore, IANA is requested to register the following entries in the EDHOC Cipher Suites registry, with this document as the reference:
+Furthermore, IANA is requested to register the following entries in the LAKE Cipher Suites registry, with this document as the reference:
 
 | Value | Array | Description | Supports DH/NIKE |
 | TBD1  | 30, -45, 16, TBD10, -48, 10, -16 | AES-CCM-16-128-128, SHAKE256, 16, MLKEM512, ML-DSA-44, AES-CCM-16-64-128, SHA-256 | No |
 | TBD2  | 3, -45, 16, TBD10, -48, 3, -16 | A256GCM, SHAKE256, 16, MLKEM512, ML-DSA-44, A256GCM, SHA-256 | No |
 | TBD3  | 3, -43, 16, TBD12, -50, 3, -43 | A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87, A256GCM, SHA-384 | No |
-{: #tab-cipher-suites title="EDHOC Cipher Suites."}
+{: #tab-cipher-suites title="LAKE Cipher Suites."}
 
 Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
-RFC Editor Note: Please verify during publication that the EDHOC Cipher Suites registry has not been modified since the IANA instructions in this document were written.
+RFC Editor Note: Please verify during publication that the LAKE Cipher Suites registry has not been modified since the IANA instructions in this document were written.
+
 
 --- back
 
