@@ -102,7 +102,7 @@ This document specifies how the LAKE protocol operates in a post-quantum setting
 
 KEM algorithms such as ML-KEM are not Diffie-Hellman or Non-Interactive Key Exchange (DH/NIKE) primitives. Consequently, the new ML-KEM cipher suites cannot be used with methods 0–3, which require DH/NIKE. This document therefore updates the Method Types and Cipher Suites registries of the protocol to add columns indicating, respectively, whether a method requires and whether a cipher suite supports DH/NIKE-based key exchange; see {{method-update}} and {{suites-registry}}. The new cipher suites combining ML-KEM and ML-DSA are registered accordingly.
 
-With the addition of KEM-based key exchange, the protocol is no longer dependent on Diffie-Hellman, and the name Ephemeral Diffie-Hellman over COSE (EDHOC) no longer accurately describes the protocol. Accordingly, this document updates {{RFC9528}} by changing the name of the protocol from EDHOC to Lightweight Authenticated Key Exchange (LAKE). The EDHOC prefix is replaced by LAKE also in terminology and IANA registry entries defined in {{RFC9528}}.
+With the addition of KEM-based key exchange, the protocol is no longer dependent on Diffie-Hellman, and the name Ephemeral Diffie-Hellman over COSE (EDHOC) no longer accurately describes the protocol. Accordingly, this document updates {{RFC9528}} by changing the name of the protocol from EDHOC to Lightweight Authenticated Key Exchange (LAKE), a name associated with the protocol in the literature. The EDHOC prefix is replaced by LAKE also in terminology and IANA registry entries defined in {{RFC9528}}.
 
 ## Terminology {#terminology}
 
