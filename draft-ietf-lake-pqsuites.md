@@ -125,7 +125,7 @@ To enable post-quantum security support for LAKE it suffices to register new cip
 
 Methods 1–3 in {{RFC9528}} use a Diffie-Hellman/Non-Interactive Key Exchange (NIKE) based API for authentication. As of this writing, no standardized post-quantum algorithms for these methods exist. To highlight which methods require DH/NIKE, a column is added to the EDHOC Method Type registry, see {{method-update}}. To highlight matching cipher suites, a corresponding column indicating support for DH/NIKE is added, see {{suites-registry}}.
 
-An alternative path to post-quantum support for the LAKE protocol, pursued in {{I-D.ietf-lake-authkem-edhoc}}, is to define new authentication methods based on Key Encapsulation Mechanisms (KEMs). The cipher suites defined in this document can also be used with these authentication methods.
+An alternative path to post-quantum support for the LAKE protocol is to define new authentication methods based on a Key Encapsulation Mechanisms (KEMs), one such method is specified in {{I-D.ietf-lake-authkem-edhoc}}. The cipher suites defined in this document can also be used with these authentication methods.
 
 Compared to elliptic curve algorithms such as ECDHE, ECDSA, and EdDSA, ML-KEM and ML-DSA introduce significantly higher overhead (see {{FIPS203}} and {{FIPS204}} respectively), but currently are the most lightweight standardized post-quantum algorithms to use with LAKE. More efficient post-quantum signature schemes are being standardized, such as FN-DSA, which could offer smaller signatures. This remains a possible direction for future research, analysis and standardization, after which they may be included in new cipher suites.
 
