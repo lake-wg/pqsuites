@@ -243,12 +243,6 @@ Consistent with the change of protocol name, the name of all IANA registries tha
 
   Renamed from "EDHOC Cipher Suites"
 
-* "EDHOC Exporter Labels" is renamed "LAKE Exporter Labels".
-
-  A note is added to the registry:
-
-  Renamed from "EDHOC Exporter Labels"
-
 * "EDHOC Method Types" is renamed "LAKE Method Types".
 
   A note is added to the registry:
