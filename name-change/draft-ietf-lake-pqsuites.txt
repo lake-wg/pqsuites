@@ -6,8 +6,8 @@ LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Updates: 9528 (if approved)                                     Ericsson
 Intended status: Standards Track                                C. Papon
-Expires: 25 April 2027                                Limoges University
-                                                         22 October 2026
+Expires: 4 May 2027                                   Limoges University
+                                                         31 October 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 April 2027.
+   This Internet-Draft will expire on 4 May 2027.
 
 Copyright Notice
 
@@ -142,8 +142,9 @@ Table of Contents
    Hellman over COSE (EDHOC) no longer accurately describes the
    protocol.  Accordingly, this document updates [RFC9528] by changing
    the name of the protocol from EDHOC to Lightweight Authenticated Key
-   Exchange (LAKE).  The EDHOC prefix is replaced by LAKE also in
-   terminology and IANA registry entries defined in [RFC9528].
+   Exchange (LAKE), a name associated with the protocol in the
+   literature.  The EDHOC prefix is replaced by LAKE also in terminology
+   and IANA registry entries defined in [RFC9528].
 
 1.1.  Terminology
 
