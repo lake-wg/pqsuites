@@ -6,8 +6,8 @@ LAKE Working Group                                           G. Selander
 Internet-Draft                                         J. Preuß Mattsson
 Updates: 9528 (if approved)                                     Ericsson
 Intended status: Standards Track                                C. Papon
-Expires: 23 March 2027                                Limoges University
-                                                       19 September 2026
+Expires: 4 May 2027                                   Limoges University
+                                                         31 October 2026
 
 
                 Quantum-Resistant Cipher Suites for LAKE
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 March 2027.
+   This Internet-Draft will expire on 4 May 2027.
 
 Copyright Notice
 
@@ -187,11 +187,11 @@ Table of Contents
    cipher suites, a corresponding column indicating support for DH/NIKE
    is added, see Section 6.2.
 
-   An alternative path to post-quantum support for the LAKE protocol,
-   pursued in [I-D.ietf-lake-authkem-edhoc], is to define new
-   authentication methods based on Key Encapsulation Mechanisms (KEMs).
-   The cipher suites defined in this document can also be used with
-   these authentication methods.
+   An alternative path to post-quantum support for the LAKE protocol is
+   to define new authentication methods based on a Key Encapsulation
+   Mechanisms (KEMs), one such method is specified in
+   [I-D.ietf-lake-authkem-edhoc].  The cipher suites defined in this
+   document can also be used with these authentication methods.
 
    Compared to elliptic curve algorithms such as ECDHE, ECDSA, and
    EdDSA, ML-KEM and ML-DSA introduce significantly higher overhead (see
@@ -533,16 +533,17 @@ Table of Contents
               Fraile, L. P., Koulamas, C., Fournaris, A., and E.
               Haleplidis, "KEM-based Authentication for EDHOC", Work in
               Progress, Internet-Draft, draft-ietf-lake-authkem-edhoc-
-              00, 6 July 2026, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lake-authkem-edhoc-00>.
+              01, 28 September 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-lake-
+              authkem-edhoc-01>.
 
    [I-D.ietf-lake-edhoc-psk]
               Lopez-Perez, Selander, G., Mattsson, J. P., Marin-Lopez,
-              R., and F. Lopez-Gomez, "EDHOC Authenticated with Pre-
-              Shared Keys (PSK)", Work in Progress, Internet-Draft,
-              draft-ietf-lake-edhoc-psk-09, 8 September 2026,
+              R., and F. Lopez-Gomez, "LAKE Authenticated with Pre-
+              Shared Keys (PSKs)", Work in Progress, Internet-Draft,
+              draft-ietf-lake-edhoc-psk-10, 5 October 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-lake-
-              edhoc-psk-09>.
+              edhoc-psk-10>.
 
    [I-D.irtf-cfrg-concrete-hybrid-kems]
               Connolly, D. and R. Barnes, "Concrete Hybrid PQ/T Key
