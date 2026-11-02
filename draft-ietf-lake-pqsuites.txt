@@ -408,7 +408,7 @@ Table of Contents
 
 6.2.  Name Change of EDHOC Registries
 
-   Consistent with the change of protocol name, the name of all IANA
+   Consistent with the change of protocol name, the names of all IANA
    registries that include the term "EDHOC" in the registry group of
    this protocol are changed:
 
@@ -519,7 +519,7 @@ Table of Contents
                         Table 3: LAKE Cipher Suites.
 
    Cipher suite TBD3 is intended for high security applications such as
-   government use and financial applications.  This cipher suites
+   government use and financial applications.  This cipher suite
    consists of algorithms from the Commercial National Security
    Algorithm (CNSA) 2.0 suite [CNSA20].
 
