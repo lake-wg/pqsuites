@@ -229,7 +229,7 @@ Renamed from "Ephemeral Diffie-Hellman Over COSE (EDHOC)"
 
 ## Name Change of EDHOC Registries
 
-Consistent with the change of protocol name, the name of all IANA registries that include the term "EDHOC" in the registry group of this protocol are changed:
+Consistent with the change of protocol name, the names of all IANA registries that include the term "EDHOC" in the registry group of this protocol are changed:
 
 * "EDHOC Exporter Labels" is renamed "LAKE Exporter Labels".
 
@@ -298,7 +298,7 @@ Furthermore, IANA is requested to register the following entries in the LAKE Cip
 | TBD3  | 3, -43, 16, TBD12, -50, 3, -43 | A256GCM, SHA-384, 16, MLKEM1024, ML-DSA-87, A256GCM, SHA-384 | No |
 {: #tab-cipher-suites title="LAKE Cipher Suites."}
 
-Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suites consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
+Cipher suite TBD3 is intended for high security applications such as government use and financial applications. This cipher suite consists of algorithms from the Commercial National Security Algorithm (CNSA) 2.0 suite {{CNSA20}}.
 
 RFC Editor Note: Please verify during publication that the LAKE Cipher Suites registry has not been modified since the IANA instructions in this document were written.
 
