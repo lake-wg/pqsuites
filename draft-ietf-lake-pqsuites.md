@@ -141,7 +141,7 @@ Given a quantum-resistant KEM, such as ML-KEM-512, with encapsulation key ek, de
 
 * The ciphertext c is transported in the G_Y field in message_2.
 
-* The Initiator calculates the shared secret K = Decaps(dk, c).
+* The Initiator calculates the shared secret key K = Decaps(dk, c).
 
 * G_XY is the shared secret key K.
 
