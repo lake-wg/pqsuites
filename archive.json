@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-11-01T04:04:24.695018+00:00",
+  "timestamp": "2026-11-03T05:08:36.422697+00:00",
   "repo": "lake-wg/pqsuites",
   "labels": [
     {
@@ -315,15 +315,15 @@
       "id": "I_kwDOTe1l7M8AAAABRESK5w",
       "title": "Update name of IANA registries",
       "url": "https://github.com/lake-wg/pqsuites/issues/15",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emanjon",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "`The EDHOC prefix is retained where needed to avoid ambiguity with terminology and registry entries defined in [[RFC9528](https://lake-wg.github.io/pqsuites/draft-ietf-lake-pqsuites.html#RFC9528)], for example in the IANA registries.[\u00b6](https://lake-wg.github.io/pqsuites/draft-ietf-lake-pqsuites.html#section-1-5)\n`\n\nThis seems like a weird motivation. I think this draft should update the names of the IANA registries.",
       "createdAt": "2026-09-13T13:24:35Z",
-      "updatedAt": "2026-09-30T09:05:57Z",
-      "closedAt": null,
+      "updatedAt": "2026-11-02T10:13:42Z",
+      "closedAt": "2026-11-02T10:13:42Z",
       "comments": [
         {
           "author": "malishav",
@@ -339,15 +339,15 @@
       "id": "I_kwDOTe1l7M8AAAABXsanQQ",
       "title": "New names for EDHOC Exporter, EDHOC AEAD algorithm, etc.",
       "url": "https://github.com/lake-wg/pqsuites/issues/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emanjon",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Draft should point out the the name change apply to New names for EDHOC Exporter, EDHOC AEAD algorithm, etc.\n\nI.e. new drafts should use LAKE Exporter, LAKE AEAD algorithm, etc.",
       "createdAt": "2026-10-16T13:31:45Z",
-      "updatedAt": "2026-10-16T13:31:45Z",
-      "closedAt": null,
+      "updatedAt": "2026-11-02T10:13:57Z",
+      "closedAt": "2026-11-02T10:13:57Z",
       "comments": []
     }
   ],
@@ -496,24 +496,26 @@
       "id": "PR_kwDOTe1l7M8AAAABKITDMA",
       "title": "Changing EDHOC to LAKE",
       "url": "https://github.com/lake-wg/pqsuites/pull/17",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "gselander",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Addressing issues #15 and #16.",
       "createdAt": "2026-10-22T22:06:40Z",
-      "updatedAt": "2026-10-31T10:21:28Z",
+      "updatedAt": "2026-11-02T09:54:41Z",
       "baseRepository": "lake-wg/pqsuites",
       "baseRefName": "main",
       "baseRefOid": "c15efdfbc9233dd32defb31535a461f647bd8ab2",
       "headRepository": "lake-wg/pqsuites",
       "headRefName": "name-change",
       "headRefOid": "5e0cb868e3e6aff7b59ca24b48fe80602ce527a5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-11-02T09:54:41Z",
+      "mergedAt": "2026-11-02T09:54:41Z",
+      "mergedBy": "clementpapon",
+      "mergeCommit": {
+        "oid": "0e785627f170787b491145988bc4e470f753f2d4"
+      },
       "comments": [],
       "reviews": []
     }
